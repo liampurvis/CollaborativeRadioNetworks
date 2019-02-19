@@ -49,10 +49,10 @@ def log_path_loss_from_src(src_power, path_loss, distance, distance_unit, y = 2.
 	print(P_rx)
 	print("Expect rx to have power of %lf" % P_rx)
 
-free_space = free_space_loss( (1, 0), (0, 0), 0, 0, 5, ("km", "GHz") )
-print(free_space)
+# free_space = free_space_loss( (1, 0), (0, 0), 0, 0, 5, ("km", "GHz") )
+# print(free_space)
 
-log_path_loss_from_src(src_power=100, path_loss=free_space, distance=1, distance_unit=1 )
+# log_path_loss_from_src(src_power=100, path_loss=free_space, distance=1, distance_unit=1 )
 
 
 
