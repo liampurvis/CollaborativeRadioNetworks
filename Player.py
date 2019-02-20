@@ -15,6 +15,8 @@ class Player:
     min_frequency = 1000 #represents the channel
     max_frequency = 1010 #represents the channel
 
+
+
     def __init__(self, t_x, t_y, r_x, r_y):
         self.t_x = t_x
         self.t_y = t_y
