@@ -10,9 +10,11 @@ from core import env_core
 
 p1 = Player(-1,1,1,-1)
 p2 = Player(-1,-1,1,1)
-p2.set_channel(1050,1060)
-p3 = Player(-2,0,2,0)
 
-env = env_core([p1, p2, p3])
+env = env_core([p1, p2])
 
-env.run_simulation()
+print("First steps")
+env.run_simulation(5)
+env.players[1].set_channel(1060,1070)
+print("After changing settings")
+env.run_simulation(20)
