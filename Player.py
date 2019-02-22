@@ -30,6 +30,7 @@ class Player:
         self.r_x = r_x
         self.r_y = r_y
         self.available_strategy = {}
+        self.current_strategy = "camp"
     
     def set_channel(self, central, width):
         self.central_frequency = central
@@ -48,6 +49,7 @@ class Player:
         # corresponds to the current level of noise observed on the channel
         # in the < 0, success is NOT a reward. It can just be used for CSMA
         if self.blocker_counter <= 0:
+            self.blocker_counter = 5  # temporary
             if success >= 0:
                 # determine if want to change setting or not
                 #change_setting( etc )
@@ -70,13 +72,22 @@ class Player:
         self.central_frequency = new_central_frequency
         self.channel_width = new_channel_width
 
+    def random_walk_init(self, central_freq_range, freq_width_range):
+        random_walk_config()
+        self.available_strategy.append("random")
+        self.current_strategy = "random"
+        pass
+
+    def random_walk_config():
+        pass
+
     def CSMA_init(self, CSMA_mode, waiting_time_center, max_random_variance):
         CSMA_config(CSMA_mode, waiting_time_center, max_random_variance)
         self.available_strategy.append("CSMA")
         pass
 
     def CSMA_config(self,  CSMA_mode, waiting_time_center, max_random_variance):
-        self.
+        #
         pass
 
     def UCB_init():
