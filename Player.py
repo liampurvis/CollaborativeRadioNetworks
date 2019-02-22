@@ -30,7 +30,6 @@ class Player:
         self.t_y = t_y
         self.r_x = r_x
         self.r_y = r_y
-        #self.available_strategy = {}
 
     def set_channel(self, central, width = 5): # width default set to
         self.central_frequency = central
@@ -40,6 +39,7 @@ class Player:
     def log_last_step(self, success):
         self.previous_successes.append(success)
         self.save_setting()
+
         if self.blocker_counter != 0:
            self.blocker_counter -= 1
 
