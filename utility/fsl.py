@@ -23,6 +23,7 @@ def free_space_loss(src_pos, dst_pos, src_gain, dst_gain, frequency, unit_combin
 
 # Unit of distance uncertain?
 def distance_2(pos_1, pos_2):
+	print(pos_1, pos_2)
 	return math.sqrt( (pos_1[0] - pos_2[0])**2 + (pos_1[1] - pos_2[1])**2)
 
 def switch_unit2constant(argument):
