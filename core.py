@@ -11,7 +11,6 @@ class env_core:
     """
     players = [] #list of objects of class Player
     NB_PLAYERS = 0 #number of players = len(players)
-    NB_STEPS = 100 #number of steps to play
     
     SNR_THRESHOLD = 1 #min SNR for success
     
@@ -21,8 +20,8 @@ class env_core:
         self.NB_PLAYERS = len(players)
         self.NB_STEPS = nb_steps
     
-    def run_simulation(self):
-        for i in range(self.NB_STEPS):
+    def run_simulation(self, nb_steps):
+        for i in range(nb_steps):
             self.next_step()
             
     # computes the success rate for every player and asks for next step    
@@ -43,14 +42,17 @@ class env_core:
                     noise += self.players[j].power*self.overlap(j, i) / self.distSquare(j, i)
             
             # Success is determine by the comparison of SNR to a threshold
-            if noise==0:
-                success.append(1)
-            else:
-                SNR = signal / noise
-                if SNR>self.SNR_THRESHOLD:
+            if self.players[i].blocker_counter <= 0:
+                if noise==0:
                     success.append(1)
                 else:
-                    success.append(0)
+                    SNR = signal / noise
+                    if SNR>self.SNR_THRESHOLD:
+                        success.append(1)
+                    else:
+                        success.append(0)
+            else: #in case of a player not trying to transmit, it receives the current power of noise overlapping on his channel
+                success.append(-noise)
         return success
     
     # square of the distance between transmitter i and receiver j
