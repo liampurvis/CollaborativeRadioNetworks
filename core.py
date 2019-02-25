@@ -13,22 +13,22 @@ class env_core:
     """
     players = [] #list of objects of class Player
     NB_PLAYERS = 0 #number of players = len(players)
-    
+
     time_references = []
     TIME_REFERENCE_UNIT = 1
     current_successes = []
     current_noise_powers = []
     curr_step = 0
-    
+
     SNR_THRESHOLD = 1 #min SNR for success
-    
+
 
     # initialize the core for a given set of players
     def __init__(self, players, nb_steps=100, time_refs=[]):
         self.players = players
         self.NB_PLAYERS = len(players)
         self.NB_STEPS = nb_steps
-        
+
         #setting the time reference for each player
         #allows to have overlapping period of times
         if len(time_refs)!=self.NB_PLAYERS:
@@ -39,11 +39,11 @@ class env_core:
             self.time_references = time_refs[:]
         self.current_successes = np.zeros(self.NB_PLAYERS)
         self.current_noise_powers = np.zeros(self.NB_PLAYERS)
-        
+
         self.initialization_steps()
-        
+
         logging.basicConfig(filename="logfile.log", level=logging.DEBUG)
-        
+
 
     def run_simulation(self, nb_steps):
         for i in range(nb_steps*self.TIME_REFERENCE_UNIT):
@@ -54,10 +54,10 @@ class env_core:
     def next_step(self):
         logging.debug("")
         logging.debug("step " + str(self.curr_step))
-        
+
         (successes, noise_powers) = self.computeSuccess()
         self.current_successes += successes
-        
+
         logging.debug("       |id| type |  pos_tx  |"\
                       + "  pos_rx  | central freq | bandwidth | action | result")
         for i in range(self.NB_PLAYERS):
@@ -68,13 +68,13 @@ class env_core:
 
             self.players[i].log()
         self.curr_step += 1
-    
-    #initializes success and noise_power values for the initial settings    
+
+    #initializes success and noise_power values for the initial settings
     def initialization_steps(self):
         for j in range(self.TIME_REFERENCE_UNIT):
             (successes, noise_powers) = self.computeSuccess()
             self.current_successes += successes
-            
+
             for i in range(self.NB_PLAYERS):
                 if self.time_references[i]==j%self.TIME_REFERENCE_UNIT:
                     self.current_successes[i] = 0
