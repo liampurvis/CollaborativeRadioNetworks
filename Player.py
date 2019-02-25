@@ -127,6 +127,7 @@ class CSMA(Player):
     # self.probability_of_changing_channel = prob
     self.csma_threshold = threshold_input
     self.waiting_period = waiting_input
+    self.type = "CSMA"
 
   def next_step(self, success, noise_power = 0): #to overwrite depending on the algorithm
     self.log_last_step(success)
@@ -135,7 +136,7 @@ class CSMA(Player):
 
     # And we are not in listening mode before, so we don't stuck
     # in a loop
-    if success < self.csma_threshold and success >= 0:
+    if success != 1:
         self.blocker_counter = self.waiting_period
 
 
