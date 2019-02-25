@@ -122,13 +122,13 @@ class CSMA(Player):
   csma_threshold = 3   # arbitrary threshold where CSMA would consider start listening and switching
   waiting_period = 3
 
-  def __init__(self, t_x, t_y, r_x, r_y, threshold_input, waiting_input):
-    super().__init__(t_x, t_y, r_x, r_y)
+  def __init__(self, id, t_x, t_y, r_x, r_y, threshold_input, waiting_input):
+    super().__init__(id, t_x, t_y, r_x, r_y)
     # self.probability_of_changing_channel = prob
     self.csma_threshold = threshold_input
     self.waiting_period = waiting_input
 
-  def next_step(self, success): #to overwrite depending on the algorithm
+  def next_step(self, success, noise_power = 0): #to overwrite depending on the algorithm
     self.log_last_step(success)
     # if previous success is below a certain threshold, we
     # start CSMA and wait a certain period then try again
