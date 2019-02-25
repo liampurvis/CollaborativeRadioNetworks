@@ -5,6 +5,7 @@ Created on Sat Feb 16 14:59:06 2019
 """
 
 import numpy as np
+import logging
 
 class env_core:
     """
@@ -12,32 +13,37 @@ class env_core:
     """
     players = [] #list of objects of class Player
     NB_PLAYERS = 0 #number of players = len(players)
-    
+
     time_references = []
-    TIME_REFERENCE_UNIT = 10
+    TIME_REFERENCE_UNIT = 1
     current_successes = []
     current_noise_powers = []
     curr_step = 0
 
     SNR_THRESHOLD = 1 #min SNR for success
 
+
     # initialize the core for a given set of players
     def __init__(self, players, nb_steps=100, time_refs=[]):
         self.players = players
         self.NB_PLAYERS = len(players)
         self.NB_STEPS = nb_steps
-        
+
         #setting the time reference for each player
         #allows to have overlapping period of times
         if len(time_refs)!=self.NB_PLAYERS:
             for i in range(self.NB_PLAYERS):
                 self.time_references.append(0)
         else:
-            self.time_references = time_refs.copy()
+            #self.time_references = time_refs.copy()
+            self.time_references = time_refs[:]
         self.current_successes = np.zeros(self.NB_PLAYERS)
         self.current_noise_powers = np.zeros(self.NB_PLAYERS)
-        
+
         self.initialization_steps()
+
+        logging.basicConfig(filename="logfile.log", level=logging.DEBUG)
+
 
     def run_simulation(self, nb_steps):
         for i in range(nb_steps*self.TIME_REFERENCE_UNIT):
@@ -46,23 +52,29 @@ class env_core:
 
     # computes the success rate for every player and asks for next step
     def next_step(self):
+        logging.debug("")
+        logging.debug("step " + str(self.curr_step))
+
         (successes, noise_powers) = self.computeSuccess()
-#        print(successes) #logging the results
         self.current_successes += successes
-        
+
+        logging.debug("       |id| type |  pos_tx  |"\
+                      + "  pos_rx  | central freq | bandwidth | action | result")
         for i in range(self.NB_PLAYERS):
             if self.time_references[i]==self.curr_step%self.TIME_REFERENCE_UNIT:
                 self.players[i].next_step(self.current_successes[i]/self.TIME_REFERENCE_UNIT, noise_powers[i]/self.TIME_REFERENCE_UNIT)
                 self.current_successes[i] = 0
                 self.current_noise_powers[i] = 0
+
+            self.players[i].log()
         self.curr_step += 1
-    
-    #initializes success and noise_power values for the initial settings    
+
+    #initializes success and noise_power values for the initial settings
     def initialization_steps(self):
         for j in range(self.TIME_REFERENCE_UNIT):
             (successes, noise_powers) = self.computeSuccess()
             self.current_successes += successes
-            
+
             for i in range(self.NB_PLAYERS):
                 if self.time_references[i]==j%self.TIME_REFERENCE_UNIT:
                     self.current_successes[i] = 0
@@ -73,18 +85,19 @@ class env_core:
         success = np.zeros(self.NB_PLAYERS)
         noise_power = np.zeros(self.NB_PLAYERS)
         for i in range(self.NB_PLAYERS):
-            signal = self.players[i].power / self.distSquare(i, i)
+            signal = float(self.players[i].power) / float(self.distSquare(i, i))
             noise = 0
             for j in range(self.NB_PLAYERS):
                 if j!=i:
-                    noise += self.players[j].power*self.overlap(j, i) / self.distSquare(j, i)
-
+                    noise += float(self.players[j].power*self.overlap(j, i)) / float(self.distSquare(j, i))
+            logging.debug("player " + str(self.players[i].id) + " signal " + str(signal) + \
+                          " noise " + str(noise))
             # Success is determine by the comparison of SNR to a threshold
             if self.players[i].blocker_counter <= 0:
                 if noise==0:
                     success[i] = 1
                 else:
-                    SNR = signal / noise
+                    SNR = float(signal) / float(noise)
                     if SNR>self.SNR_THRESHOLD:
                         success[i] = 1
                     else:
@@ -112,4 +125,4 @@ class env_core:
         M = max(M, m_j)
         m = min(m, M_j)
 
-        return (M-m)/(self.players[i].max_frequency - self.players[i].min_frequency)
+        return float(M-m)/float(self.players[i].max_frequency - self.players[i].min_frequency)
