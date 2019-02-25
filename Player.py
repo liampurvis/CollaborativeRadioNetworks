@@ -73,7 +73,10 @@ class Player:
 
 
     def log(self):
-        result = "success" if self.previous_successes[-1] == 1 else "fail"
+        if not self.previous_successes: 
+            result = "None"
+        else:
+            result = "success" if self.previous_successes[-1] == 1 else "fail"
         info = "Player   " + str(self.id) + "  " + self.type + "   " + \
             "(" + str(self.t_x) + "," + str(self.t_y)+ ")" + "   " + \
             "(" + str(self.r_x) + "," + str(self.r_y)+ ")" + "      " + \
