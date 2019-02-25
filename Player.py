@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Feb 16 15:06:24 2019
-
-@author: Alexandre
+Player.py
 """
 import numpy as np
 
@@ -43,13 +41,20 @@ class Player:
         if self.blocker_counter != 0:
            self.blocker_counter -= 1
 
-    def next_step(self, success): #to overwrite depending on the algorithm
-        pass
+    def next_step(self, success, noise_power): #to overwrite depending on the algorithm
+        self.log_last_step(success)
+        
+        print((success, noise_power))
+        # TAKE ACTION HERE
+        # if success >= 0, it means that the player tried to transmit something
+        # if success < 0, it means that the player was listening. Success value 
+        # corresponds to the current level of noise observed on the channel
+        # in the < 0, success is NOT a reward. It can just be used for CSMA
 
     def save_setting(self):
         self.previous_settings.append((self.power, self.central_frequency, self.channel_width))
 
-    def change_setting(self, new_central_frequency, new_channel_width = 5, new_power = 1,):
+    def change_setting(self, new_central_frequency, new_channel_width = 5, new_power = 1):
         #Setting default values
         self.save_setting()
         self.blocker_counter = 5  # reset internal counter
@@ -74,7 +79,6 @@ class Random(Player):
       # if so randmly generate new channel and switch to it.
       next_channel = np.random.randint(low = 1, high = 20)*5 + 1000
       self.change_setting(new_central_frequency = next_channel)
-
 
 
 

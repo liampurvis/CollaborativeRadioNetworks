@@ -6,16 +6,15 @@ Created on Tue Feb 19 14:08:20 2019
 """
 
 from Player import Player
-from Player import Random
 from core import env_core
 
-p1 = Player(-1,1,1,-1)
-p2 = Random(-1,-1,1,1, .5)
+p1 = Player(-1,-1,1.01,1.01)
+p2 = Player(1,1,-1.01,-1.01)
 
-env = env_core([p1, p2])
+env = env_core([p1, p2], time_refs=[0,5])
 
 print("First steps")
 env.run_simulation(5)
-env.players[1].set_channel(1060,1070)
+env.players[0].set_channel(1060,5)
 print("After changing settings")
 env.run_simulation(20)

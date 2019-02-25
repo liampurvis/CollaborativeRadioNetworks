@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Feb 16 14:59:06 2019
-
 @author: Alexandre
 """
+
+import numpy as np
 
 class env_core:
     """
@@ -11,29 +12,66 @@ class env_core:
     """
     players = [] #list of objects of class Player
     NB_PLAYERS = 0 #number of players = len(players)
+    
+    time_references = []
+    TIME_REFERENCE_UNIT = 10
+    current_successes = []
+    current_noise_powers = []
+    curr_step = 0
 
     SNR_THRESHOLD = 1 #min SNR for success
 
     # initialize the core for a given set of players
-    def __init__(self, players, nb_steps=100):
+    def __init__(self, players, nb_steps=100, time_refs=[]):
         self.players = players
         self.NB_PLAYERS = len(players)
         self.NB_STEPS = nb_steps
+        
+        #setting the time reference for each player
+        #allows to have overlapping period of times
+        if len(time_refs)!=self.NB_PLAYERS:
+            for i in range(self.NB_PLAYERS):
+                self.time_references.append(0)
+        else:
+            self.time_references = time_refs.copy()
+        self.current_successes = np.zeros(self.NB_PLAYERS)
+        self.current_noise_powers = np.zeros(self.NB_PLAYERS)
+        
+        self.initialization_steps()
 
     def run_simulation(self, nb_steps):
-        for i in range(nb_steps):
+        for i in range(nb_steps*self.TIME_REFERENCE_UNIT):
+#            print(self.current_successes)
             self.next_step()
 
     # computes the success rate for every player and asks for next step
     def next_step(self):
-        success = self.computeSuccess()
-        print(success) #logging the results
+        (successes, noise_powers) = self.computeSuccess()
+#        print(successes) #logging the results
+        self.current_successes += successes
+        
         for i in range(self.NB_PLAYERS):
-            self.players[i].next_step(success[i])
+            if self.time_references[i]==self.curr_step%self.TIME_REFERENCE_UNIT:
+                self.players[i].next_step(self.current_successes[i]/self.TIME_REFERENCE_UNIT, noise_powers[i]/self.TIME_REFERENCE_UNIT)
+                self.current_successes[i] = 0
+                self.current_noise_powers[i] = 0
+        self.curr_step += 1
+    
+    #initializes success and noise_power values for the initial settings    
+    def initialization_steps(self):
+        for j in range(self.TIME_REFERENCE_UNIT):
+            (successes, noise_powers) = self.computeSuccess()
+            self.current_successes += successes
+            
+            for i in range(self.NB_PLAYERS):
+                if self.time_references[i]==j%self.TIME_REFERENCE_UNIT:
+                    self.current_successes[i] = 0
+                    self.current_noise_powers[i] = 0
 
     # from a given set of settings, compute the success rate of each player
     def computeSuccess(self):
-        success = []
+        success = np.zeros(self.NB_PLAYERS)
+        noise_power = np.zeros(self.NB_PLAYERS)
         for i in range(self.NB_PLAYERS):
             signal = self.players[i].power / self.distSquare(i, i)
             noise = 0
@@ -44,16 +82,18 @@ class env_core:
             # Success is determine by the comparison of SNR to a threshold
             if self.players[i].blocker_counter <= 0:
                 if noise==0:
-                    success.append(1)
+                    success[i] = 1
                 else:
                     SNR = signal / noise
                     if SNR>self.SNR_THRESHOLD:
-                        success.append(1)
+                        success[i] = 1
                     else:
-                        success.append(0)
+                        success[i] = 0
+                noise_power[i] = 0
             else: #in case of a player not trying to transmit, it receives the current power of noise overlapping on his channel
-                success.append(-noise)
-        return success
+                success[i] = 0
+                noise_power[i] = noise
+        return (success, noise_power)
 
     # square of the distance between transmitter i and receiver j
     def distSquare(self, i, j):
