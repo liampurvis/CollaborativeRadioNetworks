@@ -23,6 +23,9 @@ if test_random_walk:
     plt.plot(t_walk[:, 0], t_walk[:, 1], label="transmitter")
     plt.plot(r_walk[:, 0], r_walk[:, 1], label= "reciever")
     plt.legend(loc='upper left')
+    plt.title("Random Walk of Transmitter and Reciever")
+    plt.ylabel("Longitude")
+    plt.xlabel("Latitude")
     plt.show()
 
 else:
