@@ -128,7 +128,7 @@ class CSMA(Player):
     self.csma_threshold = threshold_input
     self.waiting_period = waiting_input
 
-  def next_step(self, success): #to overwrite depending on the algorithm
+  def next_step(self, success, noise_power = 0): #to overwrite depending on the algorithm
     self.log_last_step(success)
     # if previous success is below a certain threshold, we
     # start CSMA and wait a certain period then try again
