@@ -14,8 +14,8 @@ import numpy as np
 
 
 
-p1 = Player(-1,1,1,-1)
-p2 = Random(-1,-1,1,1, .5)
+p1 = Player(0,-1,1,1,-1)
+p2 = Random(1,-1,-1,1,1, .5)
 
 env = env_core([p1, p2], time_refs = [2,6])
 
