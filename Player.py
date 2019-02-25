@@ -116,7 +116,27 @@ class Random(Player):
           next_channel = np.random.randint(low = 1, high = 20)*5 + 1000
           self.change_setting(new_central_frequency = next_channel)
 
+class CSMA(Player):
 
+  # probability_of_changing_channel = .5
+  csma_threshold = 3   # arbitrary threshold where CSMA would consider start listening and switching
+  waiting_period = 3
+
+  def __init__(self, id, t_x, t_y, r_x, r_y, threshold_input, waiting_input):
+    super().__init__(id, t_x, t_y, r_x, r_y)
+    # self.probability_of_changing_channel = prob
+    self.csma_threshold = threshold_input
+    self.waiting_period = waiting_input
+
+  def next_step(self, success, noise_power = 0): #to overwrite depending on the algorithm
+    self.log_last_step(success)
+    # if previous success is below a certain threshold, we
+    # start CSMA and wait a certain period then try again
+
+    # And we are not in listening mode before, so we don't stuck
+    # in a loop
+    if success < self.csma_threshold and success >= 0:
+        self.blocker_counter = self.waiting_period
 
 
 
