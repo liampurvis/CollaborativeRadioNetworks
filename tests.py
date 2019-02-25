@@ -27,14 +27,14 @@ if test_random_walk:
     plt.show()
 
 else:
-    p1 = Player(id = 1, t_x = -1, t_y = -1, r_x = 1, r_y = 1)
-    p2 = Random(id = 2, t_x = -1, t_y = -1, r_x = 1, r_y = 1, prob = .5)
+    p1 = Player(id = 1, t_x = 0, t_y = 1, r_x = 1, r_y = 1)
+    p2 = Player(id = 2, t_x = -1, t_y = -1, r_x = 1, r_y = 1, prob = .5)
     p3 = CSMA(id = 3, t_x = 0, t_y = 0, r_x = 1, r_y = 1, threshold_input = 10, waiting_input = 3)
 
-    env = env_core([p1, p2, p3])
+    env = env_core([p2, p3])
 
     print("First steps")
     env.run_simulation(5)
-    env.players[1].set_channel(1060,1070)
+    # env.players[1].set_channel(1060,1070)
     print("After changing settings")
     env.run_simulation(20)

@@ -136,8 +136,12 @@ class CSMA(Player):
 
     # And we are not in listening mode before, so we don't stuck
     # in a loop
-    if success != 1:
+    if success != 1 && self.blocker_counter == 0:
         self.blocker_counter = self.waiting_period
+        self.change_setting(new_power = 0)
+    elif self.blocker_counter > 0:
+        pass
+    elif
 
 
 
