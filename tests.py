@@ -17,10 +17,10 @@ import numpy as np
   p1 = Player(-1,1,1,-1)
   p2 = Random(-1,-1,1,1, .5)
 
-  env = env_core([p1, p2])
+  env = env_core([p1, p2], time_refs = [2,6])
 
   print("First steps")
   env.run_simulation(5)
-  env.players[1].set_channel(1060,1070)
+  env.players[1].set_channel(1060,5)
   print("After changing settings")
   env.run_simulation(20)
