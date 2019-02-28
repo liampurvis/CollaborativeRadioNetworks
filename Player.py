@@ -56,6 +56,8 @@ class Player:
         self.previous_successes.append(success)
         self.save_setting()
 
+        self.log()
+
         if self.blocker_counter != 0:
            self.blocker_counter -= 1
 
@@ -85,12 +87,18 @@ class Player:
             result = "None"
         else:
             result = "success" if self.previous_successes[-1] == 1 else "fail"
+        if self.blocker_counter==0:
+            action="SEND"
+        else:
+            action="WAIT"
+        logging.debug("       |id| type |  pos_tx  |" \
+                      + "  pos_rx  | central freq | bandwidth | action | result")
         info = "Player   " + str(self.id) + "  " + self.type + "   " + \
             "(" + str(self.t_x) + "," + str(self.t_y)+ ")" + "   " + \
             "(" + str(self.r_x) + "," + str(self.r_y)+ ")" + "      " + \
             str(self.central_frequency) + "           " + \
-            str(self.channel_width) + "         "\
-            "SEND" + "   " + \
+            str(self.channel_width) + "         "+\
+            action + "   " + \
             result
 
         logging.debug(info)

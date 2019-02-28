@@ -73,9 +73,9 @@ class env_core:
                 self.current_signal_powers[i] = 0
                 self.current_noise_powers[i] = 0
 
-                logging.debug("       |id| type |  pos_tx  |" \
-                              + "  pos_rx  | central freq | bandwidth | action | result")
-                self.players[i].log()
+                # logging.debug("       |id| type |  pos_tx  |" \
+                #               + "  pos_rx  | central freq | bandwidth | action | result")
+                # self.players[i].log()
         self.curr_step += 1
 
     #initializes success and noise_power values for the initial settings
