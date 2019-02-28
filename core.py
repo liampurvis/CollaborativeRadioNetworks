@@ -15,8 +15,8 @@ class env_core:
     NB_PLAYERS = 0 #number of players = len(players)
 
     time_references = []
-    TIME_REFERENCE_UNIT = 1
-    current_successes = []
+    TIME_REFERENCE_UNIT = 10
+    current_signal_powers = []
     current_noise_powers = []
     curr_step = 0
 
@@ -37,10 +37,10 @@ class env_core:
         else:
             #self.time_references = time_refs.copy()
             self.time_references = time_refs[:]
-        self.current_successes = np.zeros(self.NB_PLAYERS)
+        self.current_signal_powers = np.zeros(self.NB_PLAYERS)
         self.current_noise_powers = np.zeros(self.NB_PLAYERS)
 
-        self.initialization_steps()
+        # self.initialization_steps()
 
         logging.basicConfig(filename="logfile.log", level=logging.DEBUG)
 
@@ -55,65 +55,74 @@ class env_core:
         logging.debug("")
         logging.debug("step " + str(self.curr_step))
 
-        (successes, noise_powers) = self.computeSuccess()
-        self.current_successes += successes
+        (signal_powers, noise_powers) = self.computePowers()
+        self.current_signal_powers += signal_powers
+        self.current_noise_powers += noise_powers
 
-        logging.debug("       |id| type |  pos_tx  |"\
-                      + "  pos_rx  | central freq | bandwidth | action | result")
+
         for i in range(self.NB_PLAYERS):
             if self.time_references[i]==self.curr_step%self.TIME_REFERENCE_UNIT:
-                self.players[i].next_step(self.current_successes[i]/self.TIME_REFERENCE_UNIT, noise_powers[i]/self.TIME_REFERENCE_UNIT)
-                self.current_successes[i] = 0
+                if (self.players[i].blocker_counter == 0):
+                    success = self.computeSuccess(i)
+                    noise = 0
+                else:
+                    success = 0
+                    noise = self.computeNoisePower(i)
+                self.players[i].next_step(success, noise)
+
+
+                self.current_signal_powers[i] = 0
                 self.current_noise_powers[i] = 0
 
-            self.players[i].log()
+                logging.debug("       |id| type |  pos_tx  |" \
+                              + "  pos_rx  | central freq | bandwidth | action | result")
+                self.players[i].log()
         self.curr_step += 1
 
     #initializes success and noise_power values for the initial settings
-    def initialization_steps(self):
-        for j in range(self.TIME_REFERENCE_UNIT):
-            (successes, noise_powers) = self.computeSuccess()
-            self.current_successes += successes
+    # def initialization_steps(self):
+    #     for j in range(self.TIME_REFERENCE_UNIT):
+    #         (successes, noise_powers) = self.computePowers()
+    #         self.current_successes += successes
+    #
+    #         for i in range(self.NB_PLAYERS):
+    #             if self.time_references[i]==j%self.TIME_REFERENCE_UNIT:
+    #                 self.current_successes[i] = 0
+    #                 self.current_noise_powers[i] = 0
 
-            for i in range(self.NB_PLAYERS):
-                if self.time_references[i]==j%self.TIME_REFERENCE_UNIT:
-                    self.current_successes[i] = 0
-                    self.current_noise_powers[i] = 0
+    def computeSuccess(self, i):
+        if (self.current_noise_powers[i]==0) or (self.current_signal_powers[i]/self.current_noise_powers[i] >= self.SNR_THRESHOLD):
+            return 1
+        else:
+            return 0
+
+    def computeNoisePower(self, i):
+        return self.current_noise_powers[i] * 1.0 / self.TIME_REFERENCE_UNIT
 
     # from a given set of settings, compute the success rate of each player
-    def computeSuccess(self):
-        success = np.zeros(self.NB_PLAYERS)
+    def computePowers(self):
+        signal_power = np.zeros(self.NB_PLAYERS)
         noise_power = np.zeros(self.NB_PLAYERS)
+
         for i in range(self.NB_PLAYERS):
             signal = float(self.players[i].power) / float(self.distSquare(i, i))
             noise = 0
             for j in range(self.NB_PLAYERS):
-                if j!=i:
-                    noise += float(self.players[j].power*self.overlap(j, i)) / float(self.distSquare(j, i))
+                if j!=i and self.players[j].blocker_counter==0:
+                    noise += float(self.players[j].power*self.channel_overlap(j, i)) / float(self.distSquare(j, i))
             logging.debug("player " + str(self.players[i].id) + " signal " + str(signal) + \
                           " noise " + str(noise))
-            # Success is determine by the comparison of SNR to a threshold
-            if self.players[i].blocker_counter <= 0:
-                if noise==0:
-                    success[i] = 1
-                else:
-                    SNR = float(signal) / float(noise)
-                    if SNR>self.SNR_THRESHOLD:
-                        success[i] = 1
-                    else:
-                        success[i] = 0
-                noise_power[i] = 0
-            else: #in case of a player not trying to transmit, it receives the current power of noise overlapping on his channel
-                success[i] = 0
-                noise_power[i] = noise
-        return (success, noise_power)
+            signal_power[i] = signal
+            noise_power[i] = noise
+
+        return (signal_power, noise_power)
 
     # square of the distance between transmitter i and receiver j
     def distSquare(self, i, j):
         return (self.players[i].t_x-self.players[j].r_x)**2 + (self.players[i].t_y-self.players[j].r_y)**2
 
     # how much of his total power transmitter i is overlapping on receiver j
-    def overlap(self, i, j):
+    def channel_overlap(self, i, j):
         m_i = self.players[i].central_frequency-self.players[i].channel_width
         M_i = self.players[i].central_frequency+self.players[i].channel_width
         m_j = self.players[j].central_frequency-self.players[j].channel_width

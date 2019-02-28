@@ -54,6 +54,8 @@ class Player:
     def next_step(self, success, noise_power): #to overwrite depending on the algorithm
         self.log_last_step(success)
 
+        print(success)
+
         # TAKE ACTION HERE
         # if success >= 0, it means that the player tried to transmit something
         # if success < 0, it means that the player was listening. Success value
