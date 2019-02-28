@@ -6,6 +6,7 @@ Created on Sat Feb 16 14:59:06 2019
 
 import numpy as np
 import logging
+from matplotlib import pyplot as plt
 import os
 
 class env_core:
@@ -134,3 +135,28 @@ class env_core:
         m = min(m, M_j)
 
         return float(M-m)/float(self.players[i].max_frequency - self.players[i].min_frequency)
+
+    def displayCumulativeResults(self):
+        plt.figure("Cumulative Results")
+        plt.title("Cumulative Results")
+        X = [i for i in range(len(self.players[0].previous_successes))]
+        for i in range(self.NB_PLAYERS):
+            plt.plot(X, np.cumsum(self.players[i].previous_successes), label="Player "+str(self.players[i].id))
+        plt.xlabel("timestep")
+        plt.ylabel("cumulative success")
+        plt.legend()
+
+    def displayStepByStepResults(self):
+        plt.figure("Step by Step Results")
+        plt.title("Step by Step Results")
+        X = [i for i in range(len(self.players[0].previous_successes))]
+        for i in range(self.NB_PLAYERS):
+            plt.plot(X, self.players[i].previous_successes, label="Player "+str(self.players[i].id))
+        plt.xlabel("timestep")
+        plt.ylabel("success at each step")
+        plt.legend()
+
+    def displayResults(self):
+        self.displayCumulativeResults()
+        self.displayStepByStepResults()
+        plt.show()

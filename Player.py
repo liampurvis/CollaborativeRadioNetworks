@@ -36,6 +36,8 @@ class Player:
         self.r_y = float(r_y)
         self.id = id
         self.type = "FIX"
+
+        self.previous_successes = list()
         logging.basicConfig(filename="logfile.log", level=logging.DEBUG)
 
     def set_channel(self, central, width = 5): # width default set to
