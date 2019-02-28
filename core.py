@@ -6,6 +6,7 @@ Created on Sat Feb 16 14:59:06 2019
 
 import numpy as np
 import logging
+import os
 
 class env_core:
     """
@@ -41,7 +42,6 @@ class env_core:
         self.current_noise_powers = np.zeros(self.NB_PLAYERS)
 
         # self.initialization_steps()
-
         logging.basicConfig(filename="logfile.log", level=logging.DEBUG)
 
 
@@ -52,8 +52,7 @@ class env_core:
 
     # computes the success rate for every player and asks for next step
     def next_step(self):
-        logging.debug("")
-        logging.debug("step " + str(self.curr_step))
+        logging.debug("step " + str(self.curr_step*1.0/self.TIME_REFERENCE_UNIT))
 
         (signal_powers, noise_powers) = self.computePowers()
         self.current_signal_powers += signal_powers
@@ -110,8 +109,8 @@ class env_core:
             for j in range(self.NB_PLAYERS):
                 if j!=i and self.players[j].blocker_counter==0:
                     noise += float(self.players[j].power*self.channel_overlap(j, i)) / float(self.distSquare(j, i))
-            logging.debug("player " + str(self.players[i].id) + " signal " + str(signal) + \
-                          " noise " + str(noise))
+            # logging.debug("player " + str(self.players[i].id) + " signal " + str(signal) + \
+            #               " noise " + str(noise))
             signal_power[i] = signal
             noise_power[i] = noise
 

@@ -39,8 +39,16 @@ class Player:
         logging.basicConfig(filename="logfile.log", level=logging.DEBUG)
 
     def set_channel(self, central, width = 5): # width default set to
+        logging.debug("")
+        logging.debug("--------------------------------------------------------------------------------")
+        logging.debug("Player " + str(self.id) + " changed settings")
+        logging.debug("Previous channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
         self.central_frequency = central
         self.channel_width = width
+
+        logging.debug("New channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
+        logging.debug("--------------------------------------------------------------------------------")
+        logging.debug("")
 
         self.blocker_counter = 5
 
@@ -53,8 +61,6 @@ class Player:
 
     def next_step(self, success, noise_power): #to overwrite depending on the algorithm
         self.log_last_step(success)
-
-        print(success)
 
         # TAKE ACTION HERE
         # if success >= 0, it means that the player tried to transmit something
