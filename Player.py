@@ -4,6 +4,7 @@ Player.py
 """
 import numpy as np
 import logging
+import random
 
 class Player:
     t_x=0
@@ -139,30 +140,83 @@ class Random(Player):
 
 class CSMA(Player):
 
-  # probability_of_changing_channel = .5
-  csma_threshold = 3   # arbitrary threshold where CSMA would consider start listening and switching
-  waiting_period = 3
+    # probability_of_changing_channel = .5
+    csma_threshold = 1   # arbitrary threshold when CSMA consider to be low enough noise while listening. = self power / noise received
+    sleeping_period = 3   # amount of time to just sleep, before start listening again
+    probability_of_aggresion = 1.0  # probability that when see a window (while listening), this player would start transmitting
+                                  # immediately
+    sleeping_flag = False
 
-  def __init__(self, id, t_x, t_y, r_x, r_y, threshold_input, waiting_input):
-    super().__init__(id, t_x, t_y, r_x, r_y)
-    # self.probability_of_changing_channel = prob
-    self.csma_threshold = threshold_input
-    self.waiting_period = waiting_input
-    self.type = "CSMA"
+    current_state = 0
+    # State machine, simple design
+    # 0 = transmitting
+    # 1 = sleeping
+    # 2 = listening
 
-  def next_step(self, success, noise_power = 0): #to overwrite depending on the algorithm
-    self.log_last_step(success)
-    # if previous success is below a certain threshold, we
-    # start CSMA and wait a certain period then try again
+    def __init__(self, id, t_x, t_y, r_x, r_y, threshold_input, sleeping_input, aggression_prob):
+        super().__init__(id, t_x, t_y, r_x, r_y)
+        # self.probability_of_changing_channel = prob
+        self.csma_threshold = threshold_input
+        self.sleeping_period = sleeping_input
+        self.probability_of_aggresion = aggression_prob
+        self.type = "CSMA"
 
-    # And we are not in listening mode before, so we don't stuck
-    # in a loop
-    if success != 1 && self.blocker_counter == 0:
-        self.blocker_counter = self.waiting_period
-        self.change_setting(new_power = 0)
-    elif self.blocker_counter > 0:
-        pass
-    elif
+# For CSMA, since the simple method is only changing power (to denote switching on or off)
+# it is not very necessary to impose another blocker counter for changing settings. 
+    def change_pwr_instant(self, new_power = 1):
+        #Setting default values
+        self.save_setting()
+        # self.blocker_counter = 5  # reset internal counter
+        self.power = new_power
+        # self.central_frequency = new_central_frequency
+        # self.channel_width = new_channel_width
+
+    def next_step(self, success, noise_power = 0): #to overwrite depending on the algorithm
+        self.log_last_step(success)
+        # if previous success is below a certain threshold, we
+        # start CSMA and wait a certain period then try again
+
+        # And we are not in listening mode before, so we don't stuck
+        # in a loop
+        if self.current_state == 0:
+            if success:
+                pass # do nothing
+            else:
+                if self.sleeping_period != 0:  # if in transmitting state
+                    self.blocker_counter = self.sleeping_period
+                    self.current_state = 1  # change to sleeping state
+                    self.change_pwr_instant(new_power = 0)
+                else:
+                    self.current_state = 2  # change to listening state
+                    self.change_pwr_instant(new_power = 0)
+
+        elif self.current_state == 1:  # if in sleeping state
+            if self.blocker_counter > 0:
+                pass
+            elif self.blocker_counter == 0:
+                self.current_state = 2  # change to listening state
+
+        elif self.current_state == 2:  # if in listening state
+            if noise_power >= 1 * self.csma_threshold:
+                if self.sleeping_period != 0:
+                    self.blocker_counter = self.sleeping_period
+                    self.current_state = 1  # change to sleeping state
+                else:
+                    pass
+            else:
+                chance = random.uniform(0, 1)
+                if chance >= 1 - self.probability_of_aggresion:
+                    self.current_state = 0
+                    self.change_pwr_instant(new_power = 1)
+                else:
+                    if self.sleeping_period != 0:
+                        self.blocker_counter = self.sleeping_period
+                        self.current_state = 1  # change to sleeping state
+                    else:
+                        pass
+        else:
+            self.current_state = 0
+            change_pwr_instant(new_power = 1)
 
 
 
