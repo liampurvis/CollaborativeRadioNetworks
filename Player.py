@@ -36,17 +36,29 @@ class Player:
         self.r_y = float(r_y)
         self.id = id
         self.type = "FIX"
+
+        self.previous_successes = list()
         logging.basicConfig(filename="logfile.log", level=logging.DEBUG)
 
     def set_channel(self, central, width = 5): # width default set to
+        logging.debug("")
+        logging.debug("--------------------------------------------------------------------------------")
+        logging.debug("Player " + str(self.id) + " changed settings")
+        logging.debug("Previous channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
         self.central_frequency = central
         self.channel_width = width
+
+        logging.debug("New channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
+        logging.debug("--------------------------------------------------------------------------------")
+        logging.debug("")
 
         self.blocker_counter = 5
 
     def log_last_step(self, success):
         self.previous_successes.append(success)
         self.save_setting()
+
+        self.log()
 
         if self.blocker_counter != 0:
            self.blocker_counter -= 1
@@ -73,13 +85,22 @@ class Player:
 
 
     def log(self):
-        result = "success" if self.previous_successes[-1] == 1 else "fail"
+        if not self.previous_successes: 
+            result = "None"
+        else:
+            result = "success" if self.previous_successes[-1] == 1 else "fail"
+        if self.blocker_counter==0:
+            action="SEND"
+        else:
+            action="WAIT"
+        logging.debug("       |id| type |  pos_tx  |" \
+                      + "  pos_rx  | central freq | bandwidth | action | result")
         info = "Player   " + str(self.id) + "  " + self.type + "   " + \
             "(" + str(self.t_x) + "," + str(self.t_y)+ ")" + "   " + \
             "(" + str(self.r_x) + "," + str(self.r_y)+ ")" + "      " + \
             str(self.central_frequency) + "           " + \
-            str(self.channel_width) + "         "\
-            "SEND" + "   " + \
+            str(self.channel_width) + "         "+\
+            action + "   " + \
             result
 
         logging.debug(info)
