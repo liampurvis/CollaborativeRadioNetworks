@@ -6,6 +6,8 @@ Created on Sat Feb 16 14:59:06 2019
 
 import numpy as np
 import logging
+import pickle
+from pathlib import Path
 from matplotlib import pyplot as plt
 import os
 
@@ -165,6 +167,7 @@ class env_core:
         plt.ylabel("success at each step")
         plt.legend()
 
+# display every visualization tool we have
     def displayResults(self):
         self.displayCumulativeResults()
         self.displayStepByStepResults()
@@ -172,4 +175,18 @@ class env_core:
 
     def get_record(self):
         return self.player_idlist, self.player_pos_record, self.player_frq_record
+
+# save the environment
+    def save_environment(self, filename="last_environment.pkl"):
+        with open("saved_environments/"+filename, 'wb') as output:
+            pickle.dump(self, output, pickle.HIGHEST_PROTOCOL)
+
+# load a saved environment
+    def load_environment(filename="last_environment.pkl"):
+        filename = "saved_environments/"+filename
+        if not Path(filename).is_file():
+            print("ERROR: " + filename + " doesn't exist")
+            return env_core([])
+        with open(filename, 'rb') as input:
+            return pickle.load(input)
 
