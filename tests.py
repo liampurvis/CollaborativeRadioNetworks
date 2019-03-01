@@ -7,12 +7,10 @@ Created on Tue Feb 19 14:08:20 2019
 
 from Player import Player
 from Player import Random
+from Player import CSMA
 from core import env_core
 import matplotlib.pyplot as plt
 import numpy as np
-
-
-
 
 p1 = Player(0,-1,0,1,0)
 p2 = Player(1,1.01,0,-1.01,0)
