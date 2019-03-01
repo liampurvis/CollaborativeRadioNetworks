@@ -6,12 +6,14 @@ Created on Sun Feb 24 22:19:2018
 Testing simple environment and logfile 
 
 """
+
+import sys, os
+sys.path.append(os.getcwd()+'/..')
+sys.path.append(os.getcwd()+'/../visualization')
 import datetime as dt
 from Player import Player
 from core import env_core
-import os
 import logging
-import sys
 from gifGen import gif
 
 f = open("logfile.log", "w")
@@ -26,7 +28,7 @@ p2 = Player(2,1.1,1.1,3,3)
 
 startTime = dt.datetime.now()
 env = env_core([p1, p2], time_refs=[0,0])
-env.run_simulation(2)
+env.run_simulation(1)
 
 
 env.players[0].set_channel(2000,5)
@@ -41,6 +43,8 @@ env.run_simulation(3)
 endTime = dt.datetime.now()
 logging.debug("end simulation")
 logging.debug("Simulation period : " + str((endTime - startTime).total_seconds()) + " s")
+
+f.close()
 
 id, pos, freq = env.get_record()
 gif(id, pos, freq)
