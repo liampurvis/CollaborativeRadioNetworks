@@ -85,24 +85,20 @@ class Player:
 
 
     def log(self):
-        if not self.previous_successes: 
+  
+        if not self.previous_successes:
             result = "None"
         else:
-            result = "success" if self.previous_successes[-1] == 1 else "fail"
-        if self.blocker_counter==0:
-            action="SEND"
-        else:
-            action="WAIT"
-        logging.debug("       |id| type |  pos_tx  |" \
-                      + "  pos_rx  | central freq | bandwidth | action | result")
-        info = "Player   " + str(self.id) + "  " + self.type + "   " + \
-            "(" + str(self.t_x) + "," + str(self.t_y)+ ")" + "   " + \
-            "(" + str(self.r_x) + "," + str(self.r_y)+ ")" + "      " + \
-            str(self.central_frequency) + "           " + \
-            str(self.channel_width) + "         "+\
-            action + "   " + \
-            result
-
+            result = "Pass" if self.previous_successes[-1] == 1 else "Fail"
+  
+  
+        info = "Player" + "{:>5}".format(str(self.id)) + "   Type" + "{:>5}".format(self.type) + \
+                "   pos_tx" + "{:>10}".format("(" + str(self.t_x) + ", " + str(self.t_y)+ ")") + \
+                "   pos_rx" + "{:>10}".format("(" + str(self.r_x) + ", " + str(self.r_y)+ ")") + \
+                "   CF" + "{:>7}".format(str(self.central_frequency)) + \
+                "   BW" + "{:>4}".format(str(self.channel_width)) + \
+                "   result" + "{:>5}".format(result)
+                
         logging.debug(info)
 
     def update_location(self, tx, ty, rx, ry):

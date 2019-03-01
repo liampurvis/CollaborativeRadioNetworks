@@ -23,7 +23,10 @@ class env_core:
     curr_step = 0
 
     SNR_THRESHOLD = 1 #min SNR for success
-
+    
+    player_idlist = [] 
+    player_pos_record = {}
+    player_frq_record = {}
 
     # initialize the core for a given set of players
     def __init__(self, players, nb_steps=100, time_refs=[]):
@@ -41,9 +44,13 @@ class env_core:
             self.time_references = time_refs[:]
         self.current_signal_powers = np.zeros(self.NB_PLAYERS)
         self.current_noise_powers = np.zeros(self.NB_PLAYERS)
-
+        
         # self.initialization_steps()
         logging.basicConfig(filename="logfile.log", level=logging.DEBUG)
+        for p in self.players:
+            self.player_idlist.append(p.id)
+            self.player_pos_record[p.id] = []
+            self.player_frq_record[p.id] = []
 
 
     def run_simulation(self, nb_steps):
@@ -73,10 +80,12 @@ class env_core:
 
                 self.current_signal_powers[i] = 0
                 self.current_noise_powers[i] = 0
+            
+            # fetch freq and position for gif
+            p = self.players[i]
+            self.player_pos_record[p.id].append((p.t_x, p.t_y, p.r_x, p.r_y))
+            self.player_frq_record[p.id].append((p.central_frequency, p.channel_width))
 
-                # logging.debug("       |id| type |  pos_tx  |" \
-                #               + "  pos_rx  | central freq | bandwidth | action | result")
-                # self.players[i].log()
         self.curr_step += 1
 
     #initializes success and noise_power values for the initial settings
@@ -160,3 +169,7 @@ class env_core:
         self.displayCumulativeResults()
         self.displayStepByStepResults()
         plt.show()
+
+    def get_record(self):
+        return self.player_idlist, self.player_pos_record, self.player_frq_record
+

@@ -3,7 +3,7 @@ from Player import Random
 from core import env_core
 import matplotlib.pyplot as plt
 import numpy as np
-
+from gifGen import gif
 
 
 
@@ -11,6 +11,10 @@ p1 = Random(id = -666, t_x = 0, t_y = 0, r_x = 1, r_y = 1, prob = .5, random_wal
 p2 = Random(id = 420, t_x = -1, t_y = -1, r_x = 1, r_y = 1, prob = .5)
 env = env_core([p1, p2])
 env.run_simulation(1000)
+
+id, pos, freq = env.get_record()
+gif(id, pos, freq)
+
 t_walk = np.array(p1.previous_t_positions)
 r_walk = np.array(p1.previous_r_positions)
 plt.plot(t_walk[:, 0], t_walk[:, 1], label="transmitter")
