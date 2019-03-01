@@ -23,9 +23,6 @@ class Player:
     previous_successes = [] #list of previous successes
     previous_settings = []
 
-    previous_t_positions = []
-    previous_r_positions = []
-
     blocker_counter = 0 #when settings have been changed, countdown is >0
     # no communication can be done while countdown > 0
 
@@ -36,6 +33,8 @@ class Player:
         self.r_y = float(r_y)
         self.id = id
         self.type = "FIX"
+        self.previous_t_positions = []
+        self.previous_r_positions = []
 
         self.previous_successes = list()
         logging.basicConfig(filename="logfile.log", level=logging.DEBUG)
@@ -85,20 +84,20 @@ class Player:
 
 
     def log(self):
-  
+
         if not self.previous_successes:
             result = "None"
         else:
             result = "Pass" if self.previous_successes[-1] == 1 else "Fail"
-  
-  
+
+
         info = "Player" + "{:>5}".format(str(self.id)) + "   Type" + "{:>5}".format(self.type) + \
                 "   pos_tx" + "{:>10}".format("(" + str(self.t_x) + ", " + str(self.t_y)+ ")") + \
                 "   pos_rx" + "{:>10}".format("(" + str(self.r_x) + ", " + str(self.r_y)+ ")") + \
                 "   CF" + "{:>7}".format(str(self.central_frequency)) + \
                 "   BW" + "{:>4}".format(str(self.channel_width)) + \
                 "   result" + "{:>5}".format(result)
-                
+
         logging.debug(info)
 
     def update_location(self, tx, ty, rx, ry):
