@@ -27,7 +27,7 @@ class Player:
     blocker_counter = 0 #when settings have been changed, countdown is >0
     # no communication can be done while countdown > 0
 
-    def __init__(self, id, t_x, t_y, r_x, r_y):
+    def __init__(self, id, t_x, t_y, r_x, r_y, logfile="logfile.log"):
         self.t_x = float(t_x)
         self.t_y = float(t_y)
         self.r_x = float(r_x)
@@ -38,7 +38,7 @@ class Player:
         self.previous_r_positions = []
 
         self.previous_successes = list()
-        logging.basicConfig(filename="logfile.log", level=logging.DEBUG)
+        logging.basicConfig(filename=logfile, filemode="w", level=logging.DEBUG)
 
     def set_channel(self, central, width = 5): # width default set to
         logging.debug("")
@@ -91,7 +91,7 @@ class Player:
         else:
             result = "Pass" if self.previous_successes[-1] == 1 else "Fail"
 
-
+        
         info = "Player" + "{:>5}".format(str(self.id)) + "   Type" + "{:>5}".format(self.type) + \
                 "   pos_tx" + "{:>10}".format("(" + str(self.t_x) + ", " + str(self.t_y)+ ")") + \
                 "   pos_rx" + "{:>10}".format("(" + str(self.r_x) + ", " + str(self.r_y)+ ")") + \
@@ -159,27 +159,30 @@ class CSMA(Player):
 # For CSMA, since the simple method is only changing power (to denote switching on or off)
 # it is not very necessary to impose another blocker counter for changing settings. 
     def log(self):
-        if not self.previous_successes: 
+        if not self.previous_successes:
             result = "None"
         else:
-            result = "success" if self.previous_successes[-1] == 1 else "fail"
+            result = "Pass" if self.previous_successes[-1] == 1 else "Fail"
+    
         if self.blocker_counter==0:
             action="SEND"
         elif self.blocker_counter!=0 and self.sleeping_counter != 0:
             action="SLP"
         else:
             action="LIS"
-        logging.debug("       |id| type |  pos_tx  |" \
-                      + "  pos_rx  | central freq | bandwidth | action | result")
-        info = "Player   " + str(self.id) + "  " + self.type + "   " + \
-            "(" + str(self.t_x) + "," + str(self.t_y)+ ")" + "   " + \
-            "(" + str(self.r_x) + "," + str(self.r_y)+ ")" + "      " + \
-            str(self.central_frequency) + "           " + \
-            str(self.channel_width) + "         "+\
-            action + "   " + \
-            result
 
+
+        info = "Player" + "{:>5}".format(str(self.id)) + "   Type" + "{:>5}".format(self.type) + \
+            "   pos_tx" + "{:>10}".format("(" + str(self.t_x) + ", " + str(self.t_y)+ ")") + \
+                "   pos_rx" + "{:>10}".format("(" + str(self.r_x) + ", " + str(self.r_y)+ ")") + \
+                "   CF" + "{:>7}".format(str(self.central_frequency)) + \
+                "   BW" + "{:>4}".format(str(self.channel_width)) + \
+                "   action" + "{:>5}".format(action) + \
+                "   result" + "{:>5}".format(result)
+        
         logging.debug(info)
+            
+            
     def change_pwr_instant(self, new_power = 1):
         #Setting default values
         self.save_setting()

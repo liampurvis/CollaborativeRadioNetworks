@@ -20,7 +20,7 @@ pause = False
 
 def gif(Id, pos, freq):
     fig, ax = plt.subplots(1,2)
-    fig.set_tight_layout(True)
+    #fig.set_tight_layout(True)
     
     step = len(pos[Id[0]])
     print (step)
@@ -54,9 +54,10 @@ def gif(Id, pos, freq):
             (cf, bw) = freq[Id[j]][i]
             ax[1].patches[j].set_xy((j, cf-(bw/2)))
             ax[1].patches[j].set_height(bw)
-        
-        ax[0].set_xlabel(label)
-        ax[1].set_xlabel(label)
+       
+        fig.suptitle(label)
+        #ax[0].set_xlabel(label)
+        #ax[1].set_xlabel(label)
 
         return ax
 
@@ -66,6 +67,10 @@ def gif(Id, pos, freq):
     ax[1].set_xlim(0,len(Id))
     ax[1].set_ylim(500,2500)
 
+    ax[0].set_xlabel("Location")
+    ax[1].set_xlabel("Frequency")
+    
+    plt.subplots_adjust(wspace=0.5)
     # Query the figure's on-screen size and DPI. Note that when saving the figure to
     # a file, we need to provide a DPI for that separately.
     print('fig size: {0} DPI, size in inches {1}'.format(

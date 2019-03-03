@@ -10,6 +10,7 @@ import pickle
 from pathlib import Path
 from matplotlib import pyplot as plt
 import os
+from gifGen import gif
 
 class env_core:
     """
@@ -31,7 +32,7 @@ class env_core:
     player_frq_record = {}
 
     # initialize the core for a given set of players
-    def __init__(self, players, nb_steps=100, time_refs=[]):
+    def __init__(self, players, nb_steps=100, time_refs=[], logfile="logfile.log"):
         self.players = players
         self.NB_PLAYERS = len(players)
         self.NB_STEPS = nb_steps
@@ -48,7 +49,7 @@ class env_core:
         self.current_noise_powers = np.zeros(self.NB_PLAYERS)
         
         # self.initialization_steps()
-        logging.basicConfig(filename="logfile.log", level=logging.DEBUG)
+        logging.basicConfig(filename=logfile, filemode="w", level=logging.DEBUG)
         for p in self.players:
             self.player_idlist.append(p.id)
             self.player_pos_record[p.id] = []
@@ -173,9 +174,8 @@ class env_core:
         self.displayStepByStepResults()
         plt.show()
 
-    def get_record(self):
-        return self.player_idlist, self.player_pos_record, self.player_frq_record
-
+    def displayGif(self):
+        gif(self.player_idlist, self.player_pos_record, self.player_frq_record)
 # save the environment
     def save_environment(self, filename="last_environment.pkl"):
         with open("saved_environments/"+filename, 'wb') as output:

@@ -46,5 +46,4 @@ logging.debug("Simulation period : " + str((endTime - startTime).total_seconds()
 
 f.close()
 
-id, pos, freq = env.get_record()
-gif(id, pos, freq)
+env.displayGif()
