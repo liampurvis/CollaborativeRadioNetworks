@@ -12,7 +12,7 @@ class Player:
     r_x=0
     r_y=1 #position of the receiver
 
-    id = 0
+
 
     power = 1 #power of transmission
     central_frequency= 1005 #represents the channel
@@ -91,7 +91,7 @@ class Player:
         else:
             result = "Pass" if self.previous_successes[-1] == 1 else "Fail"
 
-        
+
         info = "Player" + "{:>5}".format(str(self.id)) + "   Type" + "{:>5}".format(self.type) + \
                 "   pos_tx" + "{:>10}".format("(" + str(self.t_x) + ", " + str(self.t_y)+ ")") + \
                 "   pos_rx" + "{:>10}".format("(" + str(self.r_x) + ", " + str(self.r_y)+ ")") + \
@@ -157,13 +157,13 @@ class CSMA(Player):
         self.type = "CSMA"
 
 # For CSMA, since the simple method is only changing power (to denote switching on or off)
-# it is not very necessary to impose another blocker counter for changing settings. 
+# it is not very necessary to impose another blocker counter for changing settings.
     def log(self):
         if not self.previous_successes:
             result = "None"
         else:
             result = "Pass" if self.previous_successes[-1] == 1 else "Fail"
-    
+
         if self.blocker_counter==0:
             action="SEND"
         elif self.blocker_counter!=0 and self.sleeping_counter != 0:
@@ -179,10 +179,10 @@ class CSMA(Player):
                 "   BW" + "{:>4}".format(str(self.channel_width)) + \
                 "   action" + "{:>5}".format(action) + \
                 "   result" + "{:>5}".format(result)
-        
+
         logging.debug(info)
-            
-            
+
+
     def change_pwr_instant(self, new_power = 1):
         #Setting default values
         self.save_setting()

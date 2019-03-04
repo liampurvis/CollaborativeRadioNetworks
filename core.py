@@ -16,7 +16,7 @@ class env_core:
     """
         This class simulates the environment core
     """
-    players = [] #list of objects of class Player
+    #players = [] #list of objects of class Player
     NB_PLAYERS = 0 #number of players = len(players)
 
     time_references = []
@@ -26,8 +26,8 @@ class env_core:
     curr_step = 0
 
     SNR_THRESHOLD = 1 #min SNR for success
-    
-    player_idlist = [] 
+
+    player_idlist = []
     player_pos_record = {}
     player_frq_record = {}
 
@@ -47,7 +47,7 @@ class env_core:
             self.time_references = time_refs[:]
         self.current_signal_powers = np.zeros(self.NB_PLAYERS)
         self.current_noise_powers = np.zeros(self.NB_PLAYERS)
-        
+
         # self.initialization_steps()
         logging.basicConfig(filename=logfile, filemode="w", level=logging.DEBUG)
         for p in self.players:
@@ -83,7 +83,7 @@ class env_core:
 
                 self.current_signal_powers[i] = 0
                 self.current_noise_powers[i] = 0
-            
+
             # fetch freq and position for gif
             p = self.players[i]
             self.player_pos_record[p.id].append((p.t_x, p.t_y, p.r_x, p.r_y))
@@ -148,30 +148,55 @@ class env_core:
 
         return float(M-m)/(2*self.players[i].channel_width)
 
-    def displayCumulativeResults(self):
-        plt.figure("Cumulative Results")
-        plt.title("Cumulative Results")
-        X = [i for i in range(len(self.players[0].previous_successes))]
+    def displayCumulativeResults(self, timestamp, plot):
+        #plot.figure("Cumulative Results")
+        plot.set_title("Cumulative Results")
+        X = np.arange(timestamp)
         for i in range(self.NB_PLAYERS):
-            plt.plot(X, np.cumsum(self.players[i].previous_successes), label="Player "+str(self.players[i].id))
-        plt.xlabel("timestep")
-        plt.ylabel("cumulative success")
-        plt.legend()
+            plot.plot(X, np.cumsum(self.players[i].previous_successes[:timestamp]), label="Player "+str(self.players[i].id))
+        plot.set_xlabel("timestep")
+        plot.set_ylabel("cumulative success")
+        plot.legend()
 
-    def displayStepByStepResults(self):
-        plt.figure("Step by Step Results")
-        plt.title("Step by Step Results")
-        X = [i for i in range(len(self.players[0].previous_successes))]
+    def displayStepByStepResults(self, timestamp, plot):
+        #plot.figure("Step by Step Results")
+        plot.set_title("Step by Step Results")
+        X = np.arange(timestamp)
         for i in range(self.NB_PLAYERS):
-            plt.plot(X, self.players[i].previous_successes, label="Player "+str(self.players[i].id))
-        plt.xlabel("timestep")
-        plt.ylabel("success at each step")
-        plt.legend()
+            plot.plot(X, self.players[i].previous_successes[:timestamp], label="Player "+str(self.players[i].id))
+        plot.set_xlabel("timestep")
+        plot.set_ylabel("success at each step")
+        plot.legend()
+
+    def displayLocationResults(self, timestamp, plot):
+            #t_walk = np.array(obj.previous_t_positions)
+            #r_walk = np.array(obj.previous_r_positions)
+            #plt.xlim(np.min(np.array([np.array(p.previous_t_positions)[:, 0] for p in self.players])),
+            #         np.max(np.array([np.array(p.previous_t_positions)[:, 0] for p in self.players]))
+
+            #plt.ylim(min([np.min(t_walk[:, 1]), np.min(r_walk[:, 1])]), max([max(t_walk[:, 1]), max(r_walk[:, 1])]))
+        for p in self.players:
+            t_walk = np.array(p.previous_t_positions[:timestamp])
+            r_walk = np.array(p.previous_r_positions[:timestamp])
+            plot.plot(t_walk[:, 0], t_walk[:, 1], label="player " + str(p.id) + " transmitter")
+            plot.plot(r_walk[:, 0], r_walk[:, 1], label= "player " + str(p.id) + "reciever")
+        plot.legend(loc='upper left')
+        plot.set_title("Random Walk of Transmitter and Reciever")
+        plot.set_ylabel("Longitude")
+        plot.set_xlabel("Latitude")
+
 
 # display every visualization tool we have
-    def displayResults(self):
-        self.displayCumulativeResults()
-        self.displayStepByStepResults()
+    def displayResults(self, timestamp = -666, figsize = (30,10)):
+        if timestamp == -666:
+            timestamp = self.NB_STEPS
+        f, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=figsize)
+
+        self.displayCumulativeResults(timestamp, ax1)
+
+        self.displayStepByStepResults(timestamp, ax2)
+
+        self.displayLocationResults(timestamp, ax3)
         plt.show()
 
     def displayGif(self):
