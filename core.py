@@ -124,6 +124,9 @@ class env_core:
                     noise += float(self.players[j].power*self.channel_overlap(j, i)) / float(self.distSquare(j, i))
             # logging.debug("player " + str(self.players[i].id) + " signal " + str(signal) + \
             #               " noise " + str(noise))
+            print(i)
+            print(signal)
+            print(noise)
             signal_power[i] = signal
             noise_power[i] = noise
 
@@ -146,7 +149,7 @@ class env_core:
         M = max(M, m_j)
         m = min(m, M_j)
 
-        return float(M-m)/float(self.players[i].max_frequency - self.players[i].min_frequency)
+        return float(M-m)/(2*self.players[i].channel_width)
 
     def displayCumulativeResults(self):
         plt.figure("Cumulative Results")
