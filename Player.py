@@ -162,6 +162,9 @@ class CSMA(Player):
         self.probability_of_aggresion = aggression_prob
         self.type = "CSMA"
 
+        self.current_state = 2
+        self.blocker_counter = 1
+
 # For CSMA, since the simple method is only changing power (to denote switching on or off)
 # it is not very necessary to impose another blocker counter for changing settings.
     def log(self):
