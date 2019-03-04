@@ -32,7 +32,7 @@ class env_core:
     player_frq_record = {}
 
     # initialize the core for a given set of players
-    def __init__(self, players, nb_steps=100, time_refs=[], logfile="logfile.log"):
+    def __init__(self, players, nb_steps=100, time_refs=[], logfile="logfile.log", time_reference_unit=10):
         self.players = players
         self.NB_PLAYERS = len(players)
         self.NB_STEPS = nb_steps
@@ -47,6 +47,10 @@ class env_core:
             self.time_references = time_refs[:]
         self.current_signal_powers = np.zeros(self.NB_PLAYERS)
         self.current_noise_powers = np.zeros(self.NB_PLAYERS)
+        self.TIME_REFERENCE_UNIT = time_reference_unit
+
+        self.curr_step = 0
+        self.SNR_THRESHOLD = 1
         
         # self.initialization_steps()
         logging.basicConfig(filename=logfile, filemode="w", level=logging.DEBUG)
