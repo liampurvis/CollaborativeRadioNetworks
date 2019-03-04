@@ -37,7 +37,13 @@ class Player:
         self.previous_t_positions = []
         self.previous_r_positions = []
 
+        self.power =1
+        self.central_frequency=1005
+        self.channel_width = 5
+        self.blocker_counter = 0
+
         self.previous_successes = list()
+        self.previous_settings = list()
         logging.basicConfig(filename=logfile, filemode="w", level=logging.DEBUG)
 
     def set_channel(self, central, width = 5): # width default set to
