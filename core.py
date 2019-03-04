@@ -30,9 +30,11 @@ class env_core:
     player_idlist = [] 
     player_pos_record = {}
     player_frq_record = {}
+    colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'w']
+    symbols = ['--', '-.', ':', '.', '+', 'x', 'h', '_']
 
     # initialize the core for a given set of players
-    def __init__(self, players, nb_steps=100, time_refs=[], logfile="logfile.log"):
+    def __init__(self, players, nb_steps=100, time_refs=[], logfile="logfile.log", time_reference_unit=10):
         self.players = players
         self.NB_PLAYERS = len(players)
         self.NB_STEPS = nb_steps
@@ -47,6 +49,10 @@ class env_core:
             self.time_references = time_refs[:]
         self.current_signal_powers = np.zeros(self.NB_PLAYERS)
         self.current_noise_powers = np.zeros(self.NB_PLAYERS)
+        self.TIME_REFERENCE_UNIT = time_reference_unit
+
+        self.curr_step = 0
+        self.SNR_THRESHOLD = 1
         
         # self.initialization_steps()
         logging.basicConfig(filename=logfile, filemode="w", level=logging.DEBUG)
@@ -153,7 +159,7 @@ class env_core:
         plt.title("Cumulative Results")
         X = [i for i in range(len(self.players[0].previous_successes))]
         for i in range(self.NB_PLAYERS):
-            plt.plot(X, np.cumsum(self.players[i].previous_successes), label="Player "+str(self.players[i].id))
+            plt.plot(X, np.cumsum(self.players[i].previous_successes), self.colors[i]+self.symbols[i], label="Player "+str(self.players[i].id))
         plt.xlabel("timestep")
         plt.ylabel("cumulative success")
         plt.legend()
@@ -163,15 +169,32 @@ class env_core:
         plt.title("Step by Step Results")
         X = [i for i in range(len(self.players[0].previous_successes))]
         for i in range(self.NB_PLAYERS):
-            plt.plot(X, self.players[i].previous_successes, label="Player "+str(self.players[i].id))
+            plt.plot(X, self.players[i].previous_successes, self.colors[i]+self.symbols[i], label="Player "+str(self.players[i].id))
         plt.xlabel("timestep")
         plt.ylabel("success at each step")
         plt.legend()
+
+    def displayChannelsOverTime(self):
+        plt.figure("Channels over time")
+        plt.title("Channels over time")
+        nb_steps = len(self.players[0].previous_successes)
+        X = [i for i in range(nb_steps)]
+        for i in range(self.NB_PLAYERS):
+            lower_freq = [self.players[i].previous_settings[j][1]-self.players[i].previous_settings[j][2] for j in range(nb_steps)]
+            higher_freq = [self.players[i].previous_settings[j][1]+self.players[i].previous_settings[j][2] for j in range(nb_steps)]
+            plt.plot(X, lower_freq, self.colors[i]+self.symbols[i], label="Player "+str(self.players[i].id))
+            plt.plot(X, higher_freq, self.colors[i]+self.symbols[i])
+            plt.fill_between(X, lower_freq, higher_freq, color=self.colors[i], alpha=.3)
+        plt.xlabel("timestep")
+        plt.ylabel("Channel (MHz)")
+        plt.legend()
+
 
 # display every visualization tool we have
     def displayResults(self):
         self.displayCumulativeResults()
         self.displayStepByStepResults()
+        self.displayChannelsOverTime()
         plt.show()
 
     def displayGif(self):

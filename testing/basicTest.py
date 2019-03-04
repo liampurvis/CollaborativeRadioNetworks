@@ -16,6 +16,9 @@ from core import env_core
 import logging
 from gifGen import gif
 
+
+mpl_logger = logging.getLogger('matplotlib')
+mpl_logger.setLevel(logging.WARNING)
 f = open("logfile.log", "w")
 LOG_FILENAME = "logfile.log"
 logging.basicConfig(filename=LOG_FILENAME, level=logging.DEBUG)
