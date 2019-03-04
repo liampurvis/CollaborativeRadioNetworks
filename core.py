@@ -124,9 +124,6 @@ class env_core:
                     noise += float(self.players[j].power*self.channel_overlap(j, i)) / float(self.distSquare(j, i))
             # logging.debug("player " + str(self.players[i].id) + " signal " + str(signal) + \
             #               " noise " + str(noise))
-            print(i)
-            print(signal)
-            print(noise)
             signal_power[i] = signal
             noise_power[i] = noise
 
