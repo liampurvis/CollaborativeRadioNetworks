@@ -5,6 +5,7 @@ Player.py
 import numpy as np
 import logging
 import random
+import math
 
 class Player:
     t_x=0
@@ -165,6 +166,7 @@ class CSMA(Player):
         self.current_state = 2
         self.blocker_counter = 1
 
+        self.saved_power = self.power
 # For CSMA, since the simple method is only changing power (to denote switching on or off)
 # it is not very necessary to impose another blocker counter for changing settings.
     def log(self):
@@ -197,6 +199,7 @@ class CSMA(Player):
         self.save_setting()
         # self.blocker_counter = 5  # reset internal counter
         self.power = new_power
+        self.saved_power = new_power
         # self.central_frequency = new_central_frequency
         # self.channel_width = new_channel_width
 
@@ -230,6 +233,7 @@ class CSMA(Player):
         self.current_state = 1
         self.blocker_counter = 1
         self.power = new_power
+        self.saved_power = new_power
         self.central_frequency = new_central_frequency
         self.channel_width = new_channel_width
 
@@ -237,6 +241,9 @@ class CSMA(Player):
         self.log_last_step(success)
         # if previous success is below a certain threshold, we
         # start CSMA and wait a certain period then try again
+
+        dis = math.sqrt((self.t_x - self.r_x)**2 + (self.t_y - self.r_y)**2)
+        pwr_thre = float(self.saved_power / dis**2)
 
         # And we are not in listening mode before, so we don't stuck
         # in a loop
@@ -264,7 +271,7 @@ class CSMA(Player):
 
         elif self.current_state == 2:  # if in listening state
             print("in state 2")
-            if noise_power > 0.0 * self.csma_threshold:
+            if noise_power > self.csma_threshold * pwr_thre:
                 print("noise too large")
                 if self.sleeping_period != 0:
                     self.sleeping_counter = self.sleeping_period

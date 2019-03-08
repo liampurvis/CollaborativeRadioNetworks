@@ -13,8 +13,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 p1 = Player(0,-1,0,1,0)
-p2 = CSMA(1,1.01,0,-1.01,0, 0.3, 0, 1.0)
-p3 = CSMA(2,0.99,0,-1.01,0, 0.3, 0, 1.0)
+p2 = CSMA(1,1.01,0,-1.01,0, 0.1, 0, 1.0)
+p3 = CSMA(2,0.99,0,-1.01,0, 0.1, 0, 1.0)
 # p4 = CSMA(3,1.02,0,-1.01,0, 0.5, 0, 0.5)
 
 # env = env_core([p1, p2], time_refs = [2,4])
