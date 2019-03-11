@@ -44,4 +44,4 @@ env.run_simulation(10)
 env.players[1].set_channel(1060,5)
 env.run_simulation(20)
 
-env.displayResults()
+env.displayResults(figsize = (10,10))
