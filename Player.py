@@ -69,6 +69,9 @@ class Player:
         self.previous_successes.append(success)
         self.save_setting()
 
+        self.previous_t_positions.append([self.t_x, self.t_y])
+        self.previous_r_positions.append([self.r_x, self.r_y])
+
         self.log()
 
         if self.blocker_counter != 0:
