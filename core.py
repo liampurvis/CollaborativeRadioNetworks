@@ -200,8 +200,8 @@ class env_core:
         nb_steps = timestamp
         X = [i for i in range(nb_steps)]
         for i in range(self.NB_PLAYERS):
-            lower_freq = [self.players[i].previous_settings[j][1]-self.players[i].previous_settings[j][2] for j in range(nb_steps)]
-            higher_freq = [self.players[i].previous_settings[j][1]+self.players[i].previous_settings[j][2] for j in range(nb_steps)]
+            lower_freq = [self.players[i].previous_settings[j][1]-self.players[i].previous_settings[j][2]*self.players[i].previous_settings[j][3] for j in range(nb_steps)]
+            higher_freq = [self.players[i].previous_settings[j][1]+self.players[i].previous_settings[j][2]*self.players[i].previous_settings[j][3] for j in range(nb_steps)]
             plot.plot(X, lower_freq, self.colors[i]+self.symbols[i], label="Player "+str(self.players[i].id))
             plot.plot(X, higher_freq, self.colors[i]+self.symbols[i])
             plot.fill_between(X, lower_freq, higher_freq, color=self.colors[i], alpha=.3)
@@ -214,10 +214,8 @@ class env_core:
 
     def displayResultsJupyter(self, timestamp = -666, figsize = (30,10)):
         if timestamp == -666:
-            timestamp = self.NB_STEPS
+            timestamp = int(self.curr_step / self.TIME_REFERENCE_UNIT)- 1
         f, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=figsize)
-
-
 
         self.displayChannelsOverTime(timestamp, ax1)
 
@@ -227,8 +225,8 @@ class env_core:
 
         plt.show()
 
-        self.displayCumulativeResults(timestamp, ax1)
-        plt.show()
+        #self.displayCumulativeResults(timestamp, ax3)
+        #plt.show()
 
     def displayResults(self, figsize = (10,10)):
         f1, ax1 = plt.subplots(1, 1, figsize=figsize)
