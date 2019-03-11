@@ -6,6 +6,7 @@ import numpy as np
 import logging
 import random
 import math
+from matplotlib import pyplot as plt
 
 class Player:
     t_x=0
@@ -132,11 +133,12 @@ class Random(Player):
 
   probability_of_changing_channel = .5
 
-  def __init__(self, id, t_x, t_y, r_x, r_y, prob = .5, random_walk = False):
+  def __init__(self, id, t_x, t_y, r_x, r_y, prob = .5, random_walk = False, nb_channels=10):
       super().__init__(id, t_x, t_y, r_x, r_y)
       self.probability_of_changing_channel = prob
       self.type = "Random"
       self.random_walk = random_walk
+      self.nb_channels = nb_channels
 
   def next_step(self, success, noise_power = 0): #to overwrite depending on the algorithm
       self.log_last_step(success)
@@ -148,7 +150,7 @@ class Random(Player):
       # Randomly choose to seek new channel
       if np.random.binomial(n = 1, p = self.probability_of_changing_channel) == 1:
           # if so randmly generate new channel and switch to it.
-          next_channel = np.random.randint(low = 1, high = 20)*5 + 1000
+          next_channel = np.random.randint(low = 1, high = 10)*10 + 1005
           self.change_setting(new_central_frequency = next_channel)
 
 class CSMA(Player):
@@ -328,6 +330,8 @@ class UCB(Player):
         self.central_frequency = self.min_frequency + (self.max_frequency-self.min_frequency)*0.5/self.nb_channels
         self.channel_width = (self.max_frequency-self.min_frequency)*0.5/self.nb_channels
 
+        self.previous_estimations = []
+
 
     def make_next_prediction(self):
         """
@@ -350,11 +354,12 @@ class UCB(Player):
         if chosen_channel==-1:
             UCB_args = []
             for i in range(self.nb_channels):
-                l = [self.previous_successes[j] for j in range(len(self.past_predictions)) if self.past_predictions[j] == i]
+                l = [self.previous_successes[j] for j in range(len(self.past_predictions)) if self.past_predictions[j] == i and self.previous_settings[j][3]==1]
                 p_est = sum(l)/len(l)
                 UCB_args.append((p_est + self.lamda * self.get_95_Binomial_CI_length(n=len(l), p_est=p_est)))
             # choses a channel (number i) and converts it to a couple (central_frequency, width)
             chosen_channel = int(np.argmax(UCB_args))
+            self.previous_estimations.append(UCB_args)
 
         central_frequency = self.min_frequency+(chosen_channel+0.5)*(self.max_frequency-self.min_frequency)*1.0/self.nb_channels
         width = (self.max_frequency-self.min_frequency)*0.5/self.nb_channels
@@ -363,6 +368,7 @@ class UCB(Player):
             self.set_channel(central_frequency, width=width)
             self.blocker_counter = 0 #TODO remove this line if necessary
         self.past_predictions.append(chosen_channel)
+
 
 
 
@@ -387,6 +393,18 @@ class UCB(Player):
         # corresponds to the current level of noise observed on the channel
         # in the < 0, success is NOT a reward. It can just be used for CSMA
         self.make_next_prediction()
+
+    def displayEstimatedProbs(self):
+        plt.title("Channels estimation over time")
+        nb_steps = len(self.previous_estimations)
+        X = [i for i in range(nb_steps)]
+        for i in range(self.nb_channels):
+            Y = [self.previous_estimations[j][i] for j in range(len(self.previous_estimations))]
+            plt.plot(X, Y, label="Channel " + str(i))
+        plt.xlabel("timestep")
+        plt.ylabel("Estimated reward")
+        plt.legend()
+        plt.show()
 
 
 
