@@ -194,30 +194,32 @@ class env_core:
 
 
 
-    def displayChannelsOverTime(self):
-        plt.figure("Channels over time")
-        plt.title("Channels over time")
-        nb_steps = len(self.players[0].previous_successes)
+    def displayChannelsOverTime(self, timestamp, plot):
+        #plot.figure("Channels over time")
+        plot.set_title("Channels over time")
+        nb_steps = timestamp
         X = [i for i in range(nb_steps)]
         for i in range(self.NB_PLAYERS):
             lower_freq = [self.players[i].previous_settings[j][1]-self.players[i].previous_settings[j][2] for j in range(nb_steps)]
             higher_freq = [self.players[i].previous_settings[j][1]+self.players[i].previous_settings[j][2] for j in range(nb_steps)]
-            plt.plot(X, lower_freq, self.colors[i]+self.symbols[i], label="Player "+str(self.players[i].id))
-            plt.plot(X, higher_freq, self.colors[i]+self.symbols[i])
-            plt.fill_between(X, lower_freq, higher_freq, color=self.colors[i], alpha=.3)
-        plt.xlabel("timestep")
-        plt.ylabel("Channel (MHz)")
-        plt.legend()
+            plot.plot(X, lower_freq, self.colors[i]+self.symbols[i], label="Player "+str(self.players[i].id))
+            plot.plot(X, higher_freq, self.colors[i]+self.symbols[i])
+            plot.fill_between(X, lower_freq, higher_freq, color=self.colors[i], alpha=.3)
+        plot.set_xlabel("timestep")
+        plot.set_ylabel("Channel (MHz)")
+        plot.legend()
 
 
 # display every visualization tool we have
 
-    def displayResults(self, timestamp = -666, figsize = (30,10)):
+    def displayResultsJupyter(self, timestamp = -666, figsize = (30,10)):
         if timestamp == -666:
             timestamp = self.NB_STEPS
         f, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=figsize)
 
-        self.displayCumulativeResults(timestamp, ax1)
+
+
+        self.displayChannelsOverTime(timestamp, ax1)
 
         self.displayStepByStepResults(timestamp, ax2)
 
@@ -225,8 +227,19 @@ class env_core:
 
         plt.show()
 
-        self.displayChannelsOverTime()
+        self.displayCumulativeResults(timestamp, ax1)
         plt.show()
+
+    def displayResults(self, figsize = (10,10)):
+        f1, ax1 = plt.subplots(1, 1, figsize=figsize)
+        f2, ax2 = plt.subplots(1, 1, figsize=figsize)
+        f3, ax3 = plt.subplots(1, 1, figsize=figsize)
+        f4, ax4 = plt.subplots(1, 1, figsize=figsize)
+        self.displayChannelsOverTime(self.NB_STEPS, ax1)
+        self.displayStepByStepResults(self.NB_STEPS, ax2)
+        self.displayLocationResults(self.NB_STEPS, ax3)
+        self.displayCumulativeResults(self.NB_STEPS, ax4)
+        plt.show(ax4)
 
     def displayGif(self):
         gif(self.player_idlist, self.player_pos_record, self.player_frq_record)
