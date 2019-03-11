@@ -214,14 +214,14 @@ class env_core:
 
     def displayResults(self, timestamp = -666, figsize = (30,10)):
         if timestamp == -666:
-            timestamp = self.NB_STEPS
+            timestamp = int(self.curr_step / self.TIME_REFERENCE_UNIT)- 1
         f, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=figsize)
 
-        self.displayCumulativeResults(timestamp, ax1)
+        # self.displayCumulativeResults(timestamp, ax1)
 
         self.displayStepByStepResults(timestamp, ax2)
 
-        self.displayLocationResults(timestamp, ax3)
+        # self.displayLocationResults(timestamp, ax3)
 
         plt.show()
 

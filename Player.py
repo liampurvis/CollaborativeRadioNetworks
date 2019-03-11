@@ -43,10 +43,14 @@ class Player:
         self.channel_width = 5
         self.blocker_counter = 0
 
+        self.min_frequency = 1000
+        self.max_frequency = 1100
+
         self.previous_successes = list()
         self.previous_settings = list()
         logging.basicConfig(filename=logfile, filemode="w", level=logging.DEBUG)
 
+    # TODO : Why do we have set_channel and change_setting?
     def set_channel(self, central, width = 5): # width default set to
         logging.debug("")
         logging.debug("--------------------------------------------------------------------------------")
@@ -295,7 +299,84 @@ class CSMA(Player):
                         pass
         else:
             self.current_state = 0
-            change_pwr_instant(new_power = 1)
+            change_pwr_instant(new_power=1)
+
+
+class UCB(Player):
+    past_predictions = []
+    def __init__(self, id, t_x, t_y, r_x, r_y, nb_channels=15, lamda=1):
+        super().__init__(id, t_x, t_y, r_x, r_y)
+
+        self.type = "UCB"
+        self.nb_channels = nb_channels
+        self.lamda = lamda
+
+        self.past_predictions = []
+        self.past_predictions.append(0)
+
+        self.central_frequency = self.min_frequency + (self.max_frequency-self.min_frequency)*0.5/self.nb_channels
+        self.channel_width = (self.max_frequency-self.min_frequency)*0.5/self.nb_channels
+
+
+    def make_next_prediction(self):
+        """
+        initialization function
+        Inputs:
+        - past_predictions: array of the past_predictions made (which channel was predicted)
+        - past_rewards: sequential list of rewards form past predictions.
+        Returns:
+        -channel number to next be explored
+        """
+
+        #base case when not all channels have been explored TODO correct bug when counting explored channels
+        chosen_channel = -1
+        for i in range(self.nb_channels):
+            if self.past_predictions.count(i) < 1:
+                logging.debug("Player " + str(self.id) + " is exploring")
+                chosen_channel = i
+
+        #Getting parameter estimates plus confidence intervals, tuned by lambda
+        if chosen_channel==-1:
+            UCB_args = []
+            for i in range(self.nb_channels):
+                l = [self.previous_successes[j] for j in range(len(self.past_predictions)) if self.past_predictions[j] == i]
+                p_est = sum(l)/len(l)
+                UCB_args.append((p_est + self.lamda * self.get_95_Binomial_CI_length(n=len(l), p_est=p_est)))
+            # choses a channel (number i) and converts it to a couple (central_frequency, width)
+            chosen_channel = int(np.argmax(UCB_args))
+
+        central_frequency = self.min_frequency+(chosen_channel+0.5)*(self.max_frequency-self.min_frequency)*1.0/self.nb_channels
+        width = (self.max_frequency-self.min_frequency)*0.5/self.nb_channels
+
+        if (central_frequency!=self.central_frequency):
+            self.set_channel(central_frequency, width=width)
+            self.blocker_counter = 0 #TODO remove this line if necessary
+        self.past_predictions.append(chosen_channel)
+
+
+
+    def get_95_Binomial_CI_length(self, n, p_est):
+        """
+        Input:
+        - 'n' is the number of samples
+        - 'p_est' is the current estimate of p
+        Returns:
+        - length of confidence interval with 95% certainty.
+        calculation from:
+        http://dept.stat.lsa.umich.edu/~kshedden/Courses/Stat485/Notes/binomial_confidence_intervals.pdf
+        """
+        return 2*2*np.sqrt((p_est*(1 - p_est))/n)
+
+    def next_step(self, success, noise_power): #to overwrite depending on the algorithm
+        self.log_last_step(success)
+
+        # TAKE ACTION HERE
+        # if success >= 0, it means that the player tried to transmit something
+        # if success < 0, it means that the player was listening. Success value
+        # corresponds to the current level of noise observed on the channel
+        # in the < 0, success is NOT a reward. It can just be used for CSMA
+        self.make_next_prediction()
+
 
 
 
