@@ -185,6 +185,12 @@ class env_core:
         for p in self.players:
             t_walk = np.array(p.previous_t_positions[:timestamp])
             r_walk = np.array(p.previous_r_positions[:timestamp])
+
+            print(p)
+            print(self.players)
+            print(timestamp)
+            print(np.shape(p.previous_t_positions))
+
             plot.plot(t_walk[:, 0], t_walk[:, 1], label="player " + str(p.id) + " transmitter")
             plot.plot(r_walk[:, 0], r_walk[:, 1], label= "player " + str(p.id) + "reciever")
         plot.legend(loc='upper left')
@@ -233,10 +239,10 @@ class env_core:
         f2, ax2 = plt.subplots(1, 1, figsize=figsize)
         f3, ax3 = plt.subplots(1, 1, figsize=figsize)
         f4, ax4 = plt.subplots(1, 1, figsize=figsize)
-        self.displayChannelsOverTime(self.NB_STEPS, ax1)
-        self.displayStepByStepResults(self.NB_STEPS, ax2)
-        self.displayLocationResults(self.NB_STEPS, ax3)
-        self.displayCumulativeResults(self.NB_STEPS, ax4)
+        self.displayChannelsOverTime(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax1)
+        self.displayStepByStepResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax2)
+        self.displayLocationResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax3)
+        self.displayCumulativeResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax4)
         plt.show(ax4)
 
     def displayGif(self):
