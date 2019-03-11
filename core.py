@@ -185,12 +185,6 @@ class env_core:
         for p in self.players:
             t_walk = np.array(p.previous_t_positions[:timestamp])
             r_walk = np.array(p.previous_r_positions[:timestamp])
-
-            print(p)
-            print(self.players)
-            print(timestamp)
-            print(np.shape(p.previous_t_positions))
-
             plot.plot(t_walk[:, 0], t_walk[:, 1], label="player " + str(p.id) + " transmitter")
             plot.plot(r_walk[:, 0], r_walk[:, 1], label= "player " + str(p.id) + "reciever")
         plot.legend(loc='upper left')
