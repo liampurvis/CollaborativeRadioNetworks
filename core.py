@@ -200,8 +200,8 @@ class env_core:
         nb_steps = len(self.players[0].previous_successes)
         X = [i for i in range(nb_steps)]
         for i in range(self.NB_PLAYERS):
-            lower_freq = [self.players[i].previous_settings[j][1]-self.players[i].previous_settings[j][2] for j in range(nb_steps)]
-            higher_freq = [self.players[i].previous_settings[j][1]+self.players[i].previous_settings[j][2] for j in range(nb_steps)]
+            lower_freq = [self.players[i].previous_settings[j][1]-self.players[i].previous_settings[j][2]*self.players[i].previous_settings[j][3] for j in range(nb_steps)]
+            higher_freq = [self.players[i].previous_settings[j][1]+self.players[i].previous_settings[j][2]*self.players[i].previous_settings[j][3] for j in range(nb_steps)]
             plt.plot(X, lower_freq, self.colors[i]+self.symbols[i], label="Player "+str(self.players[i].id))
             plt.plot(X, higher_freq, self.colors[i]+self.symbols[i])
             plt.fill_between(X, lower_freq, higher_freq, color=self.colors[i], alpha=.3)

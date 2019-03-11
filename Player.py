@@ -84,7 +84,11 @@ class Player:
         # in the < 0, success is NOT a reward. It can just be used for CSMA
 
     def save_setting(self):
-        self.previous_settings.append((self.power, self.central_frequency, self.channel_width))
+        if self.blocker_counter==0:
+            not_blocked = 1
+        else:
+            not_blocked = 0
+        self.previous_settings.append((self.power, self.central_frequency, self.channel_width, not_blocked))
 
     def change_setting(self, new_central_frequency, new_channel_width = 5, new_power = 1):
         #Setting default values
