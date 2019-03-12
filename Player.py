@@ -327,7 +327,8 @@ class UCB(Player):
         self.past_predictions = []
         self.past_predictions.append(0)
 
-        self.central_frequency = self.min_frequency + (self.max_frequency-self.min_frequency)*0.5/self.nb_channels
+        channel = np.random.randint(0, self.nb_channels)
+        self.central_frequency = self.min_frequency + (self.max_frequency-self.min_frequency)*(channel+0.5)/self.nb_channels
         self.channel_width = (self.max_frequency-self.min_frequency)*0.5/self.nb_channels
 
         self.previous_estimations = []
@@ -345,10 +346,12 @@ class UCB(Player):
 
         #base case when not all channels have been explored TODO correct bug when counting explored channels
         chosen_channel = -1
+        unchosen = []
         for i in range(self.nb_channels):
             if self.past_predictions.count(i) < 1:
-                logging.debug("Player " + str(self.id) + " is exploring")
-                chosen_channel = i
+                unchosen.append(i)
+        if len(unchosen)>0:
+            chosen_channel = unchosen[np.random.randint(0, len(unchosen))]
 
         #Getting parameter estimates plus confidence intervals, tuned by lambda
         if chosen_channel==-1:
@@ -359,6 +362,19 @@ class UCB(Player):
                 UCB_args.append((p_est + self.lamda * self.get_95_Binomial_CI_length(n=len(l), p_est=p_est)))
             # choses a channel (number i) and converts it to a couple (central_frequency, width)
             chosen_channel = int(np.argmax(UCB_args))
+
+            nb_results = UCB_args.count(UCB_args[chosen_channel])
+            if nb_results>1: #random choice if same rewards
+                randomC = np.random.randint(0, nb_results)
+                ct = 0
+                for i in range(self.nb_channels):
+                    if ct==randomC:
+                        i -= 1
+                        break
+                    if UCB_args[i] == UCB_args[chosen_channel]:
+                        ct += 1
+                chosen_channel = i
+
             self.previous_estimations.append(UCB_args)
 
         central_frequency = self.min_frequency+(chosen_channel+0.5)*(self.max_frequency-self.min_frequency)*1.0/self.nb_channels
