@@ -38,22 +38,32 @@ NB_CHANNELS = 10
 
 
 ##THIS IS A DEMO WITH A RANDOM PLAYER
-# NB_CHANNELS = 10
-p1 = Random(0,-1,0,1,0, prob=0.05)
-p5 = Random(1,-1,0,1,0, prob=0.05)
-p6 = Random(2,-1,0,1,0, prob=0.05)
-p2 = UCB(3, -10, 0, 10, 0, nb_channels=NB_CHANNELS, lamda=0.7)
-p3 = UCB(4, -10, 0, 10, 0, nb_channels=NB_CHANNELS, lamda=0.7)
-p4 = UCB(5, -10, 0, 10, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+# # NB_CHANNELS = 10
+# p1 = Random(0,-1,0,1,0, prob=0.05)
+# p5 = Random(1,-1,0,1,0, prob=0.05)
+# p6 = Random(2,-1,0,1,0, prob=0.05)
+p0 = UCB(0, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+p1 = UCB(1, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+p2 = UCB(2, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+p3 = Player(3, -1, 0, 1, 0)
+p4 = UCB(4, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+p5 = UCB(5, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+
+
+p3.set_channel(1050, 30)
+p3.power = 100
+p3.blocker_counter = 0
 
 np.random.seed()
 
 #p1 is on the same channel as p2
 p1.set_channel(p1.min_frequency + (p1.max_frequency-p1.min_frequency)*0.5/NB_CHANNELS, (p1.max_frequency-p1.min_frequency)*0.5/NB_CHANNELS)
 p1.blocker_counter = 0
-env = env_core([p1, p2, p3, p4, p5, p6])
+env = env_core([p0, p1, p2, p3, p4, p5])
 
 env.run_simulation(1000)
 
-env.displayResults()
+env.players[0].displayEstimatedProbs()
 env.players[1].displayEstimatedProbs()
+env.players[2].displayEstimatedProbs()
+env.displayResults()

@@ -359,6 +359,7 @@ class UCB(Player):
             for i in range(self.nb_channels):
                 l = [self.previous_successes[j] for j in range(len(self.past_predictions)) if self.past_predictions[j] == i and self.previous_settings[j][3]==1]
                 p_est = sum(l)/len(l)
+                p_est = max(0.05, p_est) # fighting zero values which mess with confidence bounds
                 UCB_args.append((p_est + self.lamda * self.get_95_Binomial_CI_length(n=len(l), p_est=p_est)))
             # choses a channel (number i) and converts it to a couple (central_frequency, width)
             chosen_channel = int(np.argmax(UCB_args))
@@ -413,6 +414,7 @@ class UCB(Player):
         self.make_next_prediction()
 
     def displayEstimatedProbs(self):
+        plt.figure()
         plt.title("Channels estimation over time - player "+str(self.id)+" "+self.type)
         nb_steps = len(self.previous_estimations)
         X = [i for i in range(nb_steps)]
@@ -422,7 +424,6 @@ class UCB(Player):
         plt.xlabel("timestep")
         plt.ylabel("Estimated reward")
         plt.legend()
-        plt.show()
 
 
 
