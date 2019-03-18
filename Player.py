@@ -17,8 +17,8 @@ class Player:
 
 
     power = 1 #power of transmission
-    central_frequency= 1005 #represents the channel
-    channel_width = 5
+    #central_frequency= 1005
+    #channel_width = 5
 
     min_frequency = 1000 #represents the maximum bandwidth
     max_frequency = 1100
@@ -29,7 +29,7 @@ class Player:
     blocker_counter = 0 #when settings have been changed, countdown is >0
     # no communication can be done while countdown > 0
 
-    def __init__(self, id, t_x, t_y, r_x, r_y, logfile="logfile.log"):
+    def __init__(self, id, t_x, t_y, r_x, r_y, starting_frequency = 1005, logfile="logfile.log"):
         self.t_x = float(t_x)
         self.t_y = float(t_y)
         self.r_x = float(r_x)
@@ -40,8 +40,8 @@ class Player:
         self.previous_r_positions = []
 
         self.power =1
-        self.central_frequency=1005
-        self.channel_width = 5
+        self.central_frequency=starting_frequency #represents the channel
+        self.channel_width = 5 #represents the channel width
         self.blocker_counter = 0
 
         self.min_frequency = 1000
@@ -80,12 +80,6 @@ class Player:
 
     def next_step(self, success, noise_power): #to overwrite depending on the algorithm
         self.log_last_step(success)
-
-        # TAKE ACTION HERE
-        # if success >= 0, it means that the player tried to transmit something
-        # if success < 0, it means that the player was listening. Success value
-        # corresponds to the current level of noise observed on the channel
-        # in the < 0, success is NOT a reward. It can just be used for CSMA
 
     def save_setting(self):
         if self.blocker_counter==0:
@@ -133,8 +127,8 @@ class Random(Player):
 
   probability_of_changing_channel = .5
 
-  def __init__(self, id, t_x, t_y, r_x, r_y, prob = .5, random_walk = False, nb_channels=10):
-      super().__init__(id, t_x, t_y, r_x, r_y)
+  def __init__(self, id, t_x, t_y, r_x, r_y, starting_frequency = 1005, prob = .5, random_walk = False):
+      super().__init__(id, t_x, t_y, r_x, r_y, starting_frequency)
       self.probability_of_changing_channel = prob
       self.type = "Random"
       self.random_walk = random_walk
@@ -153,6 +147,42 @@ class Random(Player):
           next_channel = np.random.randint(low = 1, high = 10)*10 + 1005
           self.change_setting(new_central_frequency = next_channel)
 
+class Thompsons(Player):
+    def __init__(self, id, t_x, t_y, r_x, r_y, starting_frequency = 1005, a = 2, b = 2):
+        super().__init__(id, t_x, t_y, r_x, r_y, starting_frequency)
+        self.channels = np.arange(int((self.max_frequency - self.min_frequency)/self.channel_width))
+        self.a = np.ones(len(self.channels))*a
+        self.b = np.ones(len(self.channels))*b
+        self.type = "Thompsons"
+
+
+    def next_step(self, last_success, noise = 0):
+        self.log_last_step(last_success)
+        curr_index = int((self.central_frequency - self.min_frequency)/self.channel_width) - 1
+        self.update_posterior(last_prediction = curr_index,
+                             curr_s = last_success,
+                             curr_a = self.a[curr_index],
+                             curr_b = self.b[curr_index])
+        next_channel = (self.index_of_max_sample() + 1) * 5 + 1000
+        self.change_setting(new_central_frequency = next_channel)
+        self.blocker_counter = 0
+
+    def index_of_max_sample(self):
+        lst = []
+        for i in self.channels:
+            lst.append(np.random.beta(a = self.a[i], b = self.b[i], size = 1))
+        return int(np.argmax(np.array(lst)))
+
+    def update_posterior(self, last_prediction, curr_a, curr_b, curr_s):
+        #updating beta parameter 'a' via bayes rule:
+        self.a[last_prediction] = curr_s + curr_a
+        #updating beta parameter 'b' via bayes rule:
+        self.b[last_prediction] = 1 - curr_s + curr_b
+        return
+
+    def get_means():
+        return self.a/(self.a + self.b)
+
 class CSMA(Player):
 
     # probability_of_changing_channel = .5
@@ -168,8 +198,8 @@ class CSMA(Player):
     # 1 = sleeping
     # 2 = listening
 
-    def __init__(self, id, t_x, t_y, r_x, r_y, threshold_input, sleeping_input, aggression_prob):
-        super().__init__(id, t_x, t_y, r_x, r_y)
+    def __init__(self, id, t_x, t_y, r_x, r_y, threshold_input, sleeping_input, aggression_prob, starting_frequency = 1005):
+        super().__init__(id, t_x, t_y, r_x, r_y, starting_frequency)
         # self.probability_of_changing_channel = prob
         self.csma_threshold = threshold_input
         self.sleeping_period = sleeping_input
@@ -317,8 +347,8 @@ class CSMA(Player):
 
 class UCB(Player):
     past_predictions = []
-    def __init__(self, id, t_x, t_y, r_x, r_y, nb_channels=15, lamda=1):
-        super().__init__(id, t_x, t_y, r_x, r_y)
+    def __init__(self, id, t_x, t_y, r_x, r_y, nb_channels=15, lamda=1, starting_frequency = 1005):
+        super().__init__(id, t_x, t_y, r_x, r_y, starting_frequency)
 
         self.type = "UCB"
         self.nb_channels = nb_channels
