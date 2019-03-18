@@ -368,11 +368,13 @@ class UCB(Player):
                 randomC = np.random.randint(0, nb_results)
                 ct = 0
                 for i in range(self.nb_channels):
-                    if ct==randomC:
-                        i -= 1
-                        break
                     if UCB_args[i] == UCB_args[chosen_channel]:
-                        ct += 1
+                        if i == self.past_predictions[-1] and UCB_args[i]!=0: #stay on same channel if it is rewarding
+                            break
+                        else:
+                            ct += 1
+                    if ct-1==randomC:
+                        break
                 chosen_channel = i
 
             self.previous_estimations.append(UCB_args)
@@ -411,7 +413,7 @@ class UCB(Player):
         self.make_next_prediction()
 
     def displayEstimatedProbs(self):
-        plt.title("Channels estimation over time")
+        plt.title("Channels estimation over time - player "+str(self.id)+" "+self.type)
         nb_steps = len(self.previous_estimations)
         X = [i for i in range(nb_steps)]
         for i in range(self.nb_channels):

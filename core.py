@@ -110,7 +110,7 @@ class env_core:
     #                 self.current_noise_powers[i] = 0
 
     def computeSuccess(self, i):
-        if (self.current_noise_powers[i]==0) or (self.current_signal_powers[i]/self.current_noise_powers[i] >= self.SNR_THRESHOLD):
+        if (self.current_noise_powers[i]==0) or (self.current_signal_powers[i]/self.current_noise_powers[i] > self.SNR_THRESHOLD):
             return 1
         else:
             return 0
@@ -160,7 +160,7 @@ class env_core:
         plot.set_title("Cumulative Results")
         X = np.arange(timestamp)
         for i in range(self.NB_PLAYERS):
-            plot.plot(X, np.cumsum(self.players[i].previous_successes[:timestamp]), label="Player "+str(self.players[i].id))
+            plot.plot(X, np.cumsum(self.players[i].previous_successes[:timestamp]), label="Player "+str(self.players[i].id)+" - "+self.players[i].type, color=self.colors[i])
         plot.set_xlabel("timestep")
         plot.set_ylabel("cumulative success")
         plot.legend()
@@ -170,7 +170,7 @@ class env_core:
         plot.set_title("Step by Step Results")
         X = np.arange(timestamp)
         for i in range(self.NB_PLAYERS):
-            plot.plot(X, self.players[i].previous_successes[:timestamp], label="Player "+str(self.players[i].id))
+            plot.plot(X, self.players[i].previous_successes[:timestamp], label="Player "+str(self.players[i].id)+" - "+self.players[i].type, color=self.colors[i])
         plot.set_xlabel("timestep")
         plot.set_ylabel("success at each step")
         plot.legend()
@@ -202,7 +202,7 @@ class env_core:
         for i in range(self.NB_PLAYERS):
             lower_freq = [self.players[i].previous_settings[j][1]-self.players[i].previous_settings[j][2]*self.players[i].previous_settings[j][3] for j in range(nb_steps)]
             higher_freq = [self.players[i].previous_settings[j][1]+self.players[i].previous_settings[j][2]*self.players[i].previous_settings[j][3] for j in range(nb_steps)]
-            plot.plot(X, lower_freq, self.colors[i]+self.symbols[i], label="Player "+str(self.players[i].id))
+            plot.plot(X, lower_freq, self.colors[i]+self.symbols[i], label="Player "+str(self.players[i].id)+" - "+self.players[i].type)
             plot.plot(X, higher_freq, self.colors[i]+self.symbols[i])
             plot.fill_between(X, lower_freq, higher_freq, color=self.colors[i], alpha=.3)
         plot.set_xlabel("timestep")
