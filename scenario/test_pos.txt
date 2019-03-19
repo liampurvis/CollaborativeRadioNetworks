@@ -1,0 +1,18 @@
+1
+p1 FIX 0,-1,0,1,0
+2,4,6
+run 5
+p1 update_location 1,1,1,0
+run 5
+p1 update_location 0.5,1.5,2,0
+run 5
+p1 update_location 0.3,2,3,0
+run 5
+p1 update_location 0.5,2.5,3,2
+run 5
+p1 update_location 3,3,3,5
+run 5
+p1 update_location 4,4,4,7
+run 5
+run 5
+endsim
