@@ -2,70 +2,101 @@ import Player
 from core import env_core
 import matplotlib.pyplot as plt
 import numpy as np
-
+import re
 import sys
 for x in sys.argv:
 	print("Argument: %s", x)
 
-file_object  = open(sys.argv[1], "r")
-# print(file_object.read())
-content = [line.rstrip('\n') for line in file_object]
-# print(content)
+# re.findall('\[[^\]]*\]|\([^\)]*\)|\"[^\"]*\"|\S+',strs)
 
-# print(np.shape(content))
+sim_scenario  = open(sys.argv[1], "r")
+pos_scenario  = open(sys.argv[2], "r")
+# print(sim_scenario.read())
+sim_content = [line.rstrip('\n') for line in sim_scenario]
+pos_content = [line.rstrip('\n') for line in pos_scenario]
+# print(sim_content)
 
-if content[-1] != "endsim":
-	file_object.close()
+# print(np.shape(sim_content))
+
+if sim_content[-1] != "endsim":
+	sim_scenario.close()
+	pos_scenario.close()
 	raise ValueError('Simulation scenrio must end with endsim')
 
 lines = []
 
-for i in range(len(content)):
-	line = content[i]
+for i in range(len(sim_content)):
+	line = sim_content[i]
 	line_seg = line.split(" ")
 	# print(line_seg)
 	lines.append(line_seg)
 
+poss = []
+for i in range(len(pos_content)):
+	one_line = pos_content[i]
+	line_seg = one_line.split(" ")
+	# print(line_seg)
+	poss.append(line_seg)
+
+print(len(poss))
+
 line_counter = 0
+pos_counter = 0
 
 player_num = int(lines[line_counter][0])
-print(player_num)
+print("Player amount: %d" % player_num)
 line_counter += 1
 
+if player_num != int(poss[pos_counter][0]):
+	sim_scenario.close()
+	pos_scenario.close()
+	raise ValueError('Player number in simulation file MUST match player number in position file')
+
+pos_counter += 1
+
 players = {}
+player_num_to_id = {}
 
 for i in range(line_counter, line_counter+player_num):
 	# print(lines[i])
-	line_counter += 1
 	current_line = lines[i]
 	if current_line[1] == "FIX":
 		csv = current_line[2].split(",")
 		csv = list(map(float, csv))
 		new_player = Player.Player(*csv)
 		players[current_line[0]] = new_player
+
+		player_num_to_id[line_counter - 1] = current_line[0]
 	elif current_line[1] == "Random":
-		orig_csv = current_line[2].split(",")
-		csv = list(map(float, orig_csv[:-2]))
-		new_player = Player.Random(*csv, bool(orig_csv[-1]))
-		players[current_line[0]] = new_player
+		# orig_csv = current_line[2].split(",")
+		# csv = list(map(float, orig_csv[:-2]))
+		# new_player = Player.Random(*csv, bool(orig_csv[-1]))
+		# players[current_line[0]] = new_player
+		pass
 	elif current_line[1] == "CSMA":
 		csv = current_line[2].split(",")
 		csv = list(map(float, csv))
 		new_player = Player.CSMA(*csv)
 		players[current_line[0]] = new_player
+
+		player_num_to_id[line_counter - 1] = current_line[0]
 	elif current_line[1] == "UCB":
 		csv = current_line[2].split(",")
 		csv = list(map(float, csv))
 		new_player = Player.UCB(*csv)
 		players[current_line[0]] = new_player
+
+		player_num_to_id[line_counter - 1] = current_line[0]
 	else:
-		file_object.close()
+		sim_scenario.close()
 		raise ValueError('Player type not recognized')
+
+	line_counter += 1
 
 players_list = list(players.values())
 
-print(players_list)
-print(line_counter)
+# print(players_list)
+# print(line_counter)
 
 # print(lines[line_counter])
 
@@ -76,6 +107,8 @@ line_counter += 1
 
 env = env_core(players_list, time_refs = time_ref_csv)
 
+loop_pos_file_flag = False
+
 for i in range(line_counter, len(lines)):
 	if lines[i][0] == "run":
 		pass
@@ -83,6 +116,9 @@ for i in range(line_counter, len(lines)):
 		print(time)
 		env.run_simulation(time)
 	elif lines[i][0] == "endsim":
+		break
+	elif lines[i][0] == "pos_deplete":
+		loop_pos_file_flag = True
 		break
 	else:
 		if lines[i][0] in players:
@@ -94,13 +130,41 @@ for i in range(line_counter, len(lines)):
 				print(parameters)
 				players[lines[i][0]].update_location(*parameters)
 			else:
-				file_object.close()
+				sim_scenario.close()
 				raise ValueError("Unrecognized Player simulation command")
 		else:
-			file_object.close()
+			sim_scenario.close()
 			raise ValueError("Unrecognized simulation command")
 
-file_object.close()
+if(loop_pos_file_flag):
+	while pos_counter < len(poss):
+		pos_line = poss[pos_counter][0]
+		pos_line = re.findall('\[[^\]]*\]|\([^\)]*\)|\"[^\"]*\"|\S+',pos_line)
+		print(pos_line)
+		for i in range(len(pos_line)):
+			pos_line[i] = pos_line[i].replace('[', '').replace(']', '')
+		# print(pos_line)
+		for i in range(player_num):
+			pos_all = pos_line[i]
+			pos_in_pairs = re.findall('\[[^\]]*\]|\([^\)]*\)|\"[^\"]*\"|\S+',pos_all)
+
+			pos_full_list = []
+
+			for j in range(len(pos_in_pairs)):
+				pos_in_pairs[j] = pos_in_pairs[j].replace('(', '').replace(')', '')
+				csv = pos_in_pairs[j].split(",")
+				csv = list(map(float, csv))
+				pos_in_pairs[j] = csv
+				pos_full_list += pos_in_pairs[j]
+			# print("test:")
+			# print(pos_full_list)
+			player_id = player_num_to_id[i]
+			players[player_id].update_location(*pos_full_list)
+		pos_counter += 1
+		print("run 1")
+		env.run_simulation(1)
+
+sim_scenario.close()
 env.displayResults()
 
 
