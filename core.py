@@ -183,8 +183,8 @@ class env_core:
 
             #plt.ylim(min([np.min(t_walk[:, 1]), np.min(r_walk[:, 1])]), max([max(t_walk[:, 1]), max(r_walk[:, 1])]))
         for p in self.players:
-            t_walk = np.array(p.previous_t_positions[:timestamp])
-            r_walk = np.array(p.previous_r_positions[:timestamp])
+            t_walk = np.array(p.previous_t_positions[:])
+            r_walk = np.array(p.previous_r_positions[:])
             plot.plot(t_walk[:, 0], t_walk[:, 1], label="player " + str(p.id) + " transmitter")
             plot.plot(r_walk[:, 0], r_walk[:, 1], label= "player " + str(p.id) + "reciever")
         plot.legend(loc='upper left')
