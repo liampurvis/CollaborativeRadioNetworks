@@ -127,7 +127,7 @@ class env_core:
 
         blocker_counters = np.array([self.players[i].blocker_counter for i in np.arange(self.NB_PLAYERS)])
 
-        vect = np.vectorize(self.compute_noise_power_helper)
+        vect = np.vectorize(self.compute_noise_power_helper, otypes = [float])
 
         noise_power = np.array([np.sum(vect(np.arange(self.NB_PLAYERS)[(np.arange(len(blocker_counters))!=index) & (blocker_counters == 0)],
                                    index))
