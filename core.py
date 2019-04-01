@@ -180,6 +180,8 @@ class env_core:
         plot.set_ylabel("success at each step")
         plot.legend()
 
+
+
     def displayLocationResults(self, timestamp, plot):
             #t_walk = np.array(obj.previous_t_positions)
             #r_walk = np.array(obj.previous_r_positions)
@@ -190,8 +192,16 @@ class env_core:
         for p in self.players:
             t_walk = np.array(p.previous_t_positions[:])
             r_walk = np.array(p.previous_r_positions[:])
-            plot.plot(t_walk[:, 0], t_walk[:, 1], label="player " + str(p.id) + " transmitter")
-            plot.plot(r_walk[:, 0], r_walk[:, 1], label= "player " + str(p.id) + "reciever")
+            line1 = plot.plot(t_walk[:, 0], t_walk[:, 1],'.-',label="player " + str(p.id) + " transmitter")[0]
+            line2 = plot.plot(r_walk[:, 0], r_walk[:, 1],'.-',label= "player " + str(p.id) + "reciever")[0]
+            for i in range(r_walk.shape[0]-1):
+                xyp = (r_walk[i+1,0], r_walk[i+1, 1])
+                xyb = (r_walk[i,0], r_walk[i, 1])
+                plot.annotate(s='', xy = xyp, xytext = xyb, arrowprops=dict(arrowstyle='->', color = line2.get_color()))
+            for i in range(t_walk.shape[0]-1):
+                xyp = (t_walk[i+1,0], t_walk[i+1, 1])
+                xyb = (t_walk[i,0], t_walk[i, 1])
+                plot.annotate(s='', xy = xyp, xytext = xyb, arrowprops=dict(arrowstyle='->', color = line1.get_color()))
         plot.legend(loc='upper left')
         plot.set_title("Random Walk of Transmitter and Reciever")
         plot.set_ylabel("Longitude")
@@ -260,4 +270,3 @@ class env_core:
             return env_core([])
         with open(filename, 'rb') as input:
             return pickle.load(input)
-

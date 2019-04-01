@@ -38,7 +38,7 @@ for i in range(len(pos_content)):
 	# print(line_seg)
 	poss.append(line_seg)
 
-print(len(poss))
+# print(len(poss))
 
 line_counter = 0
 pos_counter = 0
@@ -111,7 +111,7 @@ players_list = list(players.values())
 
 time_ref_csv = lines[line_counter][0].split(",")
 time_ref_csv = list(map(int, time_ref_csv))
-print(time_ref_csv)
+# print(time_ref_csv)
 line_counter += 1
 
 env = env_core(players_list, time_refs = time_ref_csv)
@@ -149,7 +149,7 @@ if(loop_pos_file_flag):
 	while pos_counter < len(poss):
 		pos_line = poss[pos_counter][0]
 		pos_line = re.findall('\[[^\]]*\]|\([^\)]*\)|\"[^\"]*\"|\S+',pos_line)
-		print(pos_line)
+		# print(pos_line)
 		for i in range(len(pos_line)):
 			pos_line[i] = pos_line[i].replace('[', '').replace(']', '')
 		# print(pos_line)
@@ -170,7 +170,7 @@ if(loop_pos_file_flag):
 			player_id = player_num_to_id[i]
 			players[player_id].update_location(*pos_full_list)
 		pos_counter += 1
-		print("run 1")
+		# print("run 1")
 		env.run_simulation(1)
 
 sim_scenario.close()

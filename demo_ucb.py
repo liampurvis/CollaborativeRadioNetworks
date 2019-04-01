@@ -36,6 +36,9 @@ def fix_player_enough_channels():
     env.players[0].displayEstimatedProbs()
     env.players[1].displayEstimatedProbs()
     env.players[2].displayEstimatedProbs()
+    # for i in range(len(env.players[0].previous_successes)):
+    #     print(str(i) + " - " + str(env.players[0].previous_successes[i]))
+    print(env.players[0].previous_channels)
     env.displayResults()
 
 def fix_player_not_enough_channels():
@@ -81,7 +84,7 @@ def random_players():
     p1.blocker_counter = 0
     env = env_core([p0, p1, p2, p3, p4, p5])
 
-    env.run_simulation(100)
+    env.run_simulation(2000)
 
     env.players[0].displayEstimatedProbs()
     env.players[1].displayEstimatedProbs()
