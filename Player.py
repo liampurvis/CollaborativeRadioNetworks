@@ -64,7 +64,7 @@ class Player:
         logging.debug("--------------------------------------------------------------------------------")
         logging.debug("")
 
-        self.blocker_counter = 5
+        self.blocker_counter = 3
 
     def log_last_step(self, success):
         self.previous_successes.append(success)
@@ -373,7 +373,6 @@ class UCB(Player):
         Returns:
         -channel number to next be explored
         """
-
         #base case when not all channels have been explored TODO correct bug when counting explored channels
         chosen_channel = -1
         unchosen = []
@@ -387,9 +386,10 @@ class UCB(Player):
         if chosen_channel==-1:
             UCB_args = []
             for i in range(self.nb_channels):
-                l = [self.previous_successes[j] for j in range(len(self.past_predictions)) if self.past_predictions[j] == i and self.previous_settings[j][3]==1]
+                l = [self.previous_successes[j] for j in range(len(self.past_predictions)) if self.past_predictions[j] == i] # and self.previous_settings[j][3]==1
                 p_est = sum(l)/len(l)
                 p_est = max(0.05, p_est) # fighting zero values which mess with confidence bounds
+                p_est = min(p_est, 0.99) # fighting one values
                 UCB_args.append((p_est + self.lamda * self.get_95_Binomial_CI_length(n=len(l), p_est=p_est)))
             # choses a channel (number i) and converts it to a couple (central_frequency, width)
             chosen_channel = int(np.argmax(UCB_args))
@@ -434,14 +434,17 @@ class UCB(Player):
         return 2*2*np.sqrt((p_est*(1 - p_est))/n)
 
     def next_step(self, success, noise_power): #to overwrite depending on the algorithm
-        self.log_last_step(success)
 
         # TAKE ACTION HERE
         # if success >= 0, it means that the player tried to transmit something
         # if success < 0, it means that the player was listening. Success value
         # corresponds to the current level of noise observed on the channel
         # in the < 0, success is NOT a reward. It can just be used for CSMA
-        self.make_next_prediction()
+        if self.blocker_counter == 0:
+            self.log_last_step(success)
+            self.make_next_prediction()
+        else:
+            self.log_last_step(success)
 
     def displayEstimatedProbs(self):
         plt.figure()
