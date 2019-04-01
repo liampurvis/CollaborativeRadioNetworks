@@ -31,7 +31,6 @@ for i in range(step):
     for j in range(N):
         f.write('[')
         f.write('('+paths[2*j][i][0] + ',' + paths[2*j][i][1] + ')')
-        f.write(',')
         f.write('('+paths[2*j+1][i][0] + ',' + paths[2*j+1][i][1] + ')')
         f.write(']')
     f.write('\n')
