@@ -1,0 +1,8 @@
+4
+p1 UCB 0,5,5,5,1,10,0,7
+p2 UCB 1,11,5,11,1,10,0.7
+p3 Thompsons 2,11,11,11,15
+p4 Thompsons 3,5,11,5,15
+2,4,6,8
+pos_deplete
+endsim
