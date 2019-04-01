@@ -52,19 +52,22 @@ class Player:
         logging.basicConfig(filename=logfile, filemode="w", level=logging.DEBUG)
 
     # TODO : Why do we have set_channel and change_setting?
-    def set_channel(self, central, width = 5): # width default set to
-        logging.debug("")
-        logging.debug("--------------------------------------------------------------------------------")
-        logging.debug("Player " + str(self.id) + " changed settings")
-        logging.debug("Previous channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
-        self.central_frequency = central
-        self.channel_width = width
+    def set_channel(self, central, width = 5, new_power=1): # width default set to
+        if central!=self.central_frequency or width!=self.channel_width:
+            self.save_setting()
+            logging.debug("")
+            logging.debug("--------------------------------------------------------------------------------")
+            logging.debug("Player " + str(self.id) + " changed settings")
+            logging.debug("Previous channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
+            self.central_frequency = central
+            self.channel_width = width
+            self.power = new_power
 
-        logging.debug("New channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
-        logging.debug("--------------------------------------------------------------------------------")
-        logging.debug("")
+            logging.debug("New channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
+            logging.debug("--------------------------------------------------------------------------------")
+            logging.debug("")
 
-        self.blocker_counter = 3
+            self.blocker_counter = 0
 
     def log_last_step(self, success):
         self.previous_successes.append(success)
@@ -88,6 +91,8 @@ class Player:
             not_blocked = 0
         self.previous_settings.append((self.power, self.central_frequency, self.channel_width, not_blocked))
 
+    # change_settings IS DEPRECATED
+    # please use set_channel
     def change_setting(self, new_central_frequency, new_channel_width = 5, new_power = 1):
         #Setting default values
         self.save_setting()
@@ -150,22 +155,25 @@ class Random(Player):
 class Thompsons(Player):
     def __init__(self, id, t_x, t_y, r_x, r_y, starting_frequency = 1005, a = 2, b = 2):
         super().__init__(id, t_x, t_y, r_x, r_y, starting_frequency)
-        self.channels = np.arange(int((self.max_frequency - self.min_frequency)/self.channel_width))
+        self.channels = np.arange(int((self.max_frequency - self.min_frequency)/(2*self.channel_width)))
         self.a = np.ones(len(self.channels))*a
         self.b = np.ones(len(self.channels))*b
         self.type = "Thompsons"
 
 
     def next_step(self, last_success, noise = 0):
-        self.log_last_step(last_success)
-        curr_index = int((self.central_frequency - self.min_frequency)/self.channel_width) - 1
-        self.update_posterior(last_prediction = curr_index,
-                             curr_s = last_success,
-                             curr_a = self.a[curr_index],
-                             curr_b = self.b[curr_index])
-        next_channel = (self.index_of_max_sample() + 1) * 5 + 1000
-        self.change_setting(new_central_frequency = next_channel)
-        self.blocker_counter = 0
+        if self.blocker_counter == 0:
+            self.log_last_step(last_success)
+            curr_index = int((self.central_frequency - self.min_frequency)/(2*self.channel_width))
+            self.update_posterior(last_prediction = curr_index,
+                                 curr_s = last_success,
+                                 curr_a = self.a[curr_index],
+                                 curr_b = self.b[curr_index])
+            next_channel = self.index_of_max_sample() * 10 + 1005
+            # self.change_setting(new_central_frequency = next_channel)
+            self.set_channel(next_channel, width=self.channel_width)
+        else:
+            self.log_last_step(last_success)
 
     def index_of_max_sample(self):
         lst = []
@@ -258,21 +266,24 @@ class CSMA(Player):
 
         if self.sleeping_counter != 0:
            self.sleeping_counter -= 1
-    def set_channel(self, central, width = 5): # width default set to
-        logging.debug("")
-        logging.debug("--------------------------------------------------------------------------------")
-        logging.debug("Player " + str(self.id) + " changed settings")
-        logging.debug("Previous channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
-        self.central_frequency = central
-        self.channel_width = width
+    def set_channel(self, central, width = 5, new_power=1): # width default set to
+        if (central!=self.central_frequency or width !=self.channel_width):
+            logging.debug("")
+            logging.debug("--------------------------------------------------------------------------------")
+            logging.debug("Player " + str(self.id) + " changed settings")
+            logging.debug("Previous channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
+            self.central_frequency = central
+            self.channel_width = width
 
-        logging.debug("New channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
-        logging.debug("--------------------------------------------------------------------------------")
-        logging.debug("")
+            logging.debug("New channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
+            logging.debug("--------------------------------------------------------------------------------")
+            logging.debug("")
+            self.save_setting()
 
-        self.sleeping_counter = 5
-        self.current_state = 1
-        self.blocker_counter = 1
+            self.sleeping_counter = 5
+            self.current_state = 1
+            self.blocker_counter = 1
+            self.power = new_power
     def change_setting(self, new_central_frequency, new_channel_width = 5, new_power = 1):
         #Setting default values
         self.save_setting()
@@ -422,9 +433,7 @@ class UCB(Player):
         central_frequency = self.min_frequency+(chosen_channel+0.5)*(self.max_frequency-self.min_frequency)*1.0/self.nb_channels
         width = (self.max_frequency-self.min_frequency)*0.5/self.nb_channels
 
-        if (central_frequency!=self.central_frequency):
-            self.set_channel(central_frequency, width=width)
-            self.blocker_counter = 3 #TODO remove this line if necessary
+        self.set_channel(central_frequency, width=width)
         self.past_predictions.append(chosen_channel)
 
 
