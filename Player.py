@@ -67,7 +67,7 @@ class Player:
             logging.debug("--------------------------------------------------------------------------------")
             logging.debug("")
 
-            self.blocker_counter = 0
+            self.blocker_counter = 4
 
     def log_last_step(self, success):
         self.previous_successes.append(success)
