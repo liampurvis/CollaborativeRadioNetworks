@@ -47,10 +47,10 @@ player_num = int(lines[line_counter][0])
 print("Player amount: %d" % player_num)
 line_counter += 1
 
-if player_num != int(poss[pos_counter][0]):
+if player_num > int(poss[pos_counter][0]):
 	sim_scenario.close()
 	pos_scenario.close()
-	raise ValueError('Player number in simulation file MUST match player number in position file')
+	raise ValueError('Player number in simulation file MUST be LESS OR EQUAL to player number in position file')
 
 pos_counter += 1
 
@@ -68,11 +68,12 @@ for i in range(line_counter, line_counter+player_num):
 
 		player_num_to_id[line_counter - 1] = current_line[0]
 	elif current_line[1] == "Random":
-		# orig_csv = current_line[2].split(",")
-		# csv = list(map(float, orig_csv[:-2]))
-		# new_player = Player.Random(*csv, bool(orig_csv[-1]))
-		# players[current_line[0]] = new_player
-		pass
+		orig_csv = current_line[2].split(",")
+		csv = list(map(float, orig_csv))
+		new_player = Player.Random(*csv)
+		players[current_line[0]] = new_player
+
+		player_num_to_id[line_counter - 1] = current_line[0]
 	elif current_line[1] == "CSMA":
 		csv = current_line[2].split(",")
 		csv = list(map(float, csv))

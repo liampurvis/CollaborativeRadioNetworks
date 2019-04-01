@@ -192,8 +192,8 @@ class env_core:
         for p in self.players:
             t_walk = np.array(p.previous_t_positions[:])
             r_walk = np.array(p.previous_r_positions[:])
-            line1 = plot.plot(t_walk[:, 0], t_walk[:, 1],'.-',label="player " + str(p.id) + " transmitter")[0]
-            line2 = plot.plot(r_walk[:, 0], r_walk[:, 1],'.-',label= "player " + str(p.id) + "reciever")[0]
+            line1 = plot.plot(t_walk[:, 0], t_walk[:, 1],'-',label="player " + str(p.id) + " transmitter")[0]
+            line2 = plot.plot(r_walk[:, 0], r_walk[:, 1],'-',label= "player " + str(p.id) + "reciever")[0]
             for i in range(r_walk.shape[0]-1):
                 xyp = (r_walk[i+1,0], r_walk[i+1, 1])
                 xyb = (r_walk[i,0], r_walk[i, 1])
