@@ -1,7 +1,7 @@
 from Player import Player
 from Player import Random
 from Player import CSMA
-from Player import Thompsons
+from Player import Thompsons, UCB
 
 from core import env_core
 import matplotlib.pyplot as plt
@@ -11,18 +11,19 @@ import numpy as np
 
 import pickle
 
+import time
+
 p1 = Thompsons(id = 1, t_x = -1, t_y = -1, r_x = 1, r_y = 1, starting_frequency = 1085)
 p2 = CSMA(id = 2, t_x = -1, t_y = -1, r_x = 1, r_y = 1, threshold_input = 1, sleeping_input = 3, aggression_prob = 1, starting_frequency = 1015)
-p3 = CSMA(id = 3, t_x = -1, t_y = -1, r_x = 1, r_y = 1, threshold_input = 1, sleeping_input = 3, aggression_prob = 1, starting_frequency = 1025)
-p4 = CSMA(id = 4, t_x = -1, t_y = -1, r_x = 1, r_y = 1, threshold_input = 1, sleeping_input = 3, aggression_prob = 1, starting_frequency = 1035)
-p5 = CSMA(id = 5, t_x = -1, t_y = -1, r_x = 1, r_y = 1, threshold_input = 1, sleeping_input = 3, aggression_prob = 1, starting_frequency = 1045)
+p3 = Random(id = 3, t_x = -1, t_y = -1, r_x = 1, r_y = 1)
+p4 = UCB(id = 4, t_x = -1, t_y = -1, r_x = 1, r_y = 1)
 
-env = env_core([p1, p2, p3, p4, p5])
+env = env_core([p1, p2, p3, p4])
+before = time.time()
+
 env.run_simulation(1000)
-env.displayResults(figsize = (10,10))
-env.save_environment()
-print(p1.a)
-print(p1.b)
+after = time.time()
+print("total simulation time:"+  str(after - before))
 
 #print(p1.previous_successes)
 
