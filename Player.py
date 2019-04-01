@@ -306,7 +306,7 @@ class CSMA(Player):
         # And we are not in listening mode before, so we don't stuck
         # in a loop
         if self.current_state == 0:
-            print("in state 0")
+            # print("in state 0")
             if success == 1:
                 pass # do nothing
             else:
@@ -320,7 +320,7 @@ class CSMA(Player):
                     self.blocker_counter = 1
 
         elif self.current_state == 1:  # if in sleeping state
-            print("in state 1")
+            # print("in state 1")
             if self.sleeping_counter > 0:
                 pass
             elif self.sleeping_counter == 0:
@@ -328,9 +328,9 @@ class CSMA(Player):
                 self.blocker_counter = 1
 
         elif self.current_state == 2:  # if in listening state
-            print("in state 2")
+            # print("in state 2")
             if noise_power > self.csma_threshold * pwr_thre:
-                print("noise too large")
+                # print("noise too large")
                 if self.sleeping_period != 0:
                     self.sleeping_counter = self.sleeping_period
                     self.current_state = 1  # change to sleeping state
@@ -338,7 +338,7 @@ class CSMA(Player):
                 else:
                     pass
             else:
-                print("noise small enough")
+                # print("noise small enough")
                 chance = random.uniform(0, 1)
                 if chance >= 1.0 - self.probability_of_aggresion:
                     self.current_state = 0

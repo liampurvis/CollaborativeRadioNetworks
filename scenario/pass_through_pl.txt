@@ -1,0 +1,7 @@
+3
+p1 CSMA 0,7,4,7,8,0.3,0,1
+p2 UCB 1,8,4,8,8,10,0.7
+p3 Thompsons 2,1,7,14,1
+2,4,6
+pos_deplete
+endsim
