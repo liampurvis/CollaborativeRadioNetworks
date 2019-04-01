@@ -84,7 +84,7 @@ def random_players():
     p1.blocker_counter = 0
     env = env_core([p0, p1, p2, p3, p4, p5])
 
-    env.run_simulation(100)
+    env.run_simulation(2000)
 
     env.players[0].displayEstimatedProbs()
     env.players[1].displayEstimatedProbs()
@@ -111,7 +111,7 @@ def csma_players():
     env.players[2].displayEstimatedProbs()
     env.displayResults()
 
-fix_player_enough_channels()
+# fix_player_enough_channels()
 # fix_player_not_enough_channels()
-# random_players()
+random_players()
 # csma_players()

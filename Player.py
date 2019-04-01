@@ -127,7 +127,7 @@ class Random(Player):
 
   probability_of_changing_channel = .5
 
-  def __init__(self, id, t_x, t_y, r_x, r_y, starting_frequency = 1005, prob = .5, random_walk = False):
+  def __init__(self, id, t_x, t_y, r_x, r_y, starting_frequency = 1005, prob = .5, random_walk = False, nb_channels=10):
       super().__init__(id, t_x, t_y, r_x, r_y, starting_frequency)
       self.probability_of_changing_channel = prob
       self.type = "Random"
