@@ -64,8 +64,7 @@ class env_core:
 
 
     def run_simulation(self, nb_steps):
-        for i in range(nb_steps*self.TIME_REFERENCE_UNIT):
-#            print(self.current_successes)
+        for _ in range(nb_steps*self.TIME_REFERENCE_UNIT):
             self.next_step()
 
     # computes the success rate for every player and asks for next step
@@ -77,24 +76,7 @@ class env_core:
         self.current_noise_powers += noise_powers
 
 
-        for i in range(self.NB_PLAYERS):
-            if self.time_references[i]==self.curr_step%self.TIME_REFERENCE_UNIT:
-                if (self.players[i].blocker_counter == 0):
-                    success = self.computeSuccess(i)
-                    noise = 0
-                else:
-                    success = 0
-                    noise = self.computeNoisePower(i)
-                self.players[i].next_step(success, noise)
-
-
-                self.current_signal_powers[i] = 0
-                self.current_noise_powers[i] = 0
-
-            # fetch freq and position for gif
-            p = self.players[i]
-            self.player_pos_record[p.id].append((p.t_x, p.t_y, p.r_x, p.r_y))
-            self.player_frq_record[p.id].append((p.central_frequency, p.channel_width))
+        np.vectorize(self.next_step_helper)(np.arange(self.NB_PLAYERS))
 
         self.curr_step += 1
 
@@ -109,6 +91,27 @@ class env_core:
     #                 self.current_successes[i] = 0
     #                 self.current_noise_powers[i] = 0
 
+    def next_step_helper(self, i):
+        if self.time_references[i]==self.curr_step%self.TIME_REFERENCE_UNIT:
+                if (self.players[i].blocker_counter == 0):
+                    success = self.computeSuccess(i)
+                    noise = 0
+                else:
+                    success = 0
+                    noise = self.computeNoisePower(i)
+                self.players[i].next_step(success, noise)
+
+
+                self.current_signal_powers[i] = 0
+                self.current_noise_powers[i] = 0
+
+            # fetch freq and position for gif
+        p = self.players[i]
+        self.player_pos_record[p.id].append((p.t_x, p.t_y, p.r_x, p.r_y))
+        self.player_frq_record[p.id].append((p.central_frequency, p.channel_width))
+
+
+
     def computeSuccess(self, i):
         if (self.current_noise_powers[i]==0) or (self.current_signal_powers[i]/self.current_noise_powers[i] > self.SNR_THRESHOLD):
             return 1
@@ -120,21 +123,23 @@ class env_core:
 
     # from a given set of settings, compute the success rate of each player
     def computePowers(self):
-        signal_power = np.zeros(self.NB_PLAYERS)
-        noise_power = np.zeros(self.NB_PLAYERS)
+        signal_power = np.vectorize(self.compute_signal_power_helper)(np.arange(self.NB_PLAYERS))
 
-        for i in range(self.NB_PLAYERS):
-            signal = float(self.players[i].power) / float(self.distSquare(i, i))
-            noise = 0
-            for j in range(self.NB_PLAYERS):
-                if j!=i and self.players[j].blocker_counter==0:
-                    noise += float(self.players[j].power*self.channel_overlap(j, i)) / float(self.distSquare(j, i))
-            # logging.debug("player " + str(self.players[i].id) + " signal " + str(signal) + \
-            #               " noise " + str(noise))
-            signal_power[i] = signal
-            noise_power[i] = noise
+        blocker_counters = np.array([self.players[i].blocker_counter for i in np.arange(self.NB_PLAYERS)])
 
+        vect = np.vectorize(self.compute_noise_power_helper)
+
+        noise_power = np.array([np.sum(vect(np.arange(self.NB_PLAYERS)[(np.arange(len(blocker_counters))!=index) & (blocker_counters == 0)],
+                                   index))
+                       for index in np.arange(self.NB_PLAYERS)])
         return (signal_power, noise_power)
+
+    def compute_signal_power_helper(self, index):
+        return float(self.players[index].power) / float(self.distSquare(index, index))
+
+    def compute_noise_power_helper(self, index, fixed):
+        return float(self.players[index].power*self.channel_overlap(index, fixed)) / float(self.distSquare(index, fixed))
+
 
     # square of the distance between transmitter i and receiver j
     def distSquare(self, i, j):
