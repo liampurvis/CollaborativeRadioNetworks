@@ -36,6 +36,9 @@ def fix_player_enough_channels():
     env.players[0].displayEstimatedProbs()
     env.players[1].displayEstimatedProbs()
     env.players[2].displayEstimatedProbs()
+    # for i in range(len(env.players[0].previous_successes)):
+    #     print(str(i) + " - " + str(env.players[0].previous_successes[i]))
+    print(env.players[0].previous_channels)
     env.displayResults()
 
 def fix_player_not_enough_channels():
@@ -108,7 +111,7 @@ def csma_players():
     env.players[2].displayEstimatedProbs()
     env.displayResults()
 
-# fix_player_enough_channels()
+fix_player_enough_channels()
 # fix_player_not_enough_channels()
-random_players()
+# random_players()
 # csma_players()

@@ -357,6 +357,9 @@ class UCB(Player):
         self.past_predictions = []
         self.past_predictions.append(0)
 
+        self.previous_channels = []
+        self.previous_rewards = []
+
         channel = np.random.randint(0, self.nb_channels)
         self.central_frequency = self.min_frequency + (self.max_frequency-self.min_frequency)*(channel+0.5)/self.nb_channels
         self.channel_width = (self.max_frequency-self.min_frequency)*0.5/self.nb_channels
@@ -377,16 +380,21 @@ class UCB(Player):
         chosen_channel = -1
         unchosen = []
         for i in range(self.nb_channels):
-            if self.past_predictions.count(i) < 1:
+            # if self.past_predictions.count(i) < 1:
+            if self.previous_channels.count(i) < 1:
                 unchosen.append(i)
         if len(unchosen)>0:
             chosen_channel = unchosen[np.random.randint(0, len(unchosen))]
+
+        # if self.blocker_counter != 0:
+        #     return
 
         #Getting parameter estimates plus confidence intervals, tuned by lambda
         if chosen_channel==-1:
             UCB_args = []
             for i in range(self.nb_channels):
-                l = [self.previous_successes[j] for j in range(len(self.past_predictions)) if self.past_predictions[j] == i] # and self.previous_settings[j][3]==1
+                # l = [self.previous_successes[j] for j in range(len(self.past_predictions)) if self.past_predictions[j] == i] # and self.previous_settings[j][3]==1
+                l = [self.previous_rewards[j] for j in range(len(self.previous_channels)) if self.previous_channels[j] == i] # and self.previous_settings[j][3]==1
                 p_est = sum(l)/len(l)
                 p_est = max(0.05, p_est) # fighting zero values which mess with confidence bounds
                 p_est = min(p_est, 0.99) # fighting one values
@@ -409,13 +417,14 @@ class UCB(Player):
                 chosen_channel = i
 
             self.previous_estimations.append(UCB_args)
+            # print("Player " + str(self.id) + " Channel " + str(chosen_channel) + ", estimated = " + str(UCB_args[chosen_channel]))
 
         central_frequency = self.min_frequency+(chosen_channel+0.5)*(self.max_frequency-self.min_frequency)*1.0/self.nb_channels
         width = (self.max_frequency-self.min_frequency)*0.5/self.nb_channels
 
         if (central_frequency!=self.central_frequency):
             self.set_channel(central_frequency, width=width)
-            self.blocker_counter = 0 #TODO remove this line if necessary
+            self.blocker_counter = 3 #TODO remove this line if necessary
         self.past_predictions.append(chosen_channel)
 
 
@@ -441,6 +450,8 @@ class UCB(Player):
         # corresponds to the current level of noise observed on the channel
         # in the < 0, success is NOT a reward. It can just be used for CSMA
         if self.blocker_counter == 0:
+            self.previous_channels.append(int((self.central_frequency-self.min_frequency)//(2*self.channel_width)))
+            self.previous_rewards.append(success)
             self.log_last_step(success)
             self.make_next_prediction()
         else:
