@@ -92,7 +92,7 @@ for i in range(line_counter, line_counter+player_num):
 		csv = current_line[2].split(",")
 		csv = list(map(float, csv))
 		# csv[5] = int(csv[5])
-		new_player = Player.UCB(*csv)
+		new_player = Player.Thompsons(*csv)
 		players[current_line[0]] = new_player
 
 		player_num_to_id[line_counter - 1] = current_line[0]
