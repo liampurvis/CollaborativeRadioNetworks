@@ -135,7 +135,7 @@ class env_core:
         return (signal_power, noise_power)
 
     def compute_signal_power_helper(self, index):
-        return float(self.players[index].power) / float(self.distSquare(index, index))
+        return float(self.players[index].power) * 2*(self.players[index].channel_width)/ float(self.distSquare(index, index))
 
     def compute_noise_power_helper(self, index, fixed):
         return float(self.players[index].power*self.channel_overlap(index, fixed)) / float(self.distSquare(index, fixed))
@@ -158,7 +158,7 @@ class env_core:
         M = max(M, m_j)
         m = min(m, M_j)
 
-        return float(M-m)/(2*self.players[i].channel_width)
+        return float(M-m)
 
     def displayCumulativeResults(self, timestamp, plot):
         #plot.figure("Cumulative Results")
@@ -249,8 +249,8 @@ class env_core:
         f3, ax3 = plt.subplots(1, 1, figsize=figsize)
         f4, ax4 = plt.subplots(1, 1, figsize=figsize)
         self.displayChannelsOverTime(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax1)
-        self.displayStepByStepResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax2)
-        self.displayLocationResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax3)
+        # self.displayStepByStepResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax2) #kind of useless for most cases
+        # self.displayLocationResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax3)
         self.displayCumulativeResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax4)
         plt.show(ax4)
 
