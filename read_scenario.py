@@ -176,7 +176,7 @@ if(loop_pos_file_flag):
 
 sim_scenario.close()
 env.displayResults()
-
+env.players[0].displayEstimatedProbs()
 
 
 
