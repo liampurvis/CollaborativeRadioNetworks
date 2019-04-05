@@ -1,12 +1,15 @@
 # location generate
 from math import pi, hypot, sin, cos, atan2, degrees
 import matplotlib.pyplot as plt
-
+import random
 
 
 
 def point(x, y, step):
     return [(x, y) for i in range(step)]
+
+def randomPoint(x, y, mag, step):
+    return [(x + mag*random.random() * cos(2*pi*random.random()), y + mag*random.random() * sin(2*pi*random.random())) for i in range(step)]
 
 
 def line(sx, sy, ex, ey, step):
@@ -14,7 +17,41 @@ def line(sx, sy, ex, ey, step):
     dify = (ey-sy)/step
     return [(sx + i*difx, sy + i*dify) for i in range(1, step+1)]
 
+def randomLine(sx, sy, ex, ey, mag, step):
+    x_dir, y_dir = ex-sx, ey-sy
+    length = (x_dir**2 + y_dir**2)**0.5
+    normalVector_x = -y_dir/length
+    normalVector_y = x_dir/length
 
+    difx = (ex-sx)/step
+    dify = (ey-sy)/step
+    return [(sx + i*difx + normalVector_x*mag*random.random(), sy + i*dify + normalVector_y*mag*random.random()) for i in range(1, step+1)]
+
+def circle(x, y, r, theta, angle, dir, step):
+    cx, cy = x - r*sin(theta), y - r*cos(theta)
+    omega = angle/step
+    re = []
+    for i in range(1, step+1):
+        if dir == 1: # clockwise
+            re.append(( cx + r*sin(theta + omega*(i)), cy + r*cos(theta + omega*(i))) )
+        else:
+            re.append(( cx + r*sin(theta - omega*(i)), cy + r*cos(theta - omega*(i))) )
+
+    return re
+
+def randomCircle(x, y, r, theta, angle, dir, mag, step):
+    cx, cy = x - r*sin(theta), y - r*cos(theta)
+    omega = angle/step
+    re = []
+    for i in range(1, step+1):
+        if dir == 1: # clockwise
+            re.append(( cx + (r+mag*random.random())*sin(theta + omega*(i)), cy + (r+mag*random.random())*cos(theta + omega*(i))) )
+        else:
+            re.append(( cx + r*mag*random.random()*sin(theta - omega*(i)), cy + r*mag*random.random()*cos(theta - omega*(i))) )
+    return re
+
+
+"""
 def norm_angle(a):
     # Normalize the angle to be between -pi and pi
     return (a+pi)%(2*pi) - pi
@@ -46,23 +83,13 @@ def arce(sx, sy, ex, ey, step, orient):
         re.append( ( x_C + r_C*sin(omega*(i) + theta_0), y_C - r_C*cos(omega*(i) + theta_0)) )
     return re
 
-def circle(x, y, r, theta, angle, dir, step):
-    cx, cy = x - r*sin(theta), y - r*cos(theta)
-    omega = angle/step
-    re = []
-    for i in range(1, step+1):
-        if dir == 1: # clockwise
-            re.append(( cx + r*sin(theta + omega*(i)), cy + r*cos(theta + omega*(i))) )
-        else:
-            re.append(( cx + r*sin(theta - omega*(i)), cy + r*cos(theta - omega*(i))) )
-
-    return re
-
-
+"""
 
 
 def myplot(paths):
     for p in paths:
         plt.plot([i[0] for i in p], [i[1] for i in p], marker=11)
+    
+    plt.legend([str(i)+"_r" if i%2==0 else str(i)+"_t" for i in range(len(paths))])
     plt.show()
 
