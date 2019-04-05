@@ -111,7 +111,85 @@ def csma_players():
     env.players[2].displayEstimatedProbs()
     env.displayResults()
 
+def fix_player_enough_channels_unaligned():
+    p0 = UCB(0, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+    p1 = UCB(1, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+    p2 = UCB(2, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+    p3 = UCB(3, -1, 0, 1, 0, nb_channels=NB_CHANNELS*2, lamda=0.7)
+
+    p3.min_frequency = 1002.5
+    p3.max_frequency  = 1102.5
+    p4 = Player(4, -1, 0, 1, 0)
+
+    p4.set_channel(1050, 30)
+    p4.blocker_counter = 0
+
+    np.random.seed()
+    env = env_core([p0, p1, p2, p3, p4])
+
+    env.run_simulation(1000)
+    print(env.computePowers())
+
+    env.players[0].displayEstimatedProbs()
+    env.players[1].displayEstimatedProbs()
+    env.players[2].displayEstimatedProbs()
+    # for i in range(len(env.players[0].previous_successes)):
+    #     print(str(i) + " - " + str(env.players[0].previous_successes[i]))
+    # print(env.players[0].previous_channels)
+    env.displayResults()
+
+def enough_players_fully_unaligned():
+    p0 = UCB(0, -1, 0, 1, 0, nb_channels=3, lamda=0.7)
+    p1 = UCB(1, -1, 0, 1, 0, nb_channels=5, lamda=0.7)
+    p2 = UCB(2, -1, 0, 1, 0, nb_channels=10, lamda=0.7)
+    p3 = UCB(3, -1, 0, 1, 0, nb_channels=13, lamda=0.7)
+    p4 = UCB(4, -1, 0, 1, 0, nb_channels=13, lamda=0.7)
+    p5 = UCB(5, -1, 0, 1, 0, nb_channels=25, lamda=0.7)
+    p6 = UCB(6, -1, 0, 1, 0, nb_channels=13, lamda=0.7)
+
+    p3.min_frequency = 1002.5
+    p3.max_frequency  = 1102.5
+    p5.min_frequency = 1001
+    p5.max_frequency = 1101
+
+    np.random.seed()
+    env = env_core([p0, p1, p2, p3, p4, p5, p6])
+
+    env.run_simulation(1000)
+    print(env.computePowers())
+
+    env.players[0].displayEstimatedProbs()
+    env.players[1].displayEstimatedProbs()
+    env.players[2].displayEstimatedProbs()
+    # for i in range(len(env.players[0].previous_successes)):
+    #     print(str(i) + " - " + str(env.players[0].previous_successes[i]))
+    # print(env.players[0].previous_channels)
+    env.displayResults()
+
+
+def debug():
+
+    p0 = Player(0, -1, 0, 1, 0)
+    p0.set_channel(1025, 25)
+
+    p1 = Player(1, -1, 0, 1, 0)
+    p1.set_channel(1050, 25)
+
+    env = env_core([p0, p1])
+
+    env.run_simulation(10)
+
+    print(env.computePowers())
+    print(env.NB_PLAYERS)
+    print(np.arange(env.NB_PLAYERS))
+
+    env.displayResults()
+
+
 # fix_player_enough_channels()
 # fix_player_not_enough_channels()
-random_players()
+# random_players()
 # csma_players()
+# fix_player_enough_channels_unaligned()
+enough_players_fully_unaligned()
+# debug()

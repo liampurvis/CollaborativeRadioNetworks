@@ -25,7 +25,7 @@ class env_core:
     current_noise_powers = []
     curr_step = 0
 
-    SNR_THRESHOLD = 1 #min SNR for success
+    SNR_THRESHOLD = 1 #min SNR for success, modified in __init__
 
     player_idlist = []
     player_pos_record = {}
@@ -53,7 +53,7 @@ class env_core:
         self.TIME_REFERENCE_UNIT = time_reference_unit
 
         self.curr_step = 0
-        self.SNR_THRESHOLD = 1
+        self.SNR_THRESHOLD = 4
 
         # self.initialization_steps()
         logging.basicConfig(filename=logfile, filemode="w", level=logging.DEBUG)
@@ -72,11 +72,15 @@ class env_core:
         logging.debug("step " + str(self.curr_step*1.0/self.TIME_REFERENCE_UNIT))
 
         (signal_powers, noise_powers) = self.computePowers()
+        # print("Signal =  " + str(signal_powers))
+        # print("Noise = " + str(noise_powers))
         self.current_signal_powers += signal_powers
+        # print("Current Signal Power = " + str(self.current_signal_powers))
         self.current_noise_powers += noise_powers
+        # print("Current Noise Power = " + str(self.current_noise_powers))
 
 
-        np.vectorize(self.next_step_helper)(np.arange(self.NB_PLAYERS))
+        np.vectorize(self.next_step_helper, otypes=[None])(np.arange(self.NB_PLAYERS))
 
         self.curr_step += 1
 
@@ -92,6 +96,7 @@ class env_core:
     #                 self.current_noise_powers[i] = 0
 
     def next_step_helper(self, i):
+        # print("Helper " + str(i))
         if self.time_references[i]==self.curr_step%self.TIME_REFERENCE_UNIT:
                 if (self.players[i].blocker_counter == 0):
                     success = self.computeSuccess(i)
@@ -113,6 +118,9 @@ class env_core:
 
 
     def computeSuccess(self, i):
+        # print("Compute Success " + str(i))
+        # print(self.current_signal_powers[i])
+        # print(self.current_signal_powers[i])
         if (self.current_noise_powers[i]==0) or (self.current_signal_powers[i]/self.current_noise_powers[i] > self.SNR_THRESHOLD):
             return 1
         else:
@@ -246,10 +254,10 @@ class env_core:
     def displayResults(self, figsize = (10,10)):
         f1, ax1 = plt.subplots(1, 1, figsize=figsize)
         f2, ax2 = plt.subplots(1, 1, figsize=figsize)
-        f3, ax3 = plt.subplots(1, 1, figsize=figsize)
+        # f3, ax3 = plt.subplots(1, 1, figsize=figsize)
         f4, ax4 = plt.subplots(1, 1, figsize=figsize)
         self.displayChannelsOverTime(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax1)
-        # self.displayStepByStepResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax2) #kind of useless for most cases
+        self.displayStepByStepResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax2) #kind of useless for most cases
         # self.displayLocationResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax3)
         self.displayCumulativeResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax4)
         plt.show(ax4)

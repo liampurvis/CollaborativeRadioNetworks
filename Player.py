@@ -406,12 +406,18 @@ class UCB(Player):
             for i in range(self.nb_channels):
                 # l = [self.previous_successes[j] for j in range(len(self.past_predictions)) if self.past_predictions[j] == i] # and self.previous_settings[j][3]==1
                 l = [self.previous_rewards[j] for j in range(len(self.previous_channels)) if self.previous_channels[j] == i] # and self.previous_settings[j][3]==1
+                l = l[-200:] #TODO reducing the number of inputs
                 p_est = sum(l)/len(l)
                 p_est = max(0.05, p_est) # fighting zero values which mess with confidence bounds
                 p_est = min(p_est, 0.99) # fighting one values
                 UCB_args.append((p_est + self.lamda * self.get_95_Binomial_CI_length(n=len(l), p_est=p_est)))
-            # choses a channel (number i) and converts it to a couple (central_frequency, width)
-            chosen_channel = int(np.argmax(UCB_args))
+
+            #if the estimated reward for the current channel is more than 1, don't switch
+            if UCB_args[self.channel()]>0.999:
+                chosen_channel = self.channel()
+            else:
+                # choses a channel (number i) and converts it to a couple (central_frequency, width)
+                chosen_channel = int(np.argmax(UCB_args))
 
             nb_results = UCB_args.count(UCB_args[chosen_channel])
             if nb_results>1: #random choice if same rewards
@@ -465,6 +471,9 @@ class UCB(Player):
             self.make_next_prediction()
         else:
             self.log_last_step(success)
+
+    def channel(self):
+        return int((self.central_frequency-self.min_frequency)/(2*self.channel_width))
 
     def displayEstimatedProbs(self):
         plt.figure()
