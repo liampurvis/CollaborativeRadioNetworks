@@ -119,7 +119,9 @@ env = env_core(players_list, time_refs = time_ref_csv)
 
 loop_pos_file_flag = False
 
-for i in range(line_counter, len(lines)):
+loopi = line_counter
+for i in range(loopi, len(lines)):
+	line_counter += 1
 	if lines[i][0] == "run":
 		pass
 		time = int(lines[i][1])
@@ -146,8 +148,18 @@ for i in range(line_counter, len(lines)):
 			sim_scenario.close()
 			raise ValueError("Unrecognized simulation command")
 
+print(lines[line_counter])
+
 if(loop_pos_file_flag):
 	while pos_counter < len(poss):
+		if lines[line_counter][0] in players:
+			if int(lines[line_counter][1]) == pos_counter-1:
+				if lines[line_counter][2] == "set_channel":
+					parameters = list(map(int, lines[line_counter][3].split(",")))
+					players[lines[line_counter][0]].set_channel(*parameters)
+					line_counter += 1
+					continue
+
 		pos_line = poss[pos_counter][0]
 		pos_line = re.findall('\[[^\]]*\]|\([^\)]*\)|\"[^\"]*\"|\S+',pos_line)
 		# print(pos_line)
@@ -176,7 +188,7 @@ if(loop_pos_file_flag):
 
 sim_scenario.close()
 env.displayResults()
-env.players[0].displayEstimatedProbs()
+# env.players[0].displayEstimatedProbs()
 
 
 
