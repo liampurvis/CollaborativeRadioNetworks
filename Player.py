@@ -49,6 +49,8 @@ class Player:
 
         self.previous_successes = list()
         self.previous_settings = list()
+
+        np.random.seed()
         logging.basicConfig(filename=logfile, filemode="w", level=logging.DEBUG)
 
     # TODO : Why do we have set_channel and change_setting?
@@ -380,6 +382,8 @@ class UCB(Player):
         self.min_frequency += offset
         self.max_frequency += offset
 
+        self.stay = 0
+
 
     def make_next_prediction(self):
         """
@@ -406,32 +410,20 @@ class UCB(Player):
 
         #Getting parameter estimates plus confidence intervals, tuned by lambda
         if chosen_channel==-1:
-            # UCB_args = []
-            # for i in range(self.nb_channels):
-            #     # l = [self.previous_successes[j] for j in range(len(self.past_predictions)) if self.past_predictions[j] == i] # and self.previous_settings[j][3]==1
-            #     l = [self.previous_rewards[j] for j in range(len(self.previous_channels)) if self.previous_channels[j] == i] # and self.previous_settings[j][3]==1
-            #     p_est = sum(l)/len(l)
-            #     p_est = max(0.05, p_est) # fighting zero values which mess with confidence bounds
-            #     p_est = min(p_est, 0.99) # fighting one values
-            #     UCB_args.append((p_est + self.lamda * self.get_95_Binomial_CI_length(n=len(l), p_est=p_est)))
             UCB_args = self.compute_UCB_args()
 
             # choses a channel (number i) and converts it to a couple (central_frequency, width)
             chosen_channel = int(np.argmax(UCB_args))
+            M = max(UCB_args)
 
-            nb_results = UCB_args.count(UCB_args[chosen_channel])
-            if nb_results>1: #random choice if same rewards
-                randomC = np.random.randint(0, nb_results)
-                ct = 0
-                for i in range(self.nb_channels):
-                    if UCB_args[i] == UCB_args[chosen_channel]:
-                        if i == self.past_predictions[-1] and UCB_args[i]!=0: #stay on same channel if it is rewarding
-                            break
-                        else:
-                            ct += 1
-                    if ct-1==randomC:
-                        break
-                chosen_channel = i
+            #if the current channel is one of the most rewarding, we stay on it
+            #if not, we choose randomly from the list of best channels
+            if (UCB_args[self.channel()] == M) and UCB_args[self.channel()]!=0:
+                chosen_channel = self.channel()
+            else:
+                possible_channels = [i for i in range(self.nb_channels) if UCB_args[i]==M]
+                randomC = np.random.randint(0, len(possible_channels))
+                chosen_channel = possible_channels[randomC]
 
             self.previous_estimations.append(UCB_args)
             # print("Player " + str(self.id) + " Channel " + str(chosen_channel) + ", estimated = " + str(UCB_args[chosen_channel]))
@@ -513,35 +505,97 @@ class UCB_thresholded(UCB):
     past_predictions = []
     def __init__(self, id, t_x, t_y, r_x, r_y, nb_channels=15, lamda=1, offset=0):
         super().__init__(id, t_x, t_y, r_x, r_y, nb_channels=nb_channels, lamda=lamda, offset=offset)
-        self.type = "UCB_thresholded"
+        self.type = "UCB_thresholded HOEFFDING"
 
     def compute_UCB_args(self):
         UCB_args = []
         for i in range(self.nb_channels):
-            # l = [self.previous_successes[j] for j in range(len(self.past_predictions)) if self.past_predictions[j] == i] # and self.previous_settings[j][3]==1
             l = [self.previous_rewards[j] for j in range(len(self.previous_channels)) if
                  self.previous_channels[j] == i]  # and self.previous_settings[j][3]==1
             p_est = sum(l) / len(l)
             p_est = max(0.05, p_est)  # fighting zero values which mess with confidence bounds
             p_est = min(p_est, 0.99)  # fighting one values
-            UCB_args.append(min((p_est + self.lamda * self.get_95_Binomial_CI_length(n=len(l), p_est=p_est)), 0.999))
+            UCB_args.append(min((p_est + self.get_upper_bound_factor(len(l), len(self.previous_channels))), 0.99))
         return UCB_args
 
-class UCB_window(UCB):
+    def get_upper_bound_factor(self, n_i, N):
+        return np.sqrt(np.log(N)/n_i)
+
+
+class UCB_thresholded2(UCB):
     past_predictions = []
-    def __init__(self, id, t_x, t_y, r_x, r_y, nb_channels=15, lamda=1, offset=0, window_size=300):
+    def __init__(self, id, t_x, t_y, r_x, r_y, nb_channels=15, lamda=1, offset=0):
         super().__init__(id, t_x, t_y, r_x, r_y, nb_channels=nb_channels, lamda=lamda, offset=offset)
-        self.type = "UCB_window"
-        self.sliding_window = window_size
+        self.type = "UCB_thresholded BINOMIAL"
 
     def compute_UCB_args(self):
         UCB_args = []
         for i in range(self.nb_channels):
-            l = [self.previous_rewards[j] for j in range(max(0,len(self.previous_channels)-self.sliding_window), len(self.previous_channels)) if self.previous_channels[j] == i]  # and self.previous_settings[j][3]==1
+            l = [self.previous_rewards[j] for j in range(len(self.previous_channels)) if
+                 self.previous_channels[j] == i]  # and self.previous_settings[j][3]==1
             p_est = sum(l) / len(l)
             p_est = max(0.05, p_est)  # fighting zero values which mess with confidence bounds
             p_est = min(p_est, 0.99)  # fighting one values
-            UCB_args.append(min((p_est + self.lamda * self.get_95_Binomial_CI_length(n=len(l), p_est=p_est)), 0.999))
+            UCB_args.append(min(p_est + self.lamda * self.get_95_Binomial_CI_length(n=len(l), p_est=p_est), 0.99))
+        return UCB_args
+
+class UCB_d(UCB_thresholded):
+    past_predictions = []
+    def __init__(self, id, t_x, t_y, r_x, r_y, nb_channels=15, lamda=1, offset=0, gamma=0.99):
+        super().__init__(id, t_x, t_y, r_x, r_y, nb_channels=nb_channels, lamda=lamda, offset=offset)
+        self.type = "UCB discounted"
+        self.gamma = gamma
+
+    def compute_UCB_args(self):
+        UCB_args = [0]*self.nb_channels
+        sum_previous_rewards_discounted = []
+        nb_previous_steps = []
+        for i in range(self.nb_channels):
+            sum_previous_rewards_discounted.append(0)
+            nb_previous_steps.append(0)
+
+        temp_gamma = self.gamma
+
+        for i in range(len(self.previous_channels)-1, -1, -1):
+            sum_previous_rewards_discounted[self.previous_channels[i]] += self.previous_rewards[i]*temp_gamma
+            nb_previous_steps[self.previous_channels[i]] += 1*temp_gamma
+            temp_gamma *= self.gamma
+
+        total_discounted_steps = sum(nb_previous_steps)
+
+        for i in range(self.nb_channels):
+            UCB_args[i] = min(sum_previous_rewards_discounted[i]/nb_previous_steps[i] + self.get_upper_bound_factor(nb_previous_steps[i], total_discounted_steps), 0.99)
+
+        return UCB_args
+
+class UCB_sw(UCB_d):
+    past_predictions = []
+    def __init__(self, id, t_x, t_y, r_x, r_y, nb_channels=15, lamda=1, offset=0, window_size=500):
+        super().__init__(id, t_x, t_y, r_x, r_y, nb_channels=nb_channels, lamda=lamda, offset=offset)
+        self.type = "UCB sliding-window"
+        self.sliding_window = window_size
+
+    def compute_UCB_args(self):
+        UCB_args = [0] * self.nb_channels
+        sum_previous_rewards_discounted = []
+        nb_previous_steps = []
+        for i in range(self.nb_channels):
+            sum_previous_rewards_discounted.append(0)
+            nb_previous_steps.append(0)
+
+        temp_gamma = self.gamma
+
+        for i in range(len(self.previous_channels) - 1, max(-1, len(self.previous_channels) - 1-self.sliding_window), -1):
+            sum_previous_rewards_discounted[self.previous_channels[i]] += self.previous_rewards[i] * temp_gamma
+            nb_previous_steps[self.previous_channels[i]] += 1 * temp_gamma
+            temp_gamma *= self.gamma
+
+        total_discounted_steps = sum(nb_previous_steps)
+
+        for i in range(self.nb_channels):
+            UCB_args[i] = min(sum_previous_rewards_discounted[i] / nb_previous_steps[i] + self.get_upper_bound_factor(
+                nb_previous_steps[i], total_discounted_steps), 0.99)
+
         return UCB_args
 
     def check_exploration_necessity(self):

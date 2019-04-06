@@ -19,19 +19,22 @@ NB_CHANNELS = 10
 
 def fix_player_enough_channels():
     p0 = UCB(0, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
-    p1 = UCB(1, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
-    p2 = UCB(2, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
-    p3 = UCB(3, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
-    p4 = Player(4, -1, 0, 1, 0)
+    p1 = UCB_thresholded(1, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+    p2 = UCB_thresholded2(2, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+    p3 = UCB_d(3, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+    p4 = UCB_sw(4, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+    p5 = Player(5, -1, 0, 1, 0)
 
-    p4.set_channel(1050, 30)
-    p4.power = 6
-    p4.blocker_counter = 0
+    p5.set_channel(1025, 25)
+    p5.power = 6
+    p5.blocker_counter = 0
 
     np.random.seed()
-    env = env_core([p0, p1, p2, p3, p4])
+    env = env_core([p0, p1, p2, p3, p4,p5])
 
     env.run_simulation(1000)
+    p5.set_channel(1075,25)
+    env.run_simulation(2000)
 
     env.players[0].displayEstimatedProbs()
     env.players[1].displayEstimatedProbs()
@@ -112,8 +115,8 @@ def csma_players():
     env.displayResults()
 
 def different_ucbs():
-    p0 = UCB(0, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
-    p1 = UCB_window(1, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+    p0 = UCB_d(0, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+    p1 = UCB_sw(1, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
     p2 = UCB_thresholded(2, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
     p3 = Player(3, -1, 0, 1, 0)
     np.random.seed()
@@ -121,11 +124,15 @@ def different_ucbs():
     p3.set_channel(1005)
 
     env = env_core([p0, p1, p2, p3])
-    env.run_simulation(3000)
+    env.run_simulation(1000)
 
-    env.players[0].displayEstimatedProbs()
-    env.players[1].displayEstimatedProbs()
-    env.players[2].displayEstimatedProbs()
+    p3.set_channel(1030,30)
+    env.run_simulation(1000)
+
+    # env.players[0].displayEstimatedProbs()
+    # env.players[1].displayEstimatedProbs()
+    # env.players[2].displayEstimatedProbs()
+    print(env.players[0].stay)
     env.displayResults()
 
 def fix_player_enough_channels_unaligned():
@@ -203,11 +210,11 @@ def debug():
     env.displayResults()
 
 
-# fix_player_enough_channels()
+fix_player_enough_channels()
 # fix_player_not_enough_channels()
 # random_players()
 # csma_players()
 # fix_player_enough_channels_unaligned()
 # enough_players_fully_unaligned()
-different_ucbs()
+# different_ucbs()
 # debug()
