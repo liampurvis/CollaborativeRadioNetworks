@@ -358,8 +358,8 @@ class CSMA(Player):
 
 class UCB(Player):
     past_predictions = []
-    def __init__(self, id, t_x, t_y, r_x, r_y, nb_channels=15, lamda=1, starting_frequency = 1005):
-        super().__init__(id, t_x, t_y, r_x, r_y, starting_frequency)
+    def __init__(self, id, t_x, t_y, r_x, r_y, nb_channels=15, lamda=1, offset=0):
+        super().__init__(id, t_x, t_y, r_x, r_y)
 
         self.type = "UCB"
         self.nb_channels = nb_channels
@@ -377,6 +377,9 @@ class UCB(Player):
 
         self.previous_estimations = []
 
+        self.min_frequency += offset
+        self.max_frequency += offset
+
 
     def make_next_prediction(self):
         """
@@ -388,36 +391,33 @@ class UCB(Player):
         -channel number to next be explored
         """
         #base case when not all channels have been explored TODO correct bug when counting explored channels
-        chosen_channel = -1
-        unchosen = []
-        for i in range(self.nb_channels):
-            # if self.past_predictions.count(i) < 1:
-            if self.previous_channels.count(i) < 1:
-                unchosen.append(i)
-        if len(unchosen)>0:
-            chosen_channel = unchosen[np.random.randint(0, len(unchosen))]
+        # chosen_channel = -1
+        # unchosen = []
+        # for i in range(self.nb_channels):
+        #     # if self.past_predictions.count(i) < 1:
+        #     if self.previous_channels.count(i) < 1:
+        #         unchosen.append(i)
+        # if len(unchosen)>0:
+        #     chosen_channel = unchosen[np.random.randint(0, len(unchosen))]
+        chosen_channel = self.check_exploration_necessity()
 
         # if self.blocker_counter != 0:
         #     return
 
         #Getting parameter estimates plus confidence intervals, tuned by lambda
         if chosen_channel==-1:
-            UCB_args = []
-            for i in range(self.nb_channels):
-                # l = [self.previous_successes[j] for j in range(len(self.past_predictions)) if self.past_predictions[j] == i] # and self.previous_settings[j][3]==1
-                l = [self.previous_rewards[j] for j in range(len(self.previous_channels)) if self.previous_channels[j] == i] # and self.previous_settings[j][3]==1
-                l = l[-200:] #TODO reducing the number of inputs
-                p_est = sum(l)/len(l)
-                p_est = max(0.05, p_est) # fighting zero values which mess with confidence bounds
-                p_est = min(p_est, 0.99) # fighting one values
-                UCB_args.append((p_est + self.lamda * self.get_95_Binomial_CI_length(n=len(l), p_est=p_est)))
+            # UCB_args = []
+            # for i in range(self.nb_channels):
+            #     # l = [self.previous_successes[j] for j in range(len(self.past_predictions)) if self.past_predictions[j] == i] # and self.previous_settings[j][3]==1
+            #     l = [self.previous_rewards[j] for j in range(len(self.previous_channels)) if self.previous_channels[j] == i] # and self.previous_settings[j][3]==1
+            #     p_est = sum(l)/len(l)
+            #     p_est = max(0.05, p_est) # fighting zero values which mess with confidence bounds
+            #     p_est = min(p_est, 0.99) # fighting one values
+            #     UCB_args.append((p_est + self.lamda * self.get_95_Binomial_CI_length(n=len(l), p_est=p_est)))
+            UCB_args = self.compute_UCB_args()
 
-            #if the estimated reward for the current channel is more than 1, don't switch
-            if UCB_args[self.channel()]>0.999:
-                chosen_channel = self.channel()
-            else:
-                # choses a channel (number i) and converts it to a couple (central_frequency, width)
-                chosen_channel = int(np.argmax(UCB_args))
+            # choses a channel (number i) and converts it to a couple (central_frequency, width)
+            chosen_channel = int(np.argmax(UCB_args))
 
             nb_results = UCB_args.count(UCB_args[chosen_channel])
             if nb_results>1: #random choice if same rewards
@@ -442,6 +442,28 @@ class UCB(Player):
         self.set_channel(central_frequency, width=width)
         self.past_predictions.append(chosen_channel)
 
+    def compute_UCB_args(self):
+        UCB_args = []
+        for i in range(self.nb_channels):
+            # l = [self.previous_successes[j] for j in range(len(self.past_predictions)) if self.past_predictions[j] == i] # and self.previous_settings[j][3]==1
+            l = [self.previous_rewards[j] for j in range(len(self.previous_channels)) if
+                 self.previous_channels[j] == i]  # and self.previous_settings[j][3]==1
+            p_est = sum(l) / len(l)
+            p_est = max(0.05, p_est)  # fighting zero values which mess with confidence bounds
+            p_est = min(p_est, 0.99)  # fighting one values
+            UCB_args.append((p_est + self.lamda * self.get_95_Binomial_CI_length(n=len(l), p_est=p_est)))
+        return UCB_args
+
+    def check_exploration_necessity(self):
+        chosen_channel = -1
+        unchosen = []
+        for i in range(self.nb_channels):
+            # if self.past_predictions.count(i) < 1:
+            if self.previous_channels.count(i) < 1:
+                unchosen.append(i)
+        if len(unchosen) > 0:
+            chosen_channel = unchosen[np.random.randint(0, len(unchosen))]
+        return chosen_channel
 
 
 
@@ -487,13 +509,48 @@ class UCB(Player):
         plt.ylabel("Estimated reward")
         plt.legend()
 
+class UCB_thresholded(UCB):
+    past_predictions = []
+    def __init__(self, id, t_x, t_y, r_x, r_y, nb_channels=15, lamda=1, offset=0):
+        super().__init__(id, t_x, t_y, r_x, r_y, nb_channels=nb_channels, lamda=lamda, offset=offset)
+        self.type = "UCB_thresholded"
 
+    def compute_UCB_args(self):
+        UCB_args = []
+        for i in range(self.nb_channels):
+            # l = [self.previous_successes[j] for j in range(len(self.past_predictions)) if self.past_predictions[j] == i] # and self.previous_settings[j][3]==1
+            l = [self.previous_rewards[j] for j in range(len(self.previous_channels)) if
+                 self.previous_channels[j] == i]  # and self.previous_settings[j][3]==1
+            p_est = sum(l) / len(l)
+            p_est = max(0.05, p_est)  # fighting zero values which mess with confidence bounds
+            p_est = min(p_est, 0.99)  # fighting one values
+            UCB_args.append(min((p_est + self.lamda * self.get_95_Binomial_CI_length(n=len(l), p_est=p_est)), 0.999))
+        return UCB_args
 
+class UCB_window(UCB):
+    past_predictions = []
+    def __init__(self, id, t_x, t_y, r_x, r_y, nb_channels=15, lamda=1, offset=0, window_size=300):
+        super().__init__(id, t_x, t_y, r_x, r_y, nb_channels=nb_channels, lamda=lamda, offset=offset)
+        self.type = "UCB_window"
+        self.sliding_window = window_size
 
+    def compute_UCB_args(self):
+        UCB_args = []
+        for i in range(self.nb_channels):
+            l = [self.previous_rewards[j] for j in range(max(0,len(self.previous_channels)-self.sliding_window), len(self.previous_channels)) if self.previous_channels[j] == i]  # and self.previous_settings[j][3]==1
+            p_est = sum(l) / len(l)
+            p_est = max(0.05, p_est)  # fighting zero values which mess with confidence bounds
+            p_est = min(p_est, 0.99)  # fighting one values
+            UCB_args.append(min((p_est + self.lamda * self.get_95_Binomial_CI_length(n=len(l), p_est=p_est)), 0.999))
+        return UCB_args
 
-
-
-
-
-
-
+    def check_exploration_necessity(self):
+        chosen_channel = -1
+        unchosen = []
+        for i in range(self.nb_channels):
+            # if self.past_predictions.count(i) < 1:
+            if self.previous_channels[-self.sliding_window:].count(i) < 1:
+                unchosen.append(i)
+        if len(unchosen) > 0:
+            chosen_channel = unchosen[np.random.randint(0, len(unchosen))]
+        return chosen_channel

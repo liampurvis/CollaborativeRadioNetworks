@@ -6,10 +6,10 @@
 DESCRIPTION
 """
 
-from Player import Player
-from Player import Random
-from Player import CSMA
-from Player import UCB
+from Player import *
+# from Player import Random
+# from Player import CSMA
+# from Player import UCB
 from core import env_core
 import matplotlib.pyplot as plt
 import numpy as np
@@ -111,6 +111,23 @@ def csma_players():
     env.players[2].displayEstimatedProbs()
     env.displayResults()
 
+def different_ucbs():
+    p0 = UCB(0, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+    p1 = UCB_window(1, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+    p2 = UCB_thresholded(2, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+    p3 = Player(3, -1, 0, 1, 0)
+    np.random.seed()
+
+    p3.set_channel(1005)
+
+    env = env_core([p0, p1, p2, p3])
+    env.run_simulation(3000)
+
+    env.players[0].displayEstimatedProbs()
+    env.players[1].displayEstimatedProbs()
+    env.players[2].displayEstimatedProbs()
+    env.displayResults()
+
 def fix_player_enough_channels_unaligned():
     p0 = UCB(0, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
     p1 = UCB(1, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
@@ -191,5 +208,6 @@ def debug():
 # random_players()
 # csma_players()
 # fix_player_enough_channels_unaligned()
-enough_players_fully_unaligned()
+# enough_players_fully_unaligned()
+different_ucbs()
 # debug()
