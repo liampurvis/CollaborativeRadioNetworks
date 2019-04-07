@@ -17,7 +17,7 @@ players = []
 
 MAX_NB_PLAYERS = 10
 NB_SIMULATIONS = 50
-NB_STEPS = [500,1000,2000]
+NB_STEPS = [2000, 5000]
 
 nb_steps_executed = 0
 
@@ -40,7 +40,7 @@ for it in NB_STEPS:
     for n in range(NB_SIMULATIONS):
         print("Simulation n°" + str(n))
         env_time_step = np.random.randint(1, 15)
-        nb_players = random.randint(2, 15)
+        nb_players = random.randint(6,9)
         time_distribution = [random.randint(0, env_time_step) for i in range(nb_players)]
         env = env_core(random.sample(players, k=nb_players), nb_steps=it, time_refs=time_distribution)
         env.TIME_REFERENCE_UNIT = env_time_step
@@ -53,4 +53,4 @@ for it in NB_STEPS:
     print("Total number of steps = " + str(nb_steps_executed))
     print("Total time = " + str(total_time) + "s")
     print("Number of time steps (from player point of view) = " + str(it))
-    print("Average time per simulation = " + str(np.trunc(total_time/NB_SIMULATIONS*it)) + "ms")
+    print("Average time per simulation = " + str(np.trunc(total_time/NB_SIMULATIONS)) + "s")
