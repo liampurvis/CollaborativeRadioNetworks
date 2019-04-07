@@ -132,8 +132,6 @@ class Player:
 
 class Random(Player):
 
-  probability_of_changing_channel = .5
-
   def __init__(self, id, t_x, t_y, r_x, r_y, starting_frequency = 1005, prob = .5, random_walk = False, nb_channels=10):
       super().__init__(id, t_x, t_y, r_x, r_y, starting_frequency)
       self.probability_of_changing_channel = prob
@@ -153,6 +151,24 @@ class Random(Player):
           # if so randmly generate new channel and switch to it.
           next_channel = np.random.randint(low = 1, high = 10)*10 + 1005
           self.change_setting(new_central_frequency = next_channel)
+
+class Random_Weights(Player):
+
+    def __init__(self, id, t_x, t_y, r_x, r_y, starting_frequency = 1005, probs = False, nb_channels=10):
+        super().__init__(id, t_x, t_y, r_x, r_y, starting_frequency)
+        if (probs == False) or (len(probs) != nb_channels):
+            if len(probs) != nb_channels:
+                print("Error, different number of weights and channels")
+            probs = np.random.uniform(nb_channels)
+
+        self.probs = probs/np.sum(probs)
+        self.nb_channels = nb_channels
+
+    def next_step(self, success, noise_power = 0): #to overwrite depending on the algorithm
+        self.log_last_step(success)
+        next_channel = np.random.choice(self.nb_channels, size = 1, p = self.probs)*2*self.channel_width + self.min_frequency + 5
+        self.change_setting(new_central_frequency = next_channel)
+        self.blocker_counter = 0
 
 class Thompsons(Player):
     def __init__(self, id, t_x, t_y, r_x, r_y, starting_frequency = 1005, a = 2, b = 2):
