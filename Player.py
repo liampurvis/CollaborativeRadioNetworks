@@ -524,22 +524,10 @@ class UCB_thresholded(UCB):
         self.get_confidence = self.get_upper_bound_factor
 
     def compute_UCB_args(self):
-        UCB_args = []
-        # for i in range(self.nb_channels):
-        #     l = [self.previous_rewards[j] for j in range(len(self.previous_channels)) if
-        #          self.previous_channels[j] == i]  # and self.previous_settings[j][3]==1
-        #     p_est = sum(l) / len(l)
-        #     p_est = max(0.05, p_est)  # fighting zero values which mess with confidence bounds
-        #     p_est = min(p_est, 0.99)  # fighting one values
-        #     UCB_args.append(min((p_est + self.get_upper_bound_factor(len(l), len(self.previous_channels))), 0.99))
         UCB_args = super().compute_UCB_args()
         for i in np.arange(self.nb_channels):
             UCB_args[i] = min(self.max_reward, UCB_args[i])
         return UCB_args
-
-    # def get_upper_bound_factor(self, n_i, N):
-    #     N = len(self.previous_channels)
-    #     return np.sqrt(np.log(N)/n_i)
 
     def get_upper_bound_factor(self, n_i, p_est=0):
         N = sum(self.channel_visits)
@@ -562,27 +550,10 @@ class UCB_d(UCB_thresholded):
         self.type = "UCB discounted"
         self.gamma = gamma
 
-    def compute_UCB_args(self):
-        UCB_args = [0]*self.nb_channels
-        sum_previous_rewards_discounted = []
-        nb_previous_steps = []
-        for i in range(self.nb_channels):
-            sum_previous_rewards_discounted.append(0)
-            nb_previous_steps.append(0)
-
-        temp_gamma = self.gamma
-
-        for i in range(len(self.previous_channels)-1, -1, -1):
-            sum_previous_rewards_discounted[self.previous_channels[i]] += self.previous_rewards[i]*temp_gamma
-            nb_previous_steps[self.previous_channels[i]] += 1*temp_gamma
-            temp_gamma *= self.gamma
-
-        total_discounted_steps = sum(nb_previous_steps)
-
-        for i in range(self.nb_channels):
-            UCB_args[i] = min(sum_previous_rewards_discounted[i]/nb_previous_steps[i] + self.get_upper_bound_factor(nb_previous_steps[i], total_discounted_steps), 0.99)
-
-        return UCB_args
+    def update_rewards(self, success):
+        self.channel_visits *= self.gamma
+        self.cum_rewards *= self.gamma
+        super().update_rewards(success)
 
 class UCB_sw(UCB_d):
     past_predictions = []
