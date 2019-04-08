@@ -1,16 +1,70 @@
 DEBUG:root:step 0.0
 DEBUG:root:step 0.1
 DEBUG:root:step 0.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.02, 1.99)   pos_rx(2.12, 2.09)   CF 1065.0   BW 5.0   result Pass
 DEBUG:root:
 DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
+DEBUG:root:Player 2.0 changed settings
+DEBUG:root:Previous channel : [1060.0;1070.0]
+DEBUG:root:New channel : [1030.0;1040.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.07, 2.12)   pos_rx(2.17, 2.22)   CF 1035.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 2.0 changed settings
+DEBUG:root:Previous channel : [1030.0;1040.0]
+DEBUG:root:New channel : [1000.0;1010.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(1.99, 5.96)   pos_rx(2.09, 6.06)   CF 1065.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 2.0 changed settings
+DEBUG:root:Previous channel : [1060.0;1070.0]
+DEBUG:root:New channel : [1090.0;1100.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.06, 6.06)   pos_rx(2.16, 6.16)   CF 1015.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 2.0 changed settings
+DEBUG:root:Previous channel : [1010.0;1020.0]
+DEBUG:root:New channel : [1020.0;1030.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.96, 6.05)   pos_rx(6.06, 6.15)   CF 1095.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 6.0 changed settings
+DEBUG:root:Previous channel : [1090.0;1100.0]
+DEBUG:root:New channel : [1020.0;1030.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(6.08, 6.1)   pos_rx(6.18, 6.2)   CF 1075.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 6.0 changed settings
+DEBUG:root:Previous channel : [1070.0;1080.0]
+DEBUG:root:New channel : [1010.0;1020.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.99, 2.02)   pos_rx(6.09, 2.12)   CF 1075.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 6.0 changed settings
+DEBUG:root:Previous channel : [1070.0;1080.0]
+DEBUG:root:New channel : [1010.0;1020.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(6.09, 1.94)   pos_rx(6.19, 2.04)   CF 1015.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 6.0 changed settings
 DEBUG:root:Previous channel : [1010.0;1020.0]
 DEBUG:root:New channel : [1070.0;1080.0]
 DEBUG:root:--------------------------------------------------------------------------------
 DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
 DEBUG:root:step 0.3
 DEBUG:root:step 0.4
 DEBUG:root:step 0.5
@@ -21,9 +75,14 @@ DEBUG:root:step 0.9
 DEBUG:root:step 1.0
 DEBUG:root:step 1.1
 DEBUG:root:step 1.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(1.98, 2.06)   pos_rx(2.08, 2.16)   CF 1035.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.1, 2.18)   pos_rx(2.2, 2.28)   CF 1005.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.06, 5.99)   pos_rx(2.16, 6.09)   CF 1095.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.16, 6.11)   pos_rx(2.26, 6.21)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(6.01, 5.93)   pos_rx(6.11, 6.03)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(6.1, 6.05)   pos_rx(6.2, 6.15)   CF 1015.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.96, 1.99)   pos_rx(6.06, 2.09)   CF 1015.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(6.07, 2.08)   pos_rx(6.17, 2.18)   CF 1075.0   BW 5.0   result Fail
 DEBUG:root:step 1.3
 DEBUG:root:step 1.4
 DEBUG:root:step 1.5
@@ -34,16 +93,14 @@ DEBUG:root:step 1.9
 DEBUG:root:step 2.0
 DEBUG:root:step 2.1
 DEBUG:root:step 2.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1070.0;1080.0]
-DEBUG:root:New channel : [1060.0;1070.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.02, 2.05)   pos_rx(2.12, 2.15)   CF 1035.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.07, 2.18)   pos_rx(2.17, 2.28)   CF 1005.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.09, 5.99)   pos_rx(2.19, 6.09)   CF 1095.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.18, 6.06)   pos_rx(2.28, 6.16)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(6.03, 5.91)   pos_rx(6.13, 6.01)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(6.09, 6.0)   pos_rx(6.19, 6.1)   CF 1015.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.9, 2.03)   pos_rx(6.0, 2.13)   CF 1015.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(6.0, 2.07)   pos_rx(6.1, 2.17)   CF 1075.0   BW 5.0   result Fail
 DEBUG:root:step 2.3
 DEBUG:root:step 2.4
 DEBUG:root:step 2.5
@@ -54,9 +111,14 @@ DEBUG:root:step 2.9
 DEBUG:root:step 3.0
 DEBUG:root:step 3.1
 DEBUG:root:step 3.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.0, 2.11)   pos_rx(2.1, 2.21)   CF 1035.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.15, 2.17)   pos_rx(2.25, 2.27)   CF 1005.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.07, 5.96)   pos_rx(2.17, 6.06)   CF 1095.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.21, 6.1)   pos_rx(2.31, 6.2)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.95, 5.9)   pos_rx(6.05, 6.0)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(6.07, 5.97)   pos_rx(6.17, 6.07)   CF 1015.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.93, 2.03)   pos_rx(6.03, 2.13)   CF 1015.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(6.02, 2.11)   pos_rx(6.12, 2.21)   CF 1075.0   BW 5.0   result Fail
 DEBUG:root:step 3.3
 DEBUG:root:step 3.4
 DEBUG:root:step 3.5
@@ -67,9 +129,14 @@ DEBUG:root:step 3.9
 DEBUG:root:step 4.0
 DEBUG:root:step 4.1
 DEBUG:root:step 4.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.07, 2.14)   pos_rx(2.17, 2.24)   CF 1035.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.15, 2.23)   pos_rx(2.25, 2.33)   CF 1005.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.13, 5.96)   pos_rx(2.23, 6.06)   CF 1095.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.22, 6.03)   pos_rx(2.32, 6.13)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.96, 5.9)   pos_rx(6.06, 6.0)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(6.02, 6.0)   pos_rx(6.12, 6.1)   CF 1015.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.89, 2.01)   pos_rx(5.99, 2.11)   CF 1015.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.98, 2.14)   pos_rx(6.08, 2.24)   CF 1075.0   BW 5.0   result Fail
 DEBUG:root:step 4.3
 DEBUG:root:step 4.4
 DEBUG:root:step 4.5
@@ -80,16 +147,70 @@ DEBUG:root:step 4.9
 DEBUG:root:step 5.0
 DEBUG:root:step 5.1
 DEBUG:root:step 5.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.06, 2.15)   pos_rx(2.16, 2.25)   CF 1035.0   BW 5.0   result Pass
 DEBUG:root:
 DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1060.0;1070.0]
+DEBUG:root:Player 2.0 changed settings
+DEBUG:root:Previous channel : [1030.0;1040.0]
+DEBUG:root:New channel : [1090.0;1100.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.17, 2.22)   pos_rx(2.27, 2.32)   CF 1005.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 2.0 changed settings
+DEBUG:root:Previous channel : [1000.0;1010.0]
+DEBUG:root:New channel : [1010.0;1020.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.12, 5.94)   pos_rx(2.22, 6.04)   CF 1095.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 2.0 changed settings
+DEBUG:root:Previous channel : [1090.0;1100.0]
+DEBUG:root:New channel : [1080.0;1090.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.22, 6.03)   pos_rx(2.32, 6.13)   CF 1025.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 2.0 changed settings
+DEBUG:root:Previous channel : [1020.0;1030.0]
+DEBUG:root:New channel : [1090.0;1100.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.91, 5.87)   pos_rx(6.01, 5.97)   CF 1025.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 6.0 changed settings
+DEBUG:root:Previous channel : [1020.0;1030.0]
+DEBUG:root:New channel : [1050.0;1060.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(6.05, 5.93)   pos_rx(6.15, 6.03)   CF 1015.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 6.0 changed settings
+DEBUG:root:Previous channel : [1010.0;1020.0]
+DEBUG:root:New channel : [1050.0;1060.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.89, 2.04)   pos_rx(5.99, 2.14)   CF 1015.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 6.0 changed settings
+DEBUG:root:Previous channel : [1010.0;1020.0]
 DEBUG:root:New channel : [1020.0;1030.0]
 DEBUG:root:--------------------------------------------------------------------------------
 DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.95, 2.14)   pos_rx(6.05, 2.24)   CF 1075.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 6.0 changed settings
+DEBUG:root:Previous channel : [1070.0;1080.0]
+DEBUG:root:New channel : [1030.0;1040.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
 DEBUG:root:step 5.3
 DEBUG:root:step 5.4
 DEBUG:root:step 5.5
@@ -100,9 +221,14 @@ DEBUG:root:step 5.9
 DEBUG:root:step 6.0
 DEBUG:root:step 6.1
 DEBUG:root:step 6.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.05, 2.12)   pos_rx(2.15, 2.22)   CF 1095.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.21, 2.22)   pos_rx(2.31, 2.32)   CF 1015.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.14, 5.95)   pos_rx(2.24, 6.05)   CF 1085.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.25, 6.01)   pos_rx(2.35, 6.11)   CF 1095.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.9, 5.85)   pos_rx(6.0, 5.95)   CF 1055.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(6.02, 5.91)   pos_rx(6.12, 6.01)   CF 1055.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.86, 2.07)   pos_rx(5.96, 2.17)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.95, 2.21)   pos_rx(6.05, 2.31)   CF 1035.0   BW 5.0   result Fail
 DEBUG:root:step 6.3
 DEBUG:root:step 6.4
 DEBUG:root:step 6.5
@@ -113,16 +239,14 @@ DEBUG:root:step 6.9
 DEBUG:root:step 7.0
 DEBUG:root:step 7.1
 DEBUG:root:step 7.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1020.0;1030.0]
-DEBUG:root:New channel : [1030.0;1040.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.12, 2.14)   pos_rx(2.22, 2.24)   CF 1095.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.2, 2.25)   pos_rx(2.3, 2.35)   CF 1015.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.15, 5.88)   pos_rx(2.25, 5.98)   CF 1085.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.29, 5.99)   pos_rx(2.39, 6.09)   CF 1095.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.9, 5.79)   pos_rx(6.0, 5.89)   CF 1055.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.96, 5.9)   pos_rx(6.06, 6.0)   CF 1055.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.8, 2.1)   pos_rx(5.9, 2.2)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.92, 2.17)   pos_rx(6.02, 2.27)   CF 1035.0   BW 5.0   result Fail
 DEBUG:root:step 7.3
 DEBUG:root:step 7.4
 DEBUG:root:step 7.5
@@ -133,9 +257,14 @@ DEBUG:root:step 7.9
 DEBUG:root:step 8.0
 DEBUG:root:step 8.1
 DEBUG:root:step 8.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.1, 2.17)   pos_rx(2.2, 2.27)   CF 1095.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.22, 2.32)   pos_rx(2.32, 2.42)   CF 1015.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.2, 5.91)   pos_rx(2.3, 6.01)   CF 1085.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.26, 5.99)   pos_rx(2.36, 6.09)   CF 1095.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.85, 5.8)   pos_rx(5.95, 5.9)   CF 1055.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.97, 5.87)   pos_rx(6.07, 5.97)   CF 1055.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.78, 2.14)   pos_rx(5.88, 2.24)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.87, 2.24)   pos_rx(5.97, 2.34)   CF 1035.0   BW 5.0   result Fail
 DEBUG:root:step 8.3
 DEBUG:root:step 8.4
 DEBUG:root:step 8.5
@@ -146,9 +275,14 @@ DEBUG:root:step 8.9
 DEBUG:root:step 9.0
 DEBUG:root:step 9.1
 DEBUG:root:step 9.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.16, 2.21)   pos_rx(2.26, 2.31)   CF 1095.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.26, 2.35)   pos_rx(2.36, 2.45)   CF 1015.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.19, 5.86)   pos_rx(2.29, 5.96)   CF 1085.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.33, 5.95)   pos_rx(2.43, 6.05)   CF 1095.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.84, 5.81)   pos_rx(5.94, 5.91)   CF 1055.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.94, 5.86)   pos_rx(6.04, 5.96)   CF 1055.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.78, 2.15)   pos_rx(5.88, 2.25)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.89, 2.22)   pos_rx(5.99, 2.32)   CF 1035.0   BW 5.0   result Fail
 DEBUG:root:step 9.3
 DEBUG:root:step 9.4
 DEBUG:root:step 9.5
@@ -159,16 +293,70 @@ DEBUG:root:step 9.9
 DEBUG:root:step 10.0
 DEBUG:root:step 10.1
 DEBUG:root:step 10.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.17, 2.23)   pos_rx(2.27, 2.33)   CF 1095.0   BW 5.0   result Pass
 DEBUG:root:
 DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
+DEBUG:root:Player 2.0 changed settings
+DEBUG:root:Previous channel : [1090.0;1100.0]
+DEBUG:root:New channel : [1040.0;1050.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.29, 2.34)   pos_rx(2.39, 2.44)   CF 1015.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 2.0 changed settings
+DEBUG:root:Previous channel : [1010.0;1020.0]
+DEBUG:root:New channel : [1040.0;1050.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.27, 5.85)   pos_rx(2.37, 5.95)   CF 1085.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 2.0 changed settings
+DEBUG:root:Previous channel : [1080.0;1090.0]
+DEBUG:root:New channel : [1040.0;1050.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.34, 5.93)   pos_rx(2.44, 6.03)   CF 1095.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 2.0 changed settings
+DEBUG:root:Previous channel : [1090.0;1100.0]
+DEBUG:root:New channel : [1080.0;1090.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.87, 5.79)   pos_rx(5.97, 5.89)   CF 1055.0   BW 5.0   result Fail
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 6.0 changed settings
+DEBUG:root:Previous channel : [1050.0;1060.0]
+DEBUG:root:New channel : [1000.0;1010.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.94, 5.86)   pos_rx(6.04, 5.96)   CF 1055.0   BW 5.0   result Fail
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 6.0 changed settings
+DEBUG:root:Previous channel : [1050.0;1060.0]
+DEBUG:root:New channel : [1040.0;1050.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.79, 2.19)   pos_rx(5.89, 2.29)   CF 1025.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 6.0 changed settings
+DEBUG:root:Previous channel : [1020.0;1030.0]
+DEBUG:root:New channel : [1040.0;1050.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.86, 2.26)   pos_rx(5.96, 2.36)   CF 1035.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 6.0 changed settings
 DEBUG:root:Previous channel : [1030.0;1040.0]
-DEBUG:root:New channel : [1090.0;1100.0]
+DEBUG:root:New channel : [1080.0;1090.0]
 DEBUG:root:--------------------------------------------------------------------------------
 DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
 DEBUG:root:step 10.3
 DEBUG:root:step 10.4
 DEBUG:root:step 10.5
@@ -179,9 +367,14 @@ DEBUG:root:step 10.9
 DEBUG:root:step 11.0
 DEBUG:root:step 11.1
 DEBUG:root:step 11.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.18, 2.26)   pos_rx(2.28, 2.36)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.29, 2.36)   pos_rx(2.39, 2.46)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.25, 5.82)   pos_rx(2.35, 5.92)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.33, 5.89)   pos_rx(2.43, 5.99)   CF 1085.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.81, 5.72)   pos_rx(5.91, 5.82)   CF 1005.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.91, 5.82)   pos_rx(6.01, 5.92)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.74, 2.17)   pos_rx(5.84, 2.27)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.83, 2.24)   pos_rx(5.93, 2.34)   CF 1085.0   BW 5.0   result Fail
 DEBUG:root:step 11.3
 DEBUG:root:step 11.4
 DEBUG:root:step 11.5
@@ -192,16 +385,14 @@ DEBUG:root:step 11.9
 DEBUG:root:step 12.0
 DEBUG:root:step 12.1
 DEBUG:root:step 12.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1090.0;1100.0]
-DEBUG:root:New channel : [1040.0;1050.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.24, 2.24)   pos_rx(2.34, 2.34)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.33, 2.35)   pos_rx(2.43, 2.45)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.28, 5.81)   pos_rx(2.38, 5.91)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.37, 5.86)   pos_rx(2.47, 5.96)   CF 1085.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.77, 5.73)   pos_rx(5.87, 5.83)   CF 1005.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.9, 5.8)   pos_rx(6.0, 5.9)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.73, 2.2)   pos_rx(5.83, 2.3)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.84, 2.28)   pos_rx(5.94, 2.38)   CF 1085.0   BW 5.0   result Fail
 DEBUG:root:step 12.3
 DEBUG:root:step 12.4
 DEBUG:root:step 12.5
@@ -212,9 +403,14 @@ DEBUG:root:step 12.9
 DEBUG:root:step 13.0
 DEBUG:root:step 13.1
 DEBUG:root:step 13.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.21, 2.29)   pos_rx(2.31, 2.39)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.34, 2.37)   pos_rx(2.44, 2.47)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.32, 5.75)   pos_rx(2.42, 5.85)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.4, 5.89)   pos_rx(2.5, 5.99)   CF 1085.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.77, 5.71)   pos_rx(5.87, 5.81)   CF 1005.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.89, 5.81)   pos_rx(5.99, 5.91)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.68, 2.25)   pos_rx(5.78, 2.35)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.77, 2.3)   pos_rx(5.87, 2.4)   CF 1085.0   BW 5.0   result Fail
 DEBUG:root:step 13.3
 DEBUG:root:step 13.4
 DEBUG:root:step 13.5
@@ -225,9 +421,14 @@ DEBUG:root:step 13.9
 DEBUG:root:step 14.0
 DEBUG:root:step 14.1
 DEBUG:root:step 14.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.27, 2.33)   pos_rx(2.37, 2.43)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.32, 2.43)   pos_rx(2.42, 2.53)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.34, 5.72)   pos_rx(2.44, 5.82)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.42, 5.87)   pos_rx(2.52, 5.97)   CF 1085.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.77, 5.7)   pos_rx(5.87, 5.8)   CF 1005.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.87, 5.78)   pos_rx(5.97, 5.88)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.67, 2.23)   pos_rx(5.77, 2.33)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.8, 2.31)   pos_rx(5.9, 2.41)   CF 1085.0   BW 5.0   result Fail
 DEBUG:root:step 14.3
 DEBUG:root:step 14.4
 DEBUG:root:step 14.5
@@ -238,16 +439,70 @@ DEBUG:root:step 14.9
 DEBUG:root:step 15.0
 DEBUG:root:step 15.1
 DEBUG:root:step 15.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.27, 2.36)   pos_rx(2.37, 2.46)   CF 1045.0   BW 5.0   result Fail
 DEBUG:root:
 DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
+DEBUG:root:Player 2.0 changed settings
+DEBUG:root:Previous channel : [1040.0;1050.0]
+DEBUG:root:New channel : [1020.0;1030.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.33, 2.41)   pos_rx(2.43, 2.51)   CF 1045.0   BW 5.0   result Fail
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 2.0 changed settings
+DEBUG:root:Previous channel : [1040.0;1050.0]
+DEBUG:root:New channel : [1020.0;1030.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.31, 5.7)   pos_rx(2.41, 5.8)   CF 1045.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 2.0 changed settings
+DEBUG:root:Previous channel : [1040.0;1050.0]
+DEBUG:root:New channel : [1050.0;1060.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.4, 5.81)   pos_rx(2.5, 5.91)   CF 1085.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 2.0 changed settings
+DEBUG:root:Previous channel : [1080.0;1090.0]
+DEBUG:root:New channel : [1070.0;1080.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.7, 5.68)   pos_rx(5.8, 5.78)   CF 1005.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 6.0 changed settings
+DEBUG:root:Previous channel : [1000.0;1010.0]
+DEBUG:root:New channel : [1030.0;1040.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.81, 5.74)   pos_rx(5.91, 5.84)   CF 1045.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 6.0 changed settings
+DEBUG:root:Previous channel : [1040.0;1050.0]
+DEBUG:root:New channel : [1030.0;1040.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.65, 2.23)   pos_rx(5.75, 2.33)   CF 1045.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 6.0 changed settings
 DEBUG:root:Previous channel : [1040.0;1050.0]
 DEBUG:root:New channel : [1080.0;1090.0]
 DEBUG:root:--------------------------------------------------------------------------------
 DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.77, 2.37)   pos_rx(5.87, 2.47)   CF 1085.0   BW 5.0   result Pass
+DEBUG:root:
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:Player 6.0 changed settings
+DEBUG:root:Previous channel : [1080.0;1090.0]
+DEBUG:root:New channel : [1040.0;1050.0]
+DEBUG:root:--------------------------------------------------------------------------------
+DEBUG:root:
 DEBUG:root:step 15.3
 DEBUG:root:step 15.4
 DEBUG:root:step 15.5
@@ -258,9 +513,14 @@ DEBUG:root:step 15.9
 DEBUG:root:step 16.0
 DEBUG:root:step 16.1
 DEBUG:root:step 16.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.25, 2.37)   pos_rx(2.35, 2.47)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.37, 2.44)   pos_rx(2.47, 2.54)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.35, 5.68)   pos_rx(2.45, 5.78)   CF 1055.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.43, 5.77)   pos_rx(2.53, 5.87)   CF 1075.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.73, 5.65)   pos_rx(5.83, 5.75)   CF 1035.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.77, 5.74)   pos_rx(5.87, 5.84)   CF 1035.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.63, 2.25)   pos_rx(5.73, 2.35)   CF 1085.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.74, 2.4)   pos_rx(5.84, 2.5)   CF 1045.0   BW 5.0   result Fail
 DEBUG:root:step 16.3
 DEBUG:root:step 16.4
 DEBUG:root:step 16.5
@@ -271,16 +531,14 @@ DEBUG:root:step 16.9
 DEBUG:root:step 17.0
 DEBUG:root:step 17.1
 DEBUG:root:step 17.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1080.0;1090.0]
-DEBUG:root:New channel : [1050.0;1060.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.33, 2.4)   pos_rx(2.43, 2.5)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.43, 2.47)   pos_rx(2.53, 2.57)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.36, 5.67)   pos_rx(2.46, 5.77)   CF 1055.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.45, 5.79)   pos_rx(2.55, 5.89)   CF 1075.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.71, 5.62)   pos_rx(5.81, 5.72)   CF 1035.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.81, 5.69)   pos_rx(5.91, 5.79)   CF 1035.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.63, 2.31)   pos_rx(5.73, 2.41)   CF 1085.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.68, 2.4)   pos_rx(5.78, 2.5)   CF 1045.0   BW 5.0   result Fail
 DEBUG:root:step 17.3
 DEBUG:root:step 17.4
 DEBUG:root:step 17.5
@@ -291,9 +549,14 @@ DEBUG:root:step 17.9
 DEBUG:root:step 18.0
 DEBUG:root:step 18.1
 DEBUG:root:step 18.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.35, 2.38)   pos_rx(2.45, 2.48)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.45, 2.52)   pos_rx(2.55, 2.62)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.39, 5.71)   pos_rx(2.49, 5.81)   CF 1055.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.44, 5.78)   pos_rx(2.54, 5.88)   CF 1075.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.67, 5.6)   pos_rx(5.77, 5.7)   CF 1035.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.77, 5.69)   pos_rx(5.87, 5.79)   CF 1035.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.61, 2.34)   pos_rx(5.71, 2.44)   CF 1085.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.71, 2.39)   pos_rx(5.81, 2.49)   CF 1045.0   BW 5.0   result Fail
 DEBUG:root:step 18.3
 DEBUG:root:step 18.4
 DEBUG:root:step 18.5
@@ -304,9 +567,14 @@ DEBUG:root:step 18.9
 DEBUG:root:step 19.0
 DEBUG:root:step 19.1
 DEBUG:root:step 19.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.37, 2.39)   pos_rx(2.47, 2.49)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.48, 2.51)   pos_rx(2.58, 2.61)   CF 1025.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.42, 5.63)   pos_rx(2.52, 5.73)   CF 1055.0   BW 5.0   result Fail
+DEBUG:root:Player  2.0   Type  UCB   pos_tx(2.47, 5.76)   pos_rx(2.57, 5.86)   CF 1075.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.67, 5.58)   pos_rx(5.77, 5.68)   CF 1035.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.71, 5.64)   pos_rx(5.81, 5.74)   CF 1035.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.59, 2.33)   pos_rx(5.69, 2.43)   CF 1085.0   BW 5.0   result Fail
+DEBUG:root:Player  6.0   Type  UCB   pos_tx(5.66, 2.44)   pos_rx(5.76, 2.54)   CF 1045.0   BW 5.0   result Fail
 DEBUG:root:step 19.3
 DEBUG:root:step 19.4
 DEBUG:root:step 19.5
@@ -315,2849 +583,3 @@ DEBUG:root:step 19.7
 DEBUG:root:step 19.8
 DEBUG:root:step 19.9
 DEBUG:root:step 20.0
-DEBUG:root:step 20.1
-DEBUG:root:step 20.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1050.0;1060.0]
-DEBUG:root:New channel : [1000.0;1010.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1005.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 20.3
-DEBUG:root:step 20.4
-DEBUG:root:step 20.5
-DEBUG:root:step 20.6
-DEBUG:root:step 20.7
-DEBUG:root:step 20.8
-DEBUG:root:step 20.9
-DEBUG:root:step 21.0
-DEBUG:root:step 21.1
-DEBUG:root:step 21.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1005.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1005.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 21.3
-DEBUG:root:step 21.4
-DEBUG:root:step 21.5
-DEBUG:root:step 21.6
-DEBUG:root:step 21.7
-DEBUG:root:step 21.8
-DEBUG:root:step 21.9
-DEBUG:root:step 22.0
-DEBUG:root:step 22.1
-DEBUG:root:step 22.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1005.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1005.0   BW 5.0   result Pass
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 22.3
-DEBUG:root:step 22.4
-DEBUG:root:step 22.5
-DEBUG:root:step 22.6
-DEBUG:root:step 22.7
-DEBUG:root:step 22.8
-DEBUG:root:step 22.9
-DEBUG:root:step 23.0
-DEBUG:root:step 23.1
-DEBUG:root:step 23.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1005.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1005.0   BW 5.0   result Pass
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 23.3
-DEBUG:root:step 23.4
-DEBUG:root:step 23.5
-DEBUG:root:step 23.6
-DEBUG:root:step 23.7
-DEBUG:root:step 23.8
-DEBUG:root:step 23.9
-DEBUG:root:step 24.0
-DEBUG:root:step 24.1
-DEBUG:root:step 24.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1005.0   BW 5.0   result Fail
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1000.0;1010.0]
-DEBUG:root:New channel : [1070.0;1080.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 24.3
-DEBUG:root:step 24.4
-DEBUG:root:step 24.5
-DEBUG:root:step 24.6
-DEBUG:root:step 24.7
-DEBUG:root:step 24.8
-DEBUG:root:step 24.9
-DEBUG:root:step 25.0
-DEBUG:root:step 25.1
-DEBUG:root:step 25.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 25.3
-DEBUG:root:step 25.4
-DEBUG:root:step 25.5
-DEBUG:root:step 25.6
-DEBUG:root:step 25.7
-DEBUG:root:step 25.8
-DEBUG:root:step 25.9
-DEBUG:root:step 26.0
-DEBUG:root:step 26.1
-DEBUG:root:step 26.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1070.0;1080.0]
-DEBUG:root:New channel : [1060.0;1070.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 26.3
-DEBUG:root:step 26.4
-DEBUG:root:step 26.5
-DEBUG:root:step 26.6
-DEBUG:root:step 26.7
-DEBUG:root:step 26.8
-DEBUG:root:step 26.9
-DEBUG:root:step 27.0
-DEBUG:root:step 27.1
-DEBUG:root:step 27.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 27.3
-DEBUG:root:step 27.4
-DEBUG:root:step 27.5
-DEBUG:root:step 27.6
-DEBUG:root:step 27.7
-DEBUG:root:step 27.8
-DEBUG:root:step 27.9
-DEBUG:root:step 28.0
-DEBUG:root:step 28.1
-DEBUG:root:step 28.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 28.3
-DEBUG:root:step 28.4
-DEBUG:root:step 28.5
-DEBUG:root:step 28.6
-DEBUG:root:step 28.7
-DEBUG:root:step 28.8
-DEBUG:root:step 28.9
-DEBUG:root:step 29.0
-DEBUG:root:step 29.1
-DEBUG:root:step 29.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1060.0;1070.0]
-DEBUG:root:New channel : [1040.0;1050.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 29.3
-DEBUG:root:step 29.4
-DEBUG:root:step 29.5
-DEBUG:root:step 29.6
-DEBUG:root:step 29.7
-DEBUG:root:step 29.8
-DEBUG:root:step 29.9
-DEBUG:root:step 30.0
-DEBUG:root:step 30.1
-DEBUG:root:step 30.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 30.3
-DEBUG:root:step 30.4
-DEBUG:root:step 30.5
-DEBUG:root:step 30.6
-DEBUG:root:step 30.7
-DEBUG:root:step 30.8
-DEBUG:root:step 30.9
-DEBUG:root:step 31.0
-DEBUG:root:step 31.1
-DEBUG:root:step 31.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1040.0;1050.0]
-DEBUG:root:New channel : [1090.0;1100.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 31.3
-DEBUG:root:step 31.4
-DEBUG:root:step 31.5
-DEBUG:root:step 31.6
-DEBUG:root:step 31.7
-DEBUG:root:step 31.8
-DEBUG:root:step 31.9
-DEBUG:root:step 32.0
-DEBUG:root:step 32.1
-DEBUG:root:step 32.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 32.3
-DEBUG:root:step 32.4
-DEBUG:root:step 32.5
-DEBUG:root:step 32.6
-DEBUG:root:step 32.7
-DEBUG:root:step 32.8
-DEBUG:root:step 32.9
-DEBUG:root:step 33.0
-DEBUG:root:step 33.1
-DEBUG:root:step 33.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 33.3
-DEBUG:root:step 33.4
-DEBUG:root:step 33.5
-DEBUG:root:step 33.6
-DEBUG:root:step 33.7
-DEBUG:root:step 33.8
-DEBUG:root:step 33.9
-DEBUG:root:step 34.0
-DEBUG:root:step 34.1
-DEBUG:root:step 34.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1090.0;1100.0]
-DEBUG:root:New channel : [1030.0;1040.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 34.3
-DEBUG:root:step 34.4
-DEBUG:root:step 34.5
-DEBUG:root:step 34.6
-DEBUG:root:step 34.7
-DEBUG:root:step 34.8
-DEBUG:root:step 34.9
-DEBUG:root:step 35.0
-DEBUG:root:step 35.1
-DEBUG:root:step 35.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 35.3
-DEBUG:root:step 35.4
-DEBUG:root:step 35.5
-DEBUG:root:step 35.6
-DEBUG:root:step 35.7
-DEBUG:root:step 35.8
-DEBUG:root:step 35.9
-DEBUG:root:step 36.0
-DEBUG:root:step 36.1
-DEBUG:root:step 36.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1030.0;1040.0]
-DEBUG:root:New channel : [1050.0;1060.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 36.3
-DEBUG:root:step 36.4
-DEBUG:root:step 36.5
-DEBUG:root:step 36.6
-DEBUG:root:step 36.7
-DEBUG:root:step 36.8
-DEBUG:root:step 36.9
-DEBUG:root:step 37.0
-DEBUG:root:step 37.1
-DEBUG:root:step 37.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 37.3
-DEBUG:root:step 37.4
-DEBUG:root:step 37.5
-DEBUG:root:step 37.6
-DEBUG:root:step 37.7
-DEBUG:root:step 37.8
-DEBUG:root:step 37.9
-DEBUG:root:step 38.0
-DEBUG:root:step 38.1
-DEBUG:root:step 38.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 38.3
-DEBUG:root:step 38.4
-DEBUG:root:step 38.5
-DEBUG:root:step 38.6
-DEBUG:root:step 38.7
-DEBUG:root:step 38.8
-DEBUG:root:step 38.9
-DEBUG:root:step 39.0
-DEBUG:root:step 39.1
-DEBUG:root:step 39.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1050.0;1060.0]
-DEBUG:root:New channel : [1010.0;1020.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 39.3
-DEBUG:root:step 39.4
-DEBUG:root:step 39.5
-DEBUG:root:step 39.6
-DEBUG:root:step 39.7
-DEBUG:root:step 39.8
-DEBUG:root:step 39.9
-DEBUG:root:step 40.0
-DEBUG:root:step 40.1
-DEBUG:root:step 40.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 40.3
-DEBUG:root:step 40.4
-DEBUG:root:step 40.5
-DEBUG:root:step 40.6
-DEBUG:root:step 40.7
-DEBUG:root:step 40.8
-DEBUG:root:step 40.9
-DEBUG:root:step 41.0
-DEBUG:root:step 41.1
-DEBUG:root:step 41.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1010.0;1020.0]
-DEBUG:root:New channel : [1080.0;1090.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 41.3
-DEBUG:root:step 41.4
-DEBUG:root:step 41.5
-DEBUG:root:step 41.6
-DEBUG:root:step 41.7
-DEBUG:root:step 41.8
-DEBUG:root:step 41.9
-DEBUG:root:step 42.0
-DEBUG:root:step 42.1
-DEBUG:root:step 42.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 42.3
-DEBUG:root:step 42.4
-DEBUG:root:step 42.5
-DEBUG:root:step 42.6
-DEBUG:root:step 42.7
-DEBUG:root:step 42.8
-DEBUG:root:step 42.9
-DEBUG:root:step 43.0
-DEBUG:root:step 43.1
-DEBUG:root:step 43.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 43.3
-DEBUG:root:step 43.4
-DEBUG:root:step 43.5
-DEBUG:root:step 43.6
-DEBUG:root:step 43.7
-DEBUG:root:step 43.8
-DEBUG:root:step 43.9
-DEBUG:root:step 44.0
-DEBUG:root:step 44.1
-DEBUG:root:step 44.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1080.0;1090.0]
-DEBUG:root:New channel : [1020.0;1030.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 44.3
-DEBUG:root:step 44.4
-DEBUG:root:step 44.5
-DEBUG:root:step 44.6
-DEBUG:root:step 44.7
-DEBUG:root:step 44.8
-DEBUG:root:step 44.9
-DEBUG:root:step 45.0
-DEBUG:root:step 45.1
-DEBUG:root:step 45.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 45.3
-DEBUG:root:step 45.4
-DEBUG:root:step 45.5
-DEBUG:root:step 45.6
-DEBUG:root:step 45.7
-DEBUG:root:step 45.8
-DEBUG:root:step 45.9
-DEBUG:root:step 46.0
-DEBUG:root:step 46.1
-DEBUG:root:step 46.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1020.0;1030.0]
-DEBUG:root:New channel : [1000.0;1010.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 46.3
-DEBUG:root:step 46.4
-DEBUG:root:step 46.5
-DEBUG:root:step 46.6
-DEBUG:root:step 46.7
-DEBUG:root:step 46.8
-DEBUG:root:step 46.9
-DEBUG:root:step 47.0
-DEBUG:root:step 47.1
-DEBUG:root:step 47.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1005.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1005.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 47.3
-DEBUG:root:step 47.4
-DEBUG:root:step 47.5
-DEBUG:root:step 47.6
-DEBUG:root:step 47.7
-DEBUG:root:step 47.8
-DEBUG:root:step 47.9
-DEBUG:root:step 48.0
-DEBUG:root:step 48.1
-DEBUG:root:step 48.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1005.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1005.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 48.3
-DEBUG:root:step 48.4
-DEBUG:root:step 48.5
-DEBUG:root:step 48.6
-DEBUG:root:step 48.7
-DEBUG:root:step 48.8
-DEBUG:root:step 48.9
-DEBUG:root:step 49.0
-DEBUG:root:step 49.1
-DEBUG:root:step 49.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1005.0   BW 5.0   result Fail
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1000.0;1010.0]
-DEBUG:root:New channel : [1030.0;1040.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 49.3
-DEBUG:root:step 49.4
-DEBUG:root:step 49.5
-DEBUG:root:step 49.6
-DEBUG:root:step 49.7
-DEBUG:root:step 49.8
-DEBUG:root:step 49.9
-DEBUG:root:step 50.0
-DEBUG:root:step 50.1
-DEBUG:root:step 50.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 50.3
-DEBUG:root:step 50.4
-DEBUG:root:step 50.5
-DEBUG:root:step 50.6
-DEBUG:root:step 50.7
-DEBUG:root:step 50.8
-DEBUG:root:step 50.9
-DEBUG:root:step 51.0
-DEBUG:root:step 51.1
-DEBUG:root:step 51.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1030.0;1040.0]
-DEBUG:root:New channel : [1010.0;1020.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 51.3
-DEBUG:root:step 51.4
-DEBUG:root:step 51.5
-DEBUG:root:step 51.6
-DEBUG:root:step 51.7
-DEBUG:root:step 51.8
-DEBUG:root:step 51.9
-DEBUG:root:step 52.0
-DEBUG:root:step 52.1
-DEBUG:root:step 52.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 52.3
-DEBUG:root:step 52.4
-DEBUG:root:step 52.5
-DEBUG:root:step 52.6
-DEBUG:root:step 52.7
-DEBUG:root:step 52.8
-DEBUG:root:step 52.9
-DEBUG:root:step 53.0
-DEBUG:root:step 53.1
-DEBUG:root:step 53.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 53.3
-DEBUG:root:step 53.4
-DEBUG:root:step 53.5
-DEBUG:root:step 53.6
-DEBUG:root:step 53.7
-DEBUG:root:step 53.8
-DEBUG:root:step 53.9
-DEBUG:root:step 54.0
-DEBUG:root:step 54.1
-DEBUG:root:step 54.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1010.0;1020.0]
-DEBUG:root:New channel : [1020.0;1030.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 54.3
-DEBUG:root:step 54.4
-DEBUG:root:step 54.5
-DEBUG:root:step 54.6
-DEBUG:root:step 54.7
-DEBUG:root:step 54.8
-DEBUG:root:step 54.9
-DEBUG:root:step 55.0
-DEBUG:root:step 55.1
-DEBUG:root:step 55.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 55.3
-DEBUG:root:step 55.4
-DEBUG:root:step 55.5
-DEBUG:root:step 55.6
-DEBUG:root:step 55.7
-DEBUG:root:step 55.8
-DEBUG:root:step 55.9
-DEBUG:root:step 56.0
-DEBUG:root:step 56.1
-DEBUG:root:step 56.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1020.0;1030.0]
-DEBUG:root:New channel : [1080.0;1090.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 56.3
-DEBUG:root:step 56.4
-DEBUG:root:step 56.5
-DEBUG:root:step 56.6
-DEBUG:root:step 56.7
-DEBUG:root:step 56.8
-DEBUG:root:step 56.9
-DEBUG:root:step 57.0
-DEBUG:root:step 57.1
-DEBUG:root:step 57.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 57.3
-DEBUG:root:step 57.4
-DEBUG:root:step 57.5
-DEBUG:root:step 57.6
-DEBUG:root:step 57.7
-DEBUG:root:step 57.8
-DEBUG:root:step 57.9
-DEBUG:root:step 58.0
-DEBUG:root:step 58.1
-DEBUG:root:step 58.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 58.3
-DEBUG:root:step 58.4
-DEBUG:root:step 58.5
-DEBUG:root:step 58.6
-DEBUG:root:step 58.7
-DEBUG:root:step 58.8
-DEBUG:root:step 58.9
-DEBUG:root:step 59.0
-DEBUG:root:step 59.1
-DEBUG:root:step 59.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1080.0;1090.0]
-DEBUG:root:New channel : [1060.0;1070.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 59.3
-DEBUG:root:step 59.4
-DEBUG:root:step 59.5
-DEBUG:root:step 59.6
-DEBUG:root:step 59.7
-DEBUG:root:step 59.8
-DEBUG:root:step 59.9
-DEBUG:root:step 60.0
-DEBUG:root:step 60.1
-DEBUG:root:step 60.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 60.3
-DEBUG:root:step 60.4
-DEBUG:root:step 60.5
-DEBUG:root:step 60.6
-DEBUG:root:step 60.7
-DEBUG:root:step 60.8
-DEBUG:root:step 60.9
-DEBUG:root:step 61.0
-DEBUG:root:step 61.1
-DEBUG:root:step 61.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1060.0;1070.0]
-DEBUG:root:New channel : [1040.0;1050.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 61.3
-DEBUG:root:step 61.4
-DEBUG:root:step 61.5
-DEBUG:root:step 61.6
-DEBUG:root:step 61.7
-DEBUG:root:step 61.8
-DEBUG:root:step 61.9
-DEBUG:root:step 62.0
-DEBUG:root:step 62.1
-DEBUG:root:step 62.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 62.3
-DEBUG:root:step 62.4
-DEBUG:root:step 62.5
-DEBUG:root:step 62.6
-DEBUG:root:step 62.7
-DEBUG:root:step 62.8
-DEBUG:root:step 62.9
-DEBUG:root:step 63.0
-DEBUG:root:step 63.1
-DEBUG:root:step 63.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 63.3
-DEBUG:root:step 63.4
-DEBUG:root:step 63.5
-DEBUG:root:step 63.6
-DEBUG:root:step 63.7
-DEBUG:root:step 63.8
-DEBUG:root:step 63.9
-DEBUG:root:step 64.0
-DEBUG:root:step 64.1
-DEBUG:root:step 64.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1040.0;1050.0]
-DEBUG:root:New channel : [1090.0;1100.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 64.3
-DEBUG:root:step 64.4
-DEBUG:root:step 64.5
-DEBUG:root:step 64.6
-DEBUG:root:step 64.7
-DEBUG:root:step 64.8
-DEBUG:root:step 64.9
-DEBUG:root:step 65.0
-DEBUG:root:step 65.1
-DEBUG:root:step 65.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 65.3
-DEBUG:root:step 65.4
-DEBUG:root:step 65.5
-DEBUG:root:step 65.6
-DEBUG:root:step 65.7
-DEBUG:root:step 65.8
-DEBUG:root:step 65.9
-DEBUG:root:step 66.0
-DEBUG:root:step 66.1
-DEBUG:root:step 66.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1090.0;1100.0]
-DEBUG:root:New channel : [1050.0;1060.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 66.3
-DEBUG:root:step 66.4
-DEBUG:root:step 66.5
-DEBUG:root:step 66.6
-DEBUG:root:step 66.7
-DEBUG:root:step 66.8
-DEBUG:root:step 66.9
-DEBUG:root:step 67.0
-DEBUG:root:step 67.1
-DEBUG:root:step 67.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 67.3
-DEBUG:root:step 67.4
-DEBUG:root:step 67.5
-DEBUG:root:step 67.6
-DEBUG:root:step 67.7
-DEBUG:root:step 67.8
-DEBUG:root:step 67.9
-DEBUG:root:step 68.0
-DEBUG:root:step 68.1
-DEBUG:root:step 68.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 68.3
-DEBUG:root:step 68.4
-DEBUG:root:step 68.5
-DEBUG:root:step 68.6
-DEBUG:root:step 68.7
-DEBUG:root:step 68.8
-DEBUG:root:step 68.9
-DEBUG:root:step 69.0
-DEBUG:root:step 69.1
-DEBUG:root:step 69.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1050.0;1060.0]
-DEBUG:root:New channel : [1070.0;1080.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 69.3
-DEBUG:root:step 69.4
-DEBUG:root:step 69.5
-DEBUG:root:step 69.6
-DEBUG:root:step 69.7
-DEBUG:root:step 69.8
-DEBUG:root:step 69.9
-DEBUG:root:step 70.0
-DEBUG:root:step 70.1
-DEBUG:root:step 70.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 70.3
-DEBUG:root:step 70.4
-DEBUG:root:step 70.5
-DEBUG:root:step 70.6
-DEBUG:root:step 70.7
-DEBUG:root:step 70.8
-DEBUG:root:step 70.9
-DEBUG:root:step 71.0
-DEBUG:root:step 71.1
-DEBUG:root:step 71.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Pass
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 71.3
-DEBUG:root:step 71.4
-DEBUG:root:step 71.5
-DEBUG:root:step 71.6
-DEBUG:root:step 71.7
-DEBUG:root:step 71.8
-DEBUG:root:step 71.9
-DEBUG:root:step 72.0
-DEBUG:root:step 72.1
-DEBUG:root:step 72.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1070.0;1080.0]
-DEBUG:root:New channel : [1020.0;1030.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 72.3
-DEBUG:root:step 72.4
-DEBUG:root:step 72.5
-DEBUG:root:step 72.6
-DEBUG:root:step 72.7
-DEBUG:root:step 72.8
-DEBUG:root:step 72.9
-DEBUG:root:step 73.0
-DEBUG:root:step 73.1
-DEBUG:root:step 73.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 73.3
-DEBUG:root:step 73.4
-DEBUG:root:step 73.5
-DEBUG:root:step 73.6
-DEBUG:root:step 73.7
-DEBUG:root:step 73.8
-DEBUG:root:step 73.9
-DEBUG:root:step 74.0
-DEBUG:root:step 74.1
-DEBUG:root:step 74.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1020.0;1030.0]
-DEBUG:root:New channel : [1090.0;1100.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 74.3
-DEBUG:root:step 74.4
-DEBUG:root:step 74.5
-DEBUG:root:step 74.6
-DEBUG:root:step 74.7
-DEBUG:root:step 74.8
-DEBUG:root:step 74.9
-DEBUG:root:step 75.0
-DEBUG:root:step 75.1
-DEBUG:root:step 75.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 75.3
-DEBUG:root:step 75.4
-DEBUG:root:step 75.5
-DEBUG:root:step 75.6
-DEBUG:root:step 75.7
-DEBUG:root:step 75.8
-DEBUG:root:step 75.9
-DEBUG:root:step 76.0
-DEBUG:root:step 76.1
-DEBUG:root:step 76.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 76.3
-DEBUG:root:step 76.4
-DEBUG:root:step 76.5
-DEBUG:root:step 76.6
-DEBUG:root:step 76.7
-DEBUG:root:step 76.8
-DEBUG:root:step 76.9
-DEBUG:root:step 77.0
-DEBUG:root:step 77.1
-DEBUG:root:step 77.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1090.0;1100.0]
-DEBUG:root:New channel : [1030.0;1040.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 77.3
-DEBUG:root:step 77.4
-DEBUG:root:step 77.5
-DEBUG:root:step 77.6
-DEBUG:root:step 77.7
-DEBUG:root:step 77.8
-DEBUG:root:step 77.9
-DEBUG:root:step 78.0
-DEBUG:root:step 78.1
-DEBUG:root:step 78.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 78.3
-DEBUG:root:step 78.4
-DEBUG:root:step 78.5
-DEBUG:root:step 78.6
-DEBUG:root:step 78.7
-DEBUG:root:step 78.8
-DEBUG:root:step 78.9
-DEBUG:root:step 79.0
-DEBUG:root:step 79.1
-DEBUG:root:step 79.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1030.0;1040.0]
-DEBUG:root:New channel : [1080.0;1090.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 79.3
-DEBUG:root:step 79.4
-DEBUG:root:step 79.5
-DEBUG:root:step 79.6
-DEBUG:root:step 79.7
-DEBUG:root:step 79.8
-DEBUG:root:step 79.9
-DEBUG:root:step 80.0
-DEBUG:root:step 80.1
-DEBUG:root:step 80.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 80.3
-DEBUG:root:step 80.4
-DEBUG:root:step 80.5
-DEBUG:root:step 80.6
-DEBUG:root:step 80.7
-DEBUG:root:step 80.8
-DEBUG:root:step 80.9
-DEBUG:root:step 81.0
-DEBUG:root:step 81.1
-DEBUG:root:step 81.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 81.3
-DEBUG:root:step 81.4
-DEBUG:root:step 81.5
-DEBUG:root:step 81.6
-DEBUG:root:step 81.7
-DEBUG:root:step 81.8
-DEBUG:root:step 81.9
-DEBUG:root:step 82.0
-DEBUG:root:step 82.1
-DEBUG:root:step 82.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1080.0;1090.0]
-DEBUG:root:New channel : [1040.0;1050.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 82.3
-DEBUG:root:step 82.4
-DEBUG:root:step 82.5
-DEBUG:root:step 82.6
-DEBUG:root:step 82.7
-DEBUG:root:step 82.8
-DEBUG:root:step 82.9
-DEBUG:root:step 83.0
-DEBUG:root:step 83.1
-DEBUG:root:step 83.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 83.3
-DEBUG:root:step 83.4
-DEBUG:root:step 83.5
-DEBUG:root:step 83.6
-DEBUG:root:step 83.7
-DEBUG:root:step 83.8
-DEBUG:root:step 83.9
-DEBUG:root:step 84.0
-DEBUG:root:step 84.1
-DEBUG:root:step 84.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1040.0;1050.0]
-DEBUG:root:New channel : [1010.0;1020.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 84.3
-DEBUG:root:step 84.4
-DEBUG:root:step 84.5
-DEBUG:root:step 84.6
-DEBUG:root:step 84.7
-DEBUG:root:step 84.8
-DEBUG:root:step 84.9
-DEBUG:root:step 85.0
-DEBUG:root:step 85.1
-DEBUG:root:step 85.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 85.3
-DEBUG:root:step 85.4
-DEBUG:root:step 85.5
-DEBUG:root:step 85.6
-DEBUG:root:step 85.7
-DEBUG:root:step 85.8
-DEBUG:root:step 85.9
-DEBUG:root:step 86.0
-DEBUG:root:step 86.1
-DEBUG:root:step 86.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 86.3
-DEBUG:root:step 86.4
-DEBUG:root:step 86.5
-DEBUG:root:step 86.6
-DEBUG:root:step 86.7
-DEBUG:root:step 86.8
-DEBUG:root:step 86.9
-DEBUG:root:step 87.0
-DEBUG:root:step 87.1
-DEBUG:root:step 87.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1010.0;1020.0]
-DEBUG:root:New channel : [1050.0;1060.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 87.3
-DEBUG:root:step 87.4
-DEBUG:root:step 87.5
-DEBUG:root:step 87.6
-DEBUG:root:step 87.7
-DEBUG:root:step 87.8
-DEBUG:root:step 87.9
-DEBUG:root:step 88.0
-DEBUG:root:step 88.1
-DEBUG:root:step 88.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 88.3
-DEBUG:root:step 88.4
-DEBUG:root:step 88.5
-DEBUG:root:step 88.6
-DEBUG:root:step 88.7
-DEBUG:root:step 88.8
-DEBUG:root:step 88.9
-DEBUG:root:step 89.0
-DEBUG:root:step 89.1
-DEBUG:root:step 89.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1050.0;1060.0]
-DEBUG:root:New channel : [1060.0;1070.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 89.3
-DEBUG:root:step 89.4
-DEBUG:root:step 89.5
-DEBUG:root:step 89.6
-DEBUG:root:step 89.7
-DEBUG:root:step 89.8
-DEBUG:root:step 89.9
-DEBUG:root:step 90.0
-DEBUG:root:step 90.1
-DEBUG:root:step 90.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 90.3
-DEBUG:root:step 90.4
-DEBUG:root:step 90.5
-DEBUG:root:step 90.6
-DEBUG:root:step 90.7
-DEBUG:root:step 90.8
-DEBUG:root:step 90.9
-DEBUG:root:step 91.0
-DEBUG:root:step 91.1
-DEBUG:root:step 91.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 91.3
-DEBUG:root:step 91.4
-DEBUG:root:step 91.5
-DEBUG:root:step 91.6
-DEBUG:root:step 91.7
-DEBUG:root:step 91.8
-DEBUG:root:step 91.9
-DEBUG:root:step 92.0
-DEBUG:root:step 92.1
-DEBUG:root:step 92.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1060.0;1070.0]
-DEBUG:root:New channel : [1030.0;1040.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 92.3
-DEBUG:root:step 92.4
-DEBUG:root:step 92.5
-DEBUG:root:step 92.6
-DEBUG:root:step 92.7
-DEBUG:root:step 92.8
-DEBUG:root:step 92.9
-DEBUG:root:step 93.0
-DEBUG:root:step 93.1
-DEBUG:root:step 93.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 93.3
-DEBUG:root:step 93.4
-DEBUG:root:step 93.5
-DEBUG:root:step 93.6
-DEBUG:root:step 93.7
-DEBUG:root:step 93.8
-DEBUG:root:step 93.9
-DEBUG:root:step 94.0
-DEBUG:root:step 94.1
-DEBUG:root:step 94.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1030.0;1040.0]
-DEBUG:root:New channel : [1010.0;1020.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 94.3
-DEBUG:root:step 94.4
-DEBUG:root:step 94.5
-DEBUG:root:step 94.6
-DEBUG:root:step 94.7
-DEBUG:root:step 94.8
-DEBUG:root:step 94.9
-DEBUG:root:step 95.0
-DEBUG:root:step 95.1
-DEBUG:root:step 95.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 95.3
-DEBUG:root:step 95.4
-DEBUG:root:step 95.5
-DEBUG:root:step 95.6
-DEBUG:root:step 95.7
-DEBUG:root:step 95.8
-DEBUG:root:step 95.9
-DEBUG:root:step 96.0
-DEBUG:root:step 96.1
-DEBUG:root:step 96.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 96.3
-DEBUG:root:step 96.4
-DEBUG:root:step 96.5
-DEBUG:root:step 96.6
-DEBUG:root:step 96.7
-DEBUG:root:step 96.8
-DEBUG:root:step 96.9
-DEBUG:root:step 97.0
-DEBUG:root:step 97.1
-DEBUG:root:step 97.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1010.0;1020.0]
-DEBUG:root:New channel : [1050.0;1060.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 97.3
-DEBUG:root:step 97.4
-DEBUG:root:step 97.5
-DEBUG:root:step 97.6
-DEBUG:root:step 97.7
-DEBUG:root:step 97.8
-DEBUG:root:step 97.9
-DEBUG:root:step 98.0
-DEBUG:root:step 98.1
-DEBUG:root:step 98.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 98.3
-DEBUG:root:step 98.4
-DEBUG:root:step 98.5
-DEBUG:root:step 98.6
-DEBUG:root:step 98.7
-DEBUG:root:step 98.8
-DEBUG:root:step 98.9
-DEBUG:root:step 99.0
-DEBUG:root:step 99.1
-DEBUG:root:step 99.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1050.0;1060.0]
-DEBUG:root:New channel : [1090.0;1100.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 99.3
-DEBUG:root:step 99.4
-DEBUG:root:step 99.5
-DEBUG:root:step 99.6
-DEBUG:root:step 99.7
-DEBUG:root:step 99.8
-DEBUG:root:step 99.9
-DEBUG:root:step 100.0
-DEBUG:root:step 100.1
-DEBUG:root:step 100.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 100.3
-DEBUG:root:step 100.4
-DEBUG:root:step 100.5
-DEBUG:root:step 100.6
-DEBUG:root:step 100.7
-DEBUG:root:step 100.8
-DEBUG:root:step 100.9
-DEBUG:root:step 101.0
-DEBUG:root:step 101.1
-DEBUG:root:step 101.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 101.3
-DEBUG:root:step 101.4
-DEBUG:root:step 101.5
-DEBUG:root:step 101.6
-DEBUG:root:step 101.7
-DEBUG:root:step 101.8
-DEBUG:root:step 101.9
-DEBUG:root:step 102.0
-DEBUG:root:step 102.1
-DEBUG:root:step 102.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1090.0;1100.0]
-DEBUG:root:New channel : [1040.0;1050.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 102.3
-DEBUG:root:step 102.4
-DEBUG:root:step 102.5
-DEBUG:root:step 102.6
-DEBUG:root:step 102.7
-DEBUG:root:step 102.8
-DEBUG:root:step 102.9
-DEBUG:root:step 103.0
-DEBUG:root:step 103.1
-DEBUG:root:step 103.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 103.3
-DEBUG:root:step 103.4
-DEBUG:root:step 103.5
-DEBUG:root:step 103.6
-DEBUG:root:step 103.7
-DEBUG:root:step 103.8
-DEBUG:root:step 103.9
-DEBUG:root:step 104.0
-DEBUG:root:step 104.1
-DEBUG:root:step 104.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1040.0;1050.0]
-DEBUG:root:New channel : [1060.0;1070.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 104.3
-DEBUG:root:step 104.4
-DEBUG:root:step 104.5
-DEBUG:root:step 104.6
-DEBUG:root:step 104.7
-DEBUG:root:step 104.8
-DEBUG:root:step 104.9
-DEBUG:root:step 105.0
-DEBUG:root:step 105.1
-DEBUG:root:step 105.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 105.3
-DEBUG:root:step 105.4
-DEBUG:root:step 105.5
-DEBUG:root:step 105.6
-DEBUG:root:step 105.7
-DEBUG:root:step 105.8
-DEBUG:root:step 105.9
-DEBUG:root:step 106.0
-DEBUG:root:step 106.1
-DEBUG:root:step 106.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 106.3
-DEBUG:root:step 106.4
-DEBUG:root:step 106.5
-DEBUG:root:step 106.6
-DEBUG:root:step 106.7
-DEBUG:root:step 106.8
-DEBUG:root:step 106.9
-DEBUG:root:step 107.0
-DEBUG:root:step 107.1
-DEBUG:root:step 107.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1060.0;1070.0]
-DEBUG:root:New channel : [1070.0;1080.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 107.3
-DEBUG:root:step 107.4
-DEBUG:root:step 107.5
-DEBUG:root:step 107.6
-DEBUG:root:step 107.7
-DEBUG:root:step 107.8
-DEBUG:root:step 107.9
-DEBUG:root:step 108.0
-DEBUG:root:step 108.1
-DEBUG:root:step 108.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 108.3
-DEBUG:root:step 108.4
-DEBUG:root:step 108.5
-DEBUG:root:step 108.6
-DEBUG:root:step 108.7
-DEBUG:root:step 108.8
-DEBUG:root:step 108.9
-DEBUG:root:step 109.0
-DEBUG:root:step 109.1
-DEBUG:root:step 109.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1070.0;1080.0]
-DEBUG:root:New channel : [1020.0;1030.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 109.3
-DEBUG:root:step 109.4
-DEBUG:root:step 109.5
-DEBUG:root:step 109.6
-DEBUG:root:step 109.7
-DEBUG:root:step 109.8
-DEBUG:root:step 109.9
-DEBUG:root:step 110.0
-DEBUG:root:step 110.1
-DEBUG:root:step 110.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 110.3
-DEBUG:root:step 110.4
-DEBUG:root:step 110.5
-DEBUG:root:step 110.6
-DEBUG:root:step 110.7
-DEBUG:root:step 110.8
-DEBUG:root:step 110.9
-DEBUG:root:step 111.0
-DEBUG:root:step 111.1
-DEBUG:root:step 111.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 111.3
-DEBUG:root:step 111.4
-DEBUG:root:step 111.5
-DEBUG:root:step 111.6
-DEBUG:root:step 111.7
-DEBUG:root:step 111.8
-DEBUG:root:step 111.9
-DEBUG:root:step 112.0
-DEBUG:root:step 112.1
-DEBUG:root:step 112.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1020.0;1030.0]
-DEBUG:root:New channel : [1080.0;1090.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 112.3
-DEBUG:root:step 112.4
-DEBUG:root:step 112.5
-DEBUG:root:step 112.6
-DEBUG:root:step 112.7
-DEBUG:root:step 112.8
-DEBUG:root:step 112.9
-DEBUG:root:step 113.0
-DEBUG:root:step 113.1
-DEBUG:root:step 113.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 113.3
-DEBUG:root:step 113.4
-DEBUG:root:step 113.5
-DEBUG:root:step 113.6
-DEBUG:root:step 113.7
-DEBUG:root:step 113.8
-DEBUG:root:step 113.9
-DEBUG:root:step 114.0
-DEBUG:root:step 114.1
-DEBUG:root:step 114.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Pass
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 114.3
-DEBUG:root:step 114.4
-DEBUG:root:step 114.5
-DEBUG:root:step 114.6
-DEBUG:root:step 114.7
-DEBUG:root:step 114.8
-DEBUG:root:step 114.9
-DEBUG:root:step 115.0
-DEBUG:root:step 115.1
-DEBUG:root:step 115.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1080.0;1090.0]
-DEBUG:root:New channel : [1050.0;1060.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 115.3
-DEBUG:root:step 115.4
-DEBUG:root:step 115.5
-DEBUG:root:step 115.6
-DEBUG:root:step 115.7
-DEBUG:root:step 115.8
-DEBUG:root:step 115.9
-DEBUG:root:step 116.0
-DEBUG:root:step 116.1
-DEBUG:root:step 116.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 116.3
-DEBUG:root:step 116.4
-DEBUG:root:step 116.5
-DEBUG:root:step 116.6
-DEBUG:root:step 116.7
-DEBUG:root:step 116.8
-DEBUG:root:step 116.9
-DEBUG:root:step 117.0
-DEBUG:root:step 117.1
-DEBUG:root:step 117.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1050.0;1060.0]
-DEBUG:root:New channel : [1040.0;1050.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 117.3
-DEBUG:root:step 117.4
-DEBUG:root:step 117.5
-DEBUG:root:step 117.6
-DEBUG:root:step 117.7
-DEBUG:root:step 117.8
-DEBUG:root:step 117.9
-DEBUG:root:step 118.0
-DEBUG:root:step 118.1
-DEBUG:root:step 118.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 118.3
-DEBUG:root:step 118.4
-DEBUG:root:step 118.5
-DEBUG:root:step 118.6
-DEBUG:root:step 118.7
-DEBUG:root:step 118.8
-DEBUG:root:step 118.9
-DEBUG:root:step 119.0
-DEBUG:root:step 119.1
-DEBUG:root:step 119.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 119.3
-DEBUG:root:step 119.4
-DEBUG:root:step 119.5
-DEBUG:root:step 119.6
-DEBUG:root:step 119.7
-DEBUG:root:step 119.8
-DEBUG:root:step 119.9
-DEBUG:root:step 120.0
-DEBUG:root:step 120.1
-DEBUG:root:step 120.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1040.0;1050.0]
-DEBUG:root:New channel : [1010.0;1020.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 120.3
-DEBUG:root:step 120.4
-DEBUG:root:step 120.5
-DEBUG:root:step 120.6
-DEBUG:root:step 120.7
-DEBUG:root:step 120.8
-DEBUG:root:step 120.9
-DEBUG:root:step 121.0
-DEBUG:root:step 121.1
-DEBUG:root:step 121.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 121.3
-DEBUG:root:step 121.4
-DEBUG:root:step 121.5
-DEBUG:root:step 121.6
-DEBUG:root:step 121.7
-DEBUG:root:step 121.8
-DEBUG:root:step 121.9
-DEBUG:root:step 122.0
-DEBUG:root:step 122.1
-DEBUG:root:step 122.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1010.0;1020.0]
-DEBUG:root:New channel : [1070.0;1080.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 122.3
-DEBUG:root:step 122.4
-DEBUG:root:step 122.5
-DEBUG:root:step 122.6
-DEBUG:root:step 122.7
-DEBUG:root:step 122.8
-DEBUG:root:step 122.9
-DEBUG:root:step 123.0
-DEBUG:root:step 123.1
-DEBUG:root:step 123.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 123.3
-DEBUG:root:step 123.4
-DEBUG:root:step 123.5
-DEBUG:root:step 123.6
-DEBUG:root:step 123.7
-DEBUG:root:step 123.8
-DEBUG:root:step 123.9
-DEBUG:root:step 124.0
-DEBUG:root:step 124.1
-DEBUG:root:step 124.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 124.3
-DEBUG:root:step 124.4
-DEBUG:root:step 124.5
-DEBUG:root:step 124.6
-DEBUG:root:step 124.7
-DEBUG:root:step 124.8
-DEBUG:root:step 124.9
-DEBUG:root:step 125.0
-DEBUG:root:step 125.1
-DEBUG:root:step 125.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1070.0;1080.0]
-DEBUG:root:New channel : [1020.0;1030.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 125.3
-DEBUG:root:step 125.4
-DEBUG:root:step 125.5
-DEBUG:root:step 125.6
-DEBUG:root:step 125.7
-DEBUG:root:step 125.8
-DEBUG:root:step 125.9
-DEBUG:root:step 126.0
-DEBUG:root:step 126.1
-DEBUG:root:step 126.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 126.3
-DEBUG:root:step 126.4
-DEBUG:root:step 126.5
-DEBUG:root:step 126.6
-DEBUG:root:step 126.7
-DEBUG:root:step 126.8
-DEBUG:root:step 126.9
-DEBUG:root:step 127.0
-DEBUG:root:step 127.1
-DEBUG:root:step 127.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1020.0;1030.0]
-DEBUG:root:New channel : [1030.0;1040.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 127.3
-DEBUG:root:step 127.4
-DEBUG:root:step 127.5
-DEBUG:root:step 127.6
-DEBUG:root:step 127.7
-DEBUG:root:step 127.8
-DEBUG:root:step 127.9
-DEBUG:root:step 128.0
-DEBUG:root:step 128.1
-DEBUG:root:step 128.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 128.3
-DEBUG:root:step 128.4
-DEBUG:root:step 128.5
-DEBUG:root:step 128.6
-DEBUG:root:step 128.7
-DEBUG:root:step 128.8
-DEBUG:root:step 128.9
-DEBUG:root:step 129.0
-DEBUG:root:step 129.1
-DEBUG:root:step 129.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 129.3
-DEBUG:root:step 129.4
-DEBUG:root:step 129.5
-DEBUG:root:step 129.6
-DEBUG:root:step 129.7
-DEBUG:root:step 129.8
-DEBUG:root:step 129.9
-DEBUG:root:step 130.0
-DEBUG:root:step 130.1
-DEBUG:root:step 130.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1030.0;1040.0]
-DEBUG:root:New channel : [1090.0;1100.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 130.3
-DEBUG:root:step 130.4
-DEBUG:root:step 130.5
-DEBUG:root:step 130.6
-DEBUG:root:step 130.7
-DEBUG:root:step 130.8
-DEBUG:root:step 130.9
-DEBUG:root:step 131.0
-DEBUG:root:step 131.1
-DEBUG:root:step 131.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 131.3
-DEBUG:root:step 131.4
-DEBUG:root:step 131.5
-DEBUG:root:step 131.6
-DEBUG:root:step 131.7
-DEBUG:root:step 131.8
-DEBUG:root:step 131.9
-DEBUG:root:step 132.0
-DEBUG:root:step 132.1
-DEBUG:root:step 132.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1090.0;1100.0]
-DEBUG:root:New channel : [1060.0;1070.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 132.3
-DEBUG:root:step 132.4
-DEBUG:root:step 132.5
-DEBUG:root:step 132.6
-DEBUG:root:step 132.7
-DEBUG:root:step 132.8
-DEBUG:root:step 132.9
-DEBUG:root:step 133.0
-DEBUG:root:step 133.1
-DEBUG:root:step 133.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 133.3
-DEBUG:root:step 133.4
-DEBUG:root:step 133.5
-DEBUG:root:step 133.6
-DEBUG:root:step 133.7
-DEBUG:root:step 133.8
-DEBUG:root:step 133.9
-DEBUG:root:step 134.0
-DEBUG:root:step 134.1
-DEBUG:root:step 134.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 134.3
-DEBUG:root:step 134.4
-DEBUG:root:step 134.5
-DEBUG:root:step 134.6
-DEBUG:root:step 134.7
-DEBUG:root:step 134.8
-DEBUG:root:step 134.9
-DEBUG:root:step 135.0
-DEBUG:root:step 135.1
-DEBUG:root:step 135.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Pass
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1060.0;1070.0]
-DEBUG:root:New channel : [1010.0;1020.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 135.3
-DEBUG:root:step 135.4
-DEBUG:root:step 135.5
-DEBUG:root:step 135.6
-DEBUG:root:step 135.7
-DEBUG:root:step 135.8
-DEBUG:root:step 135.9
-DEBUG:root:step 136.0
-DEBUG:root:step 136.1
-DEBUG:root:step 136.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 136.3
-DEBUG:root:step 136.4
-DEBUG:root:step 136.5
-DEBUG:root:step 136.6
-DEBUG:root:step 136.7
-DEBUG:root:step 136.8
-DEBUG:root:step 136.9
-DEBUG:root:step 137.0
-DEBUG:root:step 137.1
-DEBUG:root:step 137.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 137.3
-DEBUG:root:step 137.4
-DEBUG:root:step 137.5
-DEBUG:root:step 137.6
-DEBUG:root:step 137.7
-DEBUG:root:step 137.8
-DEBUG:root:step 137.9
-DEBUG:root:step 138.0
-DEBUG:root:step 138.1
-DEBUG:root:step 138.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1010.0;1020.0]
-DEBUG:root:New channel : [1050.0;1060.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 138.3
-DEBUG:root:step 138.4
-DEBUG:root:step 138.5
-DEBUG:root:step 138.6
-DEBUG:root:step 138.7
-DEBUG:root:step 138.8
-DEBUG:root:step 138.9
-DEBUG:root:step 139.0
-DEBUG:root:step 139.1
-DEBUG:root:step 139.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 139.3
-DEBUG:root:step 139.4
-DEBUG:root:step 139.5
-DEBUG:root:step 139.6
-DEBUG:root:step 139.7
-DEBUG:root:step 139.8
-DEBUG:root:step 139.9
-DEBUG:root:step 140.0
-DEBUG:root:step 140.1
-DEBUG:root:step 140.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1050.0;1060.0]
-DEBUG:root:New channel : [1090.0;1100.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 140.3
-DEBUG:root:step 140.4
-DEBUG:root:step 140.5
-DEBUG:root:step 140.6
-DEBUG:root:step 140.7
-DEBUG:root:step 140.8
-DEBUG:root:step 140.9
-DEBUG:root:step 141.0
-DEBUG:root:step 141.1
-DEBUG:root:step 141.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 141.3
-DEBUG:root:step 141.4
-DEBUG:root:step 141.5
-DEBUG:root:step 141.6
-DEBUG:root:step 141.7
-DEBUG:root:step 141.8
-DEBUG:root:step 141.9
-DEBUG:root:step 142.0
-DEBUG:root:step 142.1
-DEBUG:root:step 142.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 142.3
-DEBUG:root:step 142.4
-DEBUG:root:step 142.5
-DEBUG:root:step 142.6
-DEBUG:root:step 142.7
-DEBUG:root:step 142.8
-DEBUG:root:step 142.9
-DEBUG:root:step 143.0
-DEBUG:root:step 143.1
-DEBUG:root:step 143.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1090.0;1100.0]
-DEBUG:root:New channel : [1030.0;1040.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 143.3
-DEBUG:root:step 143.4
-DEBUG:root:step 143.5
-DEBUG:root:step 143.6
-DEBUG:root:step 143.7
-DEBUG:root:step 143.8
-DEBUG:root:step 143.9
-DEBUG:root:step 144.0
-DEBUG:root:step 144.1
-DEBUG:root:step 144.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 144.3
-DEBUG:root:step 144.4
-DEBUG:root:step 144.5
-DEBUG:root:step 144.6
-DEBUG:root:step 144.7
-DEBUG:root:step 144.8
-DEBUG:root:step 144.9
-DEBUG:root:step 145.0
-DEBUG:root:step 145.1
-DEBUG:root:step 145.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1030.0;1040.0]
-DEBUG:root:New channel : [1080.0;1090.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 145.3
-DEBUG:root:step 145.4
-DEBUG:root:step 145.5
-DEBUG:root:step 145.6
-DEBUG:root:step 145.7
-DEBUG:root:step 145.8
-DEBUG:root:step 145.9
-DEBUG:root:step 146.0
-DEBUG:root:step 146.1
-DEBUG:root:step 146.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 146.3
-DEBUG:root:step 146.4
-DEBUG:root:step 146.5
-DEBUG:root:step 146.6
-DEBUG:root:step 146.7
-DEBUG:root:step 146.8
-DEBUG:root:step 146.9
-DEBUG:root:step 147.0
-DEBUG:root:step 147.1
-DEBUG:root:step 147.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 147.3
-DEBUG:root:step 147.4
-DEBUG:root:step 147.5
-DEBUG:root:step 147.6
-DEBUG:root:step 147.7
-DEBUG:root:step 147.8
-DEBUG:root:step 147.9
-DEBUG:root:step 148.0
-DEBUG:root:step 148.1
-DEBUG:root:step 148.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1080.0;1090.0]
-DEBUG:root:New channel : [1020.0;1030.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 148.3
-DEBUG:root:step 148.4
-DEBUG:root:step 148.5
-DEBUG:root:step 148.6
-DEBUG:root:step 148.7
-DEBUG:root:step 148.8
-DEBUG:root:step 148.9
-DEBUG:root:step 149.0
-DEBUG:root:step 149.1
-DEBUG:root:step 149.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 149.3
-DEBUG:root:step 149.4
-DEBUG:root:step 149.5
-DEBUG:root:step 149.6
-DEBUG:root:step 149.7
-DEBUG:root:step 149.8
-DEBUG:root:step 149.9
-DEBUG:root:step 150.0
-DEBUG:root:step 150.1
-DEBUG:root:step 150.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1020.0;1030.0]
-DEBUG:root:New channel : [1040.0;1050.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 150.3
-DEBUG:root:step 150.4
-DEBUG:root:step 150.5
-DEBUG:root:step 150.6
-DEBUG:root:step 150.7
-DEBUG:root:step 150.8
-DEBUG:root:step 150.9
-DEBUG:root:step 151.0
-DEBUG:root:step 151.1
-DEBUG:root:step 151.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 151.3
-DEBUG:root:step 151.4
-DEBUG:root:step 151.5
-DEBUG:root:step 151.6
-DEBUG:root:step 151.7
-DEBUG:root:step 151.8
-DEBUG:root:step 151.9
-DEBUG:root:step 152.0
-DEBUG:root:step 152.1
-DEBUG:root:step 152.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 152.3
-DEBUG:root:step 152.4
-DEBUG:root:step 152.5
-DEBUG:root:step 152.6
-DEBUG:root:step 152.7
-DEBUG:root:step 152.8
-DEBUG:root:step 152.9
-DEBUG:root:step 153.0
-DEBUG:root:step 153.1
-DEBUG:root:step 153.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1040.0;1050.0]
-DEBUG:root:New channel : [1070.0;1080.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 153.3
-DEBUG:root:step 153.4
-DEBUG:root:step 153.5
-DEBUG:root:step 153.6
-DEBUG:root:step 153.7
-DEBUG:root:step 153.8
-DEBUG:root:step 153.9
-DEBUG:root:step 154.0
-DEBUG:root:step 154.1
-DEBUG:root:step 154.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 154.3
-DEBUG:root:step 154.4
-DEBUG:root:step 154.5
-DEBUG:root:step 154.6
-DEBUG:root:step 154.7
-DEBUG:root:step 154.8
-DEBUG:root:step 154.9
-DEBUG:root:step 155.0
-DEBUG:root:step 155.1
-DEBUG:root:step 155.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Pass
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 155.3
-DEBUG:root:step 155.4
-DEBUG:root:step 155.5
-DEBUG:root:step 155.6
-DEBUG:root:step 155.7
-DEBUG:root:step 155.8
-DEBUG:root:step 155.9
-DEBUG:root:step 156.0
-DEBUG:root:step 156.1
-DEBUG:root:step 156.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1070.0;1080.0]
-DEBUG:root:New channel : [1040.0;1050.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 156.3
-DEBUG:root:step 156.4
-DEBUG:root:step 156.5
-DEBUG:root:step 156.6
-DEBUG:root:step 156.7
-DEBUG:root:step 156.8
-DEBUG:root:step 156.9
-DEBUG:root:step 157.0
-DEBUG:root:step 157.1
-DEBUG:root:step 157.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 157.3
-DEBUG:root:step 157.4
-DEBUG:root:step 157.5
-DEBUG:root:step 157.6
-DEBUG:root:step 157.7
-DEBUG:root:step 157.8
-DEBUG:root:step 157.9
-DEBUG:root:step 158.0
-DEBUG:root:step 158.1
-DEBUG:root:step 158.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1040.0;1050.0]
-DEBUG:root:New channel : [1060.0;1070.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 158.3
-DEBUG:root:step 158.4
-DEBUG:root:step 158.5
-DEBUG:root:step 158.6
-DEBUG:root:step 158.7
-DEBUG:root:step 158.8
-DEBUG:root:step 158.9
-DEBUG:root:step 159.0
-DEBUG:root:step 159.1
-DEBUG:root:step 159.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 159.3
-DEBUG:root:step 159.4
-DEBUG:root:step 159.5
-DEBUG:root:step 159.6
-DEBUG:root:step 159.7
-DEBUG:root:step 159.8
-DEBUG:root:step 159.9
-DEBUG:root:step 160.0
-DEBUG:root:step 160.1
-DEBUG:root:step 160.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 160.3
-DEBUG:root:step 160.4
-DEBUG:root:step 160.5
-DEBUG:root:step 160.6
-DEBUG:root:step 160.7
-DEBUG:root:step 160.8
-DEBUG:root:step 160.9
-DEBUG:root:step 161.0
-DEBUG:root:step 161.1
-DEBUG:root:step 161.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1060.0;1070.0]
-DEBUG:root:New channel : [1080.0;1090.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 161.3
-DEBUG:root:step 161.4
-DEBUG:root:step 161.5
-DEBUG:root:step 161.6
-DEBUG:root:step 161.7
-DEBUG:root:step 161.8
-DEBUG:root:step 161.9
-DEBUG:root:step 162.0
-DEBUG:root:step 162.1
-DEBUG:root:step 162.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 162.3
-DEBUG:root:step 162.4
-DEBUG:root:step 162.5
-DEBUG:root:step 162.6
-DEBUG:root:step 162.7
-DEBUG:root:step 162.8
-DEBUG:root:step 162.9
-DEBUG:root:step 163.0
-DEBUG:root:step 163.1
-DEBUG:root:step 163.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1080.0;1090.0]
-DEBUG:root:New channel : [1010.0;1020.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 163.3
-DEBUG:root:step 163.4
-DEBUG:root:step 163.5
-DEBUG:root:step 163.6
-DEBUG:root:step 163.7
-DEBUG:root:step 163.8
-DEBUG:root:step 163.9
-DEBUG:root:step 164.0
-DEBUG:root:step 164.1
-DEBUG:root:step 164.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 164.3
-DEBUG:root:step 164.4
-DEBUG:root:step 164.5
-DEBUG:root:step 164.6
-DEBUG:root:step 164.7
-DEBUG:root:step 164.8
-DEBUG:root:step 164.9
-DEBUG:root:step 165.0
-DEBUG:root:step 165.1
-DEBUG:root:step 165.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 165.3
-DEBUG:root:step 165.4
-DEBUG:root:step 165.5
-DEBUG:root:step 165.6
-DEBUG:root:step 165.7
-DEBUG:root:step 165.8
-DEBUG:root:step 165.9
-DEBUG:root:step 166.0
-DEBUG:root:step 166.1
-DEBUG:root:step 166.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1010.0;1020.0]
-DEBUG:root:New channel : [1050.0;1060.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 166.3
-DEBUG:root:step 166.4
-DEBUG:root:step 166.5
-DEBUG:root:step 166.6
-DEBUG:root:step 166.7
-DEBUG:root:step 166.8
-DEBUG:root:step 166.9
-DEBUG:root:step 167.0
-DEBUG:root:step 167.1
-DEBUG:root:step 167.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 167.3
-DEBUG:root:step 167.4
-DEBUG:root:step 167.5
-DEBUG:root:step 167.6
-DEBUG:root:step 167.7
-DEBUG:root:step 167.8
-DEBUG:root:step 167.9
-DEBUG:root:step 168.0
-DEBUG:root:step 168.1
-DEBUG:root:step 168.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1050.0;1060.0]
-DEBUG:root:New channel : [1090.0;1100.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 168.3
-DEBUG:root:step 168.4
-DEBUG:root:step 168.5
-DEBUG:root:step 168.6
-DEBUG:root:step 168.7
-DEBUG:root:step 168.8
-DEBUG:root:step 168.9
-DEBUG:root:step 169.0
-DEBUG:root:step 169.1
-DEBUG:root:step 169.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 169.3
-DEBUG:root:step 169.4
-DEBUG:root:step 169.5
-DEBUG:root:step 169.6
-DEBUG:root:step 169.7
-DEBUG:root:step 169.8
-DEBUG:root:step 169.9
-DEBUG:root:step 170.0
-DEBUG:root:step 170.1
-DEBUG:root:step 170.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 170.3
-DEBUG:root:step 170.4
-DEBUG:root:step 170.5
-DEBUG:root:step 170.6
-DEBUG:root:step 170.7
-DEBUG:root:step 170.8
-DEBUG:root:step 170.9
-DEBUG:root:step 171.0
-DEBUG:root:step 171.1
-DEBUG:root:step 171.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1090.0;1100.0]
-DEBUG:root:New channel : [1020.0;1030.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 171.3
-DEBUG:root:step 171.4
-DEBUG:root:step 171.5
-DEBUG:root:step 171.6
-DEBUG:root:step 171.7
-DEBUG:root:step 171.8
-DEBUG:root:step 171.9
-DEBUG:root:step 172.0
-DEBUG:root:step 172.1
-DEBUG:root:step 172.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 172.3
-DEBUG:root:step 172.4
-DEBUG:root:step 172.5
-DEBUG:root:step 172.6
-DEBUG:root:step 172.7
-DEBUG:root:step 172.8
-DEBUG:root:step 172.9
-DEBUG:root:step 173.0
-DEBUG:root:step 173.1
-DEBUG:root:step 173.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1020.0;1030.0]
-DEBUG:root:New channel : [1030.0;1040.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 173.3
-DEBUG:root:step 173.4
-DEBUG:root:step 173.5
-DEBUG:root:step 173.6
-DEBUG:root:step 173.7
-DEBUG:root:step 173.8
-DEBUG:root:step 173.9
-DEBUG:root:step 174.0
-DEBUG:root:step 174.1
-DEBUG:root:step 174.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 174.3
-DEBUG:root:step 174.4
-DEBUG:root:step 174.5
-DEBUG:root:step 174.6
-DEBUG:root:step 174.7
-DEBUG:root:step 174.8
-DEBUG:root:step 174.9
-DEBUG:root:step 175.0
-DEBUG:root:step 175.1
-DEBUG:root:step 175.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 175.3
-DEBUG:root:step 175.4
-DEBUG:root:step 175.5
-DEBUG:root:step 175.6
-DEBUG:root:step 175.7
-DEBUG:root:step 175.8
-DEBUG:root:step 175.9
-DEBUG:root:step 176.0
-DEBUG:root:step 176.1
-DEBUG:root:step 176.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Pass
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1035.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1030.0;1040.0]
-DEBUG:root:New channel : [1010.0;1020.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 176.3
-DEBUG:root:step 176.4
-DEBUG:root:step 176.5
-DEBUG:root:step 176.6
-DEBUG:root:step 176.7
-DEBUG:root:step 176.8
-DEBUG:root:step 176.9
-DEBUG:root:step 177.0
-DEBUG:root:step 177.1
-DEBUG:root:step 177.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 177.3
-DEBUG:root:step 177.4
-DEBUG:root:step 177.5
-DEBUG:root:step 177.6
-DEBUG:root:step 177.7
-DEBUG:root:step 177.8
-DEBUG:root:step 177.9
-DEBUG:root:step 178.0
-DEBUG:root:step 178.1
-DEBUG:root:step 178.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 178.3
-DEBUG:root:step 178.4
-DEBUG:root:step 178.5
-DEBUG:root:step 178.6
-DEBUG:root:step 178.7
-DEBUG:root:step 178.8
-DEBUG:root:step 178.9
-DEBUG:root:step 179.0
-DEBUG:root:step 179.1
-DEBUG:root:step 179.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1015.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1010.0;1020.0]
-DEBUG:root:New channel : [1050.0;1060.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 179.3
-DEBUG:root:step 179.4
-DEBUG:root:step 179.5
-DEBUG:root:step 179.6
-DEBUG:root:step 179.7
-DEBUG:root:step 179.8
-DEBUG:root:step 179.9
-DEBUG:root:step 180.0
-DEBUG:root:step 180.1
-DEBUG:root:step 180.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 180.3
-DEBUG:root:step 180.4
-DEBUG:root:step 180.5
-DEBUG:root:step 180.6
-DEBUG:root:step 180.7
-DEBUG:root:step 180.8
-DEBUG:root:step 180.9
-DEBUG:root:step 181.0
-DEBUG:root:step 181.1
-DEBUG:root:step 181.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1055.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1050.0;1060.0]
-DEBUG:root:New channel : [1090.0;1100.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 181.3
-DEBUG:root:step 181.4
-DEBUG:root:step 181.5
-DEBUG:root:step 181.6
-DEBUG:root:step 181.7
-DEBUG:root:step 181.8
-DEBUG:root:step 181.9
-DEBUG:root:step 182.0
-DEBUG:root:step 182.1
-DEBUG:root:step 182.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 182.3
-DEBUG:root:step 182.4
-DEBUG:root:step 182.5
-DEBUG:root:step 182.6
-DEBUG:root:step 182.7
-DEBUG:root:step 182.8
-DEBUG:root:step 182.9
-DEBUG:root:step 183.0
-DEBUG:root:step 183.1
-DEBUG:root:step 183.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 183.3
-DEBUG:root:step 183.4
-DEBUG:root:step 183.5
-DEBUG:root:step 183.6
-DEBUG:root:step 183.7
-DEBUG:root:step 183.8
-DEBUG:root:step 183.9
-DEBUG:root:step 184.0
-DEBUG:root:step 184.1
-DEBUG:root:step 184.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1095.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1090.0;1100.0]
-DEBUG:root:New channel : [1080.0;1090.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 184.3
-DEBUG:root:step 184.4
-DEBUG:root:step 184.5
-DEBUG:root:step 184.6
-DEBUG:root:step 184.7
-DEBUG:root:step 184.8
-DEBUG:root:step 184.9
-DEBUG:root:step 185.0
-DEBUG:root:step 185.1
-DEBUG:root:step 185.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 185.3
-DEBUG:root:step 185.4
-DEBUG:root:step 185.5
-DEBUG:root:step 185.6
-DEBUG:root:step 185.7
-DEBUG:root:step 185.8
-DEBUG:root:step 185.9
-DEBUG:root:step 186.0
-DEBUG:root:step 186.1
-DEBUG:root:step 186.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1085.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1080.0;1090.0]
-DEBUG:root:New channel : [1070.0;1080.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 186.3
-DEBUG:root:step 186.4
-DEBUG:root:step 186.5
-DEBUG:root:step 186.6
-DEBUG:root:step 186.7
-DEBUG:root:step 186.8
-DEBUG:root:step 186.9
-DEBUG:root:step 187.0
-DEBUG:root:step 187.1
-DEBUG:root:step 187.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 187.3
-DEBUG:root:step 187.4
-DEBUG:root:step 187.5
-DEBUG:root:step 187.6
-DEBUG:root:step 187.7
-DEBUG:root:step 187.8
-DEBUG:root:step 187.9
-DEBUG:root:step 188.0
-DEBUG:root:step 188.1
-DEBUG:root:step 188.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 188.3
-DEBUG:root:step 188.4
-DEBUG:root:step 188.5
-DEBUG:root:step 188.6
-DEBUG:root:step 188.7
-DEBUG:root:step 188.8
-DEBUG:root:step 188.9
-DEBUG:root:step 189.0
-DEBUG:root:step 189.1
-DEBUG:root:step 189.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1075.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1070.0;1080.0]
-DEBUG:root:New channel : [1020.0;1030.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 189.3
-DEBUG:root:step 189.4
-DEBUG:root:step 189.5
-DEBUG:root:step 189.6
-DEBUG:root:step 189.7
-DEBUG:root:step 189.8
-DEBUG:root:step 189.9
-DEBUG:root:step 190.0
-DEBUG:root:step 190.1
-DEBUG:root:step 190.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 190.3
-DEBUG:root:step 190.4
-DEBUG:root:step 190.5
-DEBUG:root:step 190.6
-DEBUG:root:step 190.7
-DEBUG:root:step 190.8
-DEBUG:root:step 190.9
-DEBUG:root:step 191.0
-DEBUG:root:step 191.1
-DEBUG:root:step 191.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1025.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1020.0;1030.0]
-DEBUG:root:New channel : [1040.0;1050.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 191.3
-DEBUG:root:step 191.4
-DEBUG:root:step 191.5
-DEBUG:root:step 191.6
-DEBUG:root:step 191.7
-DEBUG:root:step 191.8
-DEBUG:root:step 191.9
-DEBUG:root:step 192.0
-DEBUG:root:step 192.1
-DEBUG:root:step 192.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 192.3
-DEBUG:root:step 192.4
-DEBUG:root:step 192.5
-DEBUG:root:step 192.6
-DEBUG:root:step 192.7
-DEBUG:root:step 192.8
-DEBUG:root:step 192.9
-DEBUG:root:step 193.0
-DEBUG:root:step 193.1
-DEBUG:root:step 193.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 193.3
-DEBUG:root:step 193.4
-DEBUG:root:step 193.5
-DEBUG:root:step 193.6
-DEBUG:root:step 193.7
-DEBUG:root:step 193.8
-DEBUG:root:step 193.9
-DEBUG:root:step 194.0
-DEBUG:root:step 194.1
-DEBUG:root:step 194.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1040.0;1050.0]
-DEBUG:root:New channel : [1060.0;1070.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 194.3
-DEBUG:root:step 194.4
-DEBUG:root:step 194.5
-DEBUG:root:step 194.6
-DEBUG:root:step 194.7
-DEBUG:root:step 194.8
-DEBUG:root:step 194.9
-DEBUG:root:step 195.0
-DEBUG:root:step 195.1
-DEBUG:root:step 195.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 195.3
-DEBUG:root:step 195.4
-DEBUG:root:step 195.5
-DEBUG:root:step 195.6
-DEBUG:root:step 195.7
-DEBUG:root:step 195.8
-DEBUG:root:step 195.9
-DEBUG:root:step 196.0
-DEBUG:root:step 196.1
-DEBUG:root:step 196.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Pass
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 196.3
-DEBUG:root:step 196.4
-DEBUG:root:step 196.5
-DEBUG:root:step 196.6
-DEBUG:root:step 196.7
-DEBUG:root:step 196.8
-DEBUG:root:step 196.9
-DEBUG:root:step 197.0
-DEBUG:root:step 197.1
-DEBUG:root:step 197.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1065.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1060.0;1070.0]
-DEBUG:root:New channel : [1040.0;1050.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 197.3
-DEBUG:root:step 197.4
-DEBUG:root:step 197.5
-DEBUG:root:step 197.6
-DEBUG:root:step 197.7
-DEBUG:root:step 197.8
-DEBUG:root:step 197.9
-DEBUG:root:step 198.0
-DEBUG:root:step 198.1
-DEBUG:root:step 198.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 198.3
-DEBUG:root:step 198.4
-DEBUG:root:step 198.5
-DEBUG:root:step 198.6
-DEBUG:root:step 198.7
-DEBUG:root:step 198.8
-DEBUG:root:step 198.9
-DEBUG:root:step 199.0
-DEBUG:root:step 199.1
-DEBUG:root:step 199.2
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Fail
-DEBUG:root:Player  1.0   Type  UCB   pos_tx(5.0, 5.0)   pos_rx(6.0, 6.0)   CF 1045.0   BW 5.0   result Pass
-DEBUG:root:
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:Player 1.0 changed settings
-DEBUG:root:Previous channel : [1040.0;1050.0]
-DEBUG:root:New channel : [1080.0;1090.0]
-DEBUG:root:--------------------------------------------------------------------------------
-DEBUG:root:
-DEBUG:root:Player  2.0   Type  FIX   pos_tx(5.0, 6.0)   pos_rx(6.0, 7.0)   CF   1005   BW   5   result Pass
-DEBUG:root:step 199.3
-DEBUG:root:step 199.4
-DEBUG:root:step 199.5
-DEBUG:root:step 199.6
-DEBUG:root:step 199.7
-DEBUG:root:step 199.8
-DEBUG:root:step 199.9
-DEBUG:matplotlib.axes._base:update_title_pos
-DEBUG:matplotlib.font_manager:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/Users/tomho/miniconda3/lib/python3.6/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
-DEBUG:matplotlib.font_manager:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0 to DejaVu Sans ('/Users/tomho/miniconda3/lib/python3.6/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
-DEBUG:matplotlib.axes._base:update_title_pos
-DEBUG:matplotlib.axes._base:update_title_pos
-DEBUG:matplotlib.axes._base:update_title_pos
-DEBUG:matplotlib.axes._base:update_title_pos
-DEBUG:matplotlib.axes._base:update_title_pos
-DEBUG:matplotlib.axes._base:update_title_pos
-DEBUG:matplotlib.axes._base:update_title_pos

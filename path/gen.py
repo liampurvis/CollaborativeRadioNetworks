@@ -2,7 +2,7 @@ import path
 import os
 import sys
 from math import pi, hypot, sin, cos, atan2, degrees
-
+"""
 # one point
 f = open('one.txt','w')
 N = 2
@@ -14,7 +14,7 @@ p2_r = path.point(5,6,200)
 p2_t = path.point(6,7,200)
 
 paths = [p1_r, p1_t, p2_r, p2_t]
-
+"""
 """
 # four overlap circles
 f = open('circle.txt','w')
@@ -46,36 +46,38 @@ paths = [p1_r, p1_t]
 """
 
 
-"""
+
 # squeeze and diverge
 f = open('squeeze.txt','w')
 N = 8
 step = 200
 mag = 0.1;
 p1_r = path.randomPoint(2,2,mag,1) + path.randomLine(2,2,4,4,mag,100) + path.randomLine(4,4,2,2,mag,99)
-p1_t = path.randomPoint(2,2,mag,1) + path.randomLine(2,2,4,4,mag,100) + path.randomLine(4,4,2,2,mag,99)
-p2_r = path.randomPoint(2,2,mag,1) + path.randomLine(2,2,4,4,mag,100) + path.randomLine(4,4,2,2,mag,99)
-p2_t = path.randomPoint(2,2,mag,1) + path.randomLine(2,2,4,4,mag,100) + path.randomLine(4,4,2,2,mag,99)
+p1_t = [(i[0]+0.1, i[1]+0.1) for i in p1_r]
+
+p2_r = path.randomPoint(2.1,2.1,mag,1) + path.randomLine(2.1,2.1,4.1,4.1,mag,100) + path.randomLine(4.1,4.1,2.1,2.1,mag,99)
+p2_t = [(i[0]+0.1, i[1]+0.1) for i in p2_r]
 
 p3_r = path.randomPoint(2,6,mag,1) + path.randomLine(2,6,4,4,mag,100) + path.randomLine(4,4,2,6,mag,99)
-p3_t = path.randomPoint(2,6,mag,1) + path.randomLine(2,6,4,4,mag,100) + path.randomLine(4,4,2,6,mag,99)
-p4_r = path.randomPoint(2,6,mag,1) + path.randomLine(2,6,4,4,mag,100) + path.randomLine(4,4,2,6,mag,99)
-p4_t = path.randomPoint(2,6,mag,1) + path.randomLine(2,6,4,4,mag,100) + path.randomLine(4,4,2,6,mag,99)
+p3_t = [(i[0]+0.1, i[1]+0.1) for i in p3_r]
+
+p4_r = path.randomPoint(2.1,6.1,mag,1) + path.randomLine(2.1,6.1,4,4,mag,100) + path.randomLine(4,4,2.1,6.1,mag,99)
+p4_t = [(i[0]+0.1, i[1]+0.1) for i in p4_r]
 
 p5_r = path.randomPoint(6,6,mag,1) + path.randomLine(6,6,4,4,mag,100) + path.randomLine(4,4,6,6,mag,99)
-p5_t = path.randomPoint(6,6,mag,1) + path.randomLine(6,6,4,4,mag,100) + path.randomLine(4,4,6,6,mag,99)
-p6_r = path.randomPoint(6,6,mag,1) + path.randomLine(6,6,4,4,mag,100) + path.randomLine(4,4,6,6,mag,99)
-p6_t = path.randomPoint(6,6,mag,1) + path.randomLine(6,6,4,4,mag,100) + path.randomLine(4,4,6,6,mag,99)
+p5_t = [(i[0]+0.1, i[1]+0.1) for i in p5_r]
+p6_r = path.randomPoint(6.1,6.1,mag,1) + path.randomLine(6.1,6.1,4,4,mag,100) + path.randomLine(4,4,6.1,6.1,mag,99)
+p6_t = [(i[0]+0.1, i[1]+0.1) for i in p6_r]
 
 
 p7_r = path.randomPoint(6,2,mag,1) + path.randomLine(6,2,4,4,mag,100) + path.randomLine(4,4,6,2,mag,99)
-p7_t = path.randomPoint(6,2,mag,1) + path.randomLine(6,2,4,4,mag,100) + path.randomLine(4,4,6,2,mag,99)
-p8_r = path.randomPoint(6,2,mag,1) + path.randomLine(6,2,4,4,mag,100) + path.randomLine(4,4,6,2,mag,99)
-p8_t = path.randomPoint(6,2,mag,1) + path.randomLine(6,2,4,4,mag,100) + path.randomLine(4,4,6,2,mag,99)
+p7_t = [(i[0]+0.1, i[1]+0.1) for i in p7_r]
+p8_r = path.randomPoint(6,2,mag,1) + path.randomLine(6.1,2.1,4,4,mag,100) + path.randomLine(4,4,6.1,2.1,mag,99)
+p8_t = [(i[0]+0.1, i[1]+0.1) for i in p8_r]
 
 
 paths = [p1_r, p1_t, p2_r, p2_t, p3_r, p3_t, p4_r, p4_t, p5_r, p5_t, p6_r, p6_t, p7_r, p7_t, p8_r, p8_t]
-"""
+
 
 """
 # center versus around
