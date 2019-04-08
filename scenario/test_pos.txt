@@ -4,6 +4,4 @@ p2 UCB 1,20,23,19,24,10,0.7
 p3 CSMA 2,2,23,1,22,0.3,0,1
 2,4,6
 pos_deplete
-p2 5 set_channel 2000
-p3 5 set_channel 500
 endsim

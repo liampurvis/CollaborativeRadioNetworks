@@ -81,7 +81,7 @@ for i in range(line_counter, line_counter+player_num):
 		players[current_line[0]] = new_player
 
 		player_num_to_id[line_counter - 1] = current_line[0]
-	elif current_line[1] == "UCB":
+	elif current_line[1] == "UCB" or current_line[1] == "UCB_thresholded" or current_line[1] == "UCB_thresholded2" or current_line[1] == "UCB_d" or current_line[1] == "UCB_sw":
 		csv = current_line[2].split(",")
 		csv = list(map(float, csv))
 		csv[5] = int(csv[5])
