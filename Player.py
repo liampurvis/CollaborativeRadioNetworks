@@ -157,9 +157,7 @@ class Random_Weights(Player):
     def __init__(self, id, t_x, t_y, r_x, r_y, starting_frequency = 1005, probs = False, nb_channels=10):
         super().__init__(id, t_x, t_y, r_x, r_y, starting_frequency)
         if (probs == False) or (len(probs) != nb_channels):
-            if len(probs) != nb_channels:
-                print("Error, different number of weights and channels")
-            probs = np.random.uniform(nb_channels)
+            probs = np.random.uniform(size = nb_channels)
 
         self.probs = probs/np.sum(probs)
         self.nb_channels = nb_channels

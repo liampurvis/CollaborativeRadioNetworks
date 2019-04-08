@@ -15,7 +15,7 @@ import pickle
 
 import time
 
-p1 = Random_Weights(id = 1, t_x = 1, t_y = 1, r_x = 1.1, r_y = 1.1, starting_frequency = 1005, probs = [1, 1, 10], nb_channels=3)
+p1 = Random_Weights(id = 1, t_x = 1, t_y = 1, r_x = 1.1, r_y = 1.1, starting_frequency = 1005, nb_channels=3)
 
 
 env = env_core([p1])
