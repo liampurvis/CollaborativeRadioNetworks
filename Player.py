@@ -521,31 +521,7 @@ class UCB_thresholded(UCB):
         self.type = "UCB_thresholded HOEFFDING"
 
         self.max_reward = 0.99
-
-    def compute_UCB_args(self):
-        UCB_args = []
-        for i in range(self.nb_channels):
-            l = [self.previous_rewards[j] for j in range(len(self.previous_channels)) if
-                 self.previous_channels[j] == i]  # and self.previous_settings[j][3]==1
-            p_est = sum(l) / len(l)
-            p_est = max(0.05, p_est)  # fighting zero values which mess with confidence bounds
-            p_est = min(p_est, 0.99)  # fighting one values
-            UCB_args.append(min((p_est + self.get_upper_bound_factor(len(l), len(self.previous_channels))), 0.99))
-        # UCB_args = super().compute_UCB_args()
-        # for i in np.arange(self.nb_channels):
-        #     UCB_args[i] = min(self.max_reward, UCB_args[i])
-        return UCB_args
-
-    def get_upper_bound_factor(self, n_i, N):
-        return np.sqrt(np.log(N)/n_i)
-
-
-class UCB_thresholded2(UCB):
-    past_predictions = []
-    def __init__(self, id, t_x, t_y, r_x, r_y, nb_channels=15, lamda=1, offset=0):
-        super().__init__(id, t_x, t_y, r_x, r_y, nb_channels=nb_channels, lamda=lamda, offset=offset)
-        self.type = "UCB_thresholded BINOMIAL"
-        self.max_reward = 0.99
+        self.get_confidence = self.get_upper_bound_factor
 
     def compute_UCB_args(self):
         UCB_args = []
@@ -555,12 +531,29 @@ class UCB_thresholded2(UCB):
         #     p_est = sum(l) / len(l)
         #     p_est = max(0.05, p_est)  # fighting zero values which mess with confidence bounds
         #     p_est = min(p_est, 0.99)  # fighting one values
-        #     UCB_args.append(min(p_est + self.lamda * self.get_95_Binomial_CI_length(n=len(l), p_est=p_est), 0.99))
-
+        #     UCB_args.append(min((p_est + self.get_upper_bound_factor(len(l), len(self.previous_channels))), 0.99))
         UCB_args = super().compute_UCB_args()
         for i in np.arange(self.nb_channels):
             UCB_args[i] = min(self.max_reward, UCB_args[i])
         return UCB_args
+
+    # def get_upper_bound_factor(self, n_i, N):
+    #     N = len(self.previous_channels)
+    #     return np.sqrt(np.log(N)/n_i)
+
+    def get_upper_bound_factor(self, n_i, p_est=0):
+        N = sum(self.channel_visits)
+        return np.sqrt(np.log(N)/n_i)
+
+
+
+class UCB_thresholded2(UCB_thresholded):
+    past_predictions = []
+    def __init__(self, id, t_x, t_y, r_x, r_y, nb_channels=15, lamda=1, offset=0):
+        super().__init__(id, t_x, t_y, r_x, r_y, nb_channels=nb_channels, lamda=lamda, offset=offset)
+        self.type = "UCB_thresholded BINOMIAL"
+        # self.max_reward = 0.99
+        self.get_confidence = self.get_95_Binomial_CI_length
 
 class UCB_d(UCB_thresholded):
     past_predictions = []
