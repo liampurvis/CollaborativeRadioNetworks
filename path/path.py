@@ -86,10 +86,12 @@ def arce(sx, sy, ex, ey, step, orient):
 """
 
 
-def myplot(paths):
+def myplot(paths, x1, x2, y1, y2):
     for p in paths:
         plt.plot([i[0] for i in p], [i[1] for i in p], marker=11)
     
-    plt.legend([str(i)+"_r" if i%2==0 else str(i)+"_t" for i in range(len(paths))])
+    plt.legend([str(i//2)+"_r" if i%2==0 else str(i//2)+"_t" for i in range(len(paths))], loc=1)
+    plt.xlim(x1,x2)
+    plt.ylim(y1,y2)
     plt.show()
 
