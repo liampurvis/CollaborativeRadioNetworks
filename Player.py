@@ -457,15 +457,11 @@ class UCB(Player):
         self.previous_rewards.append(success)
 
     def check_exploration_necessity(self):
-        chosen_channel = -1
-        unchosen = []
-        for i in range(self.nb_channels):
-            # if self.past_predictions.count(i) < 1:
-            if self.previous_channels.count(i) < 1:
-                unchosen.append(i)
+        unchosen = np.argwhere(self.channel_visits == 0)
         if len(unchosen) > 0:
-            chosen_channel = unchosen[np.random.randint(0, len(unchosen))]
-        return chosen_channel
+            return unchosen[np.random.randint(0, len(unchosen)),0]
+        else:
+            return -1
 
 
 
@@ -518,13 +514,15 @@ class UCB_thresholded(UCB):
         super().__init__(id, t_x, t_y, r_x, r_y, nb_channels=nb_channels, lamda=lamda, offset=offset)
         self.type = "UCB_thresholded HOEFFDING"
 
-        self.max_reward = 0.99
+        self.max_reward = 0.99*np.ones(self.nb_channels)
         self.get_confidence = self.get_upper_bound_factor
 
     def compute_UCB_args(self):
         UCB_args = super().compute_UCB_args()
-        for i in np.arange(self.nb_channels):
-            UCB_args[i] = min(self.max_reward, UCB_args[i])
+        # for i in np.arange(self.nb_channels):
+        #     UCB_args[i] = min(self.max_reward, UCB_args[i])
+
+        UCB_args = np.minimum(self.max_reward, UCB_args)
         return UCB_args
 
     def get_upper_bound_factor(self, n_i, p_est=0):

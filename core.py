@@ -63,6 +63,10 @@ class env_core:
             self.player_pos_record[p.id] = []
             self.player_frq_record[p.id] = []
 
+        self.next_step_vect = np.vectorize(self.next_step_helper, otypes=[None])
+        self.signal_power_vect = np.vectorize(self.compute_signal_power_helper)
+        self.noise_power_vect = np.vectorize(self.compute_noise_power_helper, otypes = [float])
+
 
     def run_simulation(self, nb_steps):
         for _ in range(nb_steps*self.TIME_REFERENCE_UNIT):
@@ -81,7 +85,9 @@ class env_core:
         # print("Current Noise Power = " + str(self.current_noise_powers))
 
 
-        np.vectorize(self.next_step_helper, otypes=[None])(np.arange(self.NB_PLAYERS))
+        # np.vectorize(self.next_step_helper, otypes=[None])(np.arange(self.NB_PLAYERS))
+        self.next_step_vect(np.arange(self.NB_PLAYERS))
+
 
         self.curr_step += 1
 
@@ -132,13 +138,13 @@ class env_core:
 
     # from a given set of settings, compute the success rate of each player
     def computePowers(self):
-        signal_power = np.vectorize(self.compute_signal_power_helper)(np.arange(self.NB_PLAYERS))
+        signal_power = self.signal_power_vect(np.arange(self.NB_PLAYERS))
 
         blocker_counters = np.array([self.players[i].blocker_counter for i in np.arange(self.NB_PLAYERS)])
 
-        vect = np.vectorize(self.compute_noise_power_helper, otypes = [float])
+        # vect = np.vectorize(self.compute_noise_power_helper, otypes = [float])
 
-        noise_power = np.array([np.sum(vect(np.arange(self.NB_PLAYERS)[(np.arange(len(blocker_counters))!=index) & (blocker_counters == 0)],
+        noise_power = np.array([np.sum(self.noise_power_vect(np.arange(self.NB_PLAYERS)[(np.arange(len(blocker_counters))!=index) & (blocker_counters == 0)],
                                    index))
                        for index in np.arange(self.NB_PLAYERS)])
         return (signal_power, noise_power)
