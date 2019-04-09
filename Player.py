@@ -51,23 +51,23 @@ class Player:
         self.previous_settings = list()
 
         np.random.seed()
-        logging.basicConfig(filename=logfile, filemode="w", level=logging.DEBUG)
+        # logging.basicConfig(filename=logfile, filemode="w", level=logging.DEBUG)
 
     # TODO : Why do we have set_channel and change_setting?
     def set_channel(self, central, width = 5, new_power=1): # width default set to
         if central!=self.central_frequency or width!=self.channel_width:
             self.save_setting()
-            logging.debug("")
-            logging.debug("--------------------------------------------------------------------------------")
-            logging.debug("Player " + str(self.id) + " changed settings")
-            logging.debug("Previous channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
+            # logging.debug("")
+            # logging.debug("--------------------------------------------------------------------------------")
+            # logging.debug("Player " + str(self.id) + " changed settings")
+            # logging.debug("Previous channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
             self.central_frequency = central
             self.channel_width = width
             self.power = new_power
 
-            logging.debug("New channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
-            logging.debug("--------------------------------------------------------------------------------")
-            logging.debug("")
+            # logging.debug("New channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
+            # logging.debug("--------------------------------------------------------------------------------")
+            # logging.debug("")
 
             self.blocker_counter = 4
 
@@ -258,7 +258,7 @@ class CSMA(Player):
                 "   action" + "{:>5}".format(action) + \
                 "   result" + "{:>5}".format(result)
 
-        logging.debug(info)
+        # logging.debug(info)
 
 
     def change_pwr_instant(self, new_power = 1):
@@ -284,16 +284,16 @@ class CSMA(Player):
            self.sleeping_counter -= 1
     def set_channel(self, central, width = 5, new_power=1): # width default set to
         if (central!=self.central_frequency or width !=self.channel_width):
-            logging.debug("")
-            logging.debug("--------------------------------------------------------------------------------")
-            logging.debug("Player " + str(self.id) + " changed settings")
-            logging.debug("Previous channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
+            # logging.debug("")
+            # logging.debug("--------------------------------------------------------------------------------")
+            # logging.debug("Player " + str(self.id) + " changed settings")
+            # logging.debug("Previous channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
             self.central_frequency = central
             self.channel_width = width
 
-            logging.debug("New channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
-            logging.debug("--------------------------------------------------------------------------------")
-            logging.debug("")
+            # logging.debug("New channel : ["+str(self.central_frequency-self.channel_width)+";"+str(self.central_frequency+self.channel_width)+"]")
+            # logging.debug("--------------------------------------------------------------------------------")
+            # logging.debug("")
             self.save_setting()
 
             self.sleeping_counter = 5

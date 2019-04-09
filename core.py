@@ -57,7 +57,7 @@ class env_core:
         self.SNR_THRESHOLD = 4
 
         # self.initialization_steps()
-        logging.basicConfig(filename=logfile, filemode="w", level=logging.DEBUG)
+        # logging.basicConfig(filename=logfile, filemode="w", level=logging.DEBUG)
         for p in self.players:
             self.player_idlist.append(p.id)
             self.player_pos_record[p.id] = []
@@ -70,7 +70,7 @@ class env_core:
 
     # computes the success rate for every player and asks for next step
     def next_step(self):
-        logging.debug("step " + str(self.curr_step*1.0/self.TIME_REFERENCE_UNIT))
+        # logging.debug("step " + str(self.curr_step*1.0/self.TIME_REFERENCE_UNIT))
 
         (signal_powers, noise_powers) = self.computePowers()
         # print("Signal =  " + str(signal_powers))
