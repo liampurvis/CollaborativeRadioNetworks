@@ -454,7 +454,7 @@ class UCB(Player):
     def check_exploration_necessity(self):
         unchosen = np.argwhere(self.channel_visits == 0)
         if len(unchosen) > 0:
-            return unchosen[np.random.randint(0, len(unchosen)),0]
+            return random.choice(unchosen[:,0])
         else:
             return -1
 
@@ -511,17 +511,16 @@ class UCB_thresholded(UCB):
 
         self.max_reward = 0.99*np.ones(self.nb_channels)
         self.get_confidence = self.get_upper_bound_factor
+        self.N = 0
 
     def compute_UCB_args(self):
+        self.N += 1
         UCB_args = super().compute_UCB_args()
-        # for i in np.arange(self.nb_channels):
-        #     UCB_args[i] = min(self.max_reward, UCB_args[i])
-
         UCB_args = np.minimum(self.max_reward, UCB_args)
         return UCB_args
 
     def get_upper_bound_factor(self, n_i, p_est=0):
-        N = sum(self.channel_visits)
+        N = self.N
         return np.sqrt(np.log(N)/n_i)
 
 
@@ -586,3 +585,7 @@ class UCB_sw(UCB_d):
         if len(unchosen) > 0:
             chosen_channel = unchosen[np.random.randint(0, len(unchosen))]
         return chosen_channel
+
+    def get_upper_bound_factor(self, n_i, p_est=0):
+        N = sum(self.channel_visits)
+        return np.sqrt(np.log(N)/n_i)
