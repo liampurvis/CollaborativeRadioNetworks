@@ -13,6 +13,7 @@ from Player import *
 from core import env_core
 import matplotlib.pyplot as plt
 import numpy as np
+import jsonpickle
 
 NB_CHANNELS = 10
 
@@ -30,26 +31,37 @@ def fix_player_enough_channels():
     p5.blocker_counter = 0
 
     np.random.seed()
-    env = env_core([p0, p1, p2, p3, p4,p5])
+    env = env_core([p0, p1, p2, p3, p4,p5], time_reference_unit=1)
 
-    env.run_simulation(1000)
+    env.run_simulation(750)
     p5.set_channel(1075,25)
-    env.run_simulation(2000)
+    env.run_simulation(750)
 
     env.players[0].displayEstimatedProbs()
     env.players[1].displayEstimatedProbs()
     env.players[2].displayEstimatedProbs()
     # for i in range(len(env.players[0].previous_successes)):
     #     print(str(i) + " - " + str(env.players[0].previous_successes[i]))
-    print(env.players[0].previous_channels)
+    # env.displayResults()
+
+    env.save_results()
+    env.save_environment()
+
+    del env
+
+    env = env_core([])
+    env.load_results()
+    print(env.players[2].previous_successes)
     env.displayResults()
 
+
+
 def fix_player_not_enough_channels():
-    p0 = UCB(0, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
-    p1 = UCB(1, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+    p0 = UCB(0, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7, offset=1)
+    p1 = UCB(1, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7, offset=2.2)
     p2 = UCB(2, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
-    p3 = UCB(3, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
-    p4 = UCB(4, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+    p3 = UCB(3, -1, 0, 1, 0, nb_channels=NB_CHANNELS*2, lamda=0.7)
+    p4 = UCB(4, -1, 0, 1, 0, nb_channels=9, lamda=0.7)
     p5 = Player(5, -1, 0, 1, 0)
 
     p5.set_channel(1050, 30)
@@ -136,10 +148,10 @@ def different_ucbs():
     env.displayResults()
 
 def fix_player_enough_channels_unaligned():
-    p0 = UCB(0, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
+    p0 = UCB(0, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7, offset=1)
     p1 = UCB(1, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
-    p2 = UCB(2, -1, 0, 1, 0, nb_channels=NB_CHANNELS, lamda=0.7)
-    p3 = UCB(3, -1, 0, 1, 0, nb_channels=NB_CHANNELS*2, lamda=0.7)
+    p2 = UCB(2, -1, 0, 1, 0, nb_channels=9, lamda=0.7)
+    p3 = UCB(3, -1, 0, 1, 0, nb_channels=NB_CHANNELS*2, lamda=0.7, offset=2.2)
 
     p3.min_frequency = 1002.5
     p3.max_frequency  = 1102.5

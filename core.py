@@ -11,6 +11,7 @@ from pathlib import Path
 from matplotlib import pyplot as plt
 import os
 from gifGen import gif
+from Player import *
 
 class env_core:
     """
@@ -269,6 +270,31 @@ class env_core:
     def save_environment(self, filename="last_environment.pkl"):
         with open("saved_environments/"+filename, 'wb') as output:
             pickle.dump(self, output, pickle.HIGHEST_PROTOCOL)
+
+    def save_results(self, filename="last_results.pkl"):
+        results = []
+        for i in range(len(self.players)):
+            results.append([self.players[i].id, self.players[i].type, self.players[i].previous_successes, self.players[i].previous_settings])
+        with open("saved_environments/"+filename, 'wb') as output:
+            pickle.dump(results, output, pickle.HIGHEST_PROTOCOL)
+
+    def load_results(self, filename="last_results.pkl"):
+        filename = "saved_environments/"+filename
+        if not Path(filename).is_file():
+            print("ERROR: " + filename + " doesn't exist")
+            return env_core([])
+        with open(filename, 'rb') as input:
+            results = pickle.load(input)
+            self.NB_PLAYERS = len(results)
+            self.players = [Player(i, 0, 0, 0, 0) for i in range(self.NB_PLAYERS)]
+            self.__init__(self.players)
+            for i in range(self.NB_PLAYERS):
+                self.players[i].type = results[i][1]
+                self.players[i].previous_successes = results[i][2]
+                self.players[i].previous_settings = results[i][3]
+            self.curr_step = len(self.players[i].previous_successes)*self.TIME_REFERENCE_UNIT
+
+
 
 # load a saved environment
     def load_environment(filename="last_environment.pkl"):
