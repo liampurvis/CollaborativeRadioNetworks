@@ -78,7 +78,7 @@ class Player:
         self.previous_t_positions.append([self.t_x, self.t_y])
         self.previous_r_positions.append([self.r_x, self.r_y])
 
-        self.log()
+        # self.log()
 
         if self.blocker_counter != 0:
            self.blocker_counter -= 1
@@ -104,22 +104,22 @@ class Player:
         self.channel_width = new_channel_width
 
 
-    def log(self):
-
-        if not self.previous_successes:
-            result = "None"
-        else:
-            result = "Pass" if self.previous_successes[-1] == 1 else "Fail"
-
-
-        info = "Player" + "{:>5}".format(str(self.id)) + "   Type" + "{:>5}".format(self.type) + \
-                "   pos_tx" + "{:>10}".format("(" + str(self.t_x) + ", " + str(self.t_y)+ ")") + \
-                "   pos_rx" + "{:>10}".format("(" + str(self.r_x) + ", " + str(self.r_y)+ ")") + \
-                "   CF" + "{:>7}".format(str(self.central_frequency)) + \
-                "   BW" + "{:>4}".format(str(self.channel_width)) + \
-                "   result" + "{:>5}".format(result)
-
-        logging.debug(info)
+    # def log(self):
+    #
+    #     if not self.previous_successes:
+    #         result = "None"
+    #     else:
+    #         result = "Pass" if self.previous_successes[-1] == 1 else "Fail"
+    #
+    #
+    #     info = "Player" + "{:>5}".format(str(self.id)) + "   Type" + "{:>5}".format(self.type) + \
+    #             "   pos_tx" + "{:>10}".format("(" + str(self.t_x) + ", " + str(self.t_y)+ ")") + \
+    #             "   pos_rx" + "{:>10}".format("(" + str(self.r_x) + ", " + str(self.r_y)+ ")") + \
+    #             "   CF" + "{:>7}".format(str(self.central_frequency)) + \
+    #             "   BW" + "{:>4}".format(str(self.channel_width)) + \
+    #             "   result" + "{:>5}".format(result)
+    #
+    #     logging.debug(info)
 
     def update_location(self, tx, ty, rx, ry):
         self.previous_t_positions.append([self.t_x, self.t_y])
@@ -278,7 +278,7 @@ class CSMA(Player):
         self.previous_successes.append(success)
         self.save_setting()
 
-        self.log()
+        # self.log()
 
         if self.sleeping_counter != 0:
            self.sleeping_counter -= 1
@@ -420,21 +420,16 @@ class UCB(Player):
         if chosen_channel==-1:
             UCB_args = self.compute_UCB_args()
 
-            # choses a channel (number i) and converts it to a couple (central_frequency, width)
-            chosen_channel = int(np.argmax(UCB_args))
-            M = max(UCB_args)
-
             #if the current channel is one of the most rewarding, we stay on it
             #if not, we choose randomly from the list of best channels
-            if (UCB_args[self.channel()] == M) and UCB_args[self.channel()]!=0:
-                chosen_channel = self.channel()
+            possible_channels = np.argwhere(UCB_args == np.amax(UCB_args))
+            c = self.channel()
+            if c in possible_channels:
+                chosen_channel = c
             else:
-                possible_channels = [i for i in range(self.nb_channels) if UCB_args[i]==M]
-                randomC = np.random.randint(0, len(possible_channels))
-                chosen_channel = possible_channels[randomC]
+                chosen_channel = random.choice(possible_channels[:, 0])
 
             self.previous_estimations.append(UCB_args)
-            # print("Player " + str(self.id) + " Channel " + str(chosen_channel) + ", estimated = " + str(UCB_args[chosen_channel]))
 
         central_frequency = self.min_frequency+(chosen_channel+0.5)*(self.max_frequency-self.min_frequency)*1.0/self.nb_channels
         width = (self.max_frequency-self.min_frequency)*0.5/self.nb_channels
