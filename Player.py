@@ -385,7 +385,8 @@ class Thompsons_d(Thompsons):
         return
 
 
-class Random_ns(Random):  def __init__(self, id, t_x, t_y, r_x, r_y):
+class Random_ns(Random):
+    def __init__(self, id, t_x, t_y, r_x, r_y):
       super().__init__(id, t_x, t_y, r_x, r_y, starting_frequency=1005, prob=.003, random_walk=False, nb_channels=5)
 
 
