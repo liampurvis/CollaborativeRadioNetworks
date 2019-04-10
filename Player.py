@@ -161,6 +161,7 @@ class Random_Weights(Player):
 
         self.probs = probs/np.sum(probs)
         self.nb_channels = nb_channels
+        self.type = "Random Weights"
 
     def next_step(self, success, noise_power = 0): #to overwrite depending on the algorithm
         self.log_last_step(success)

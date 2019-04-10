@@ -15,13 +15,14 @@ import pickle
 
 import time
 
-p1 = Random_Weights(id = 1, t_x = 1, t_y = 1, r_x = 1.1, r_y = 1.1, starting_frequency = 1005, nb_channels=3)
+p1 = Random_Weights(id = 1, t_x = 1, t_y = 1, r_x = 1.1, r_y = 1.1, probs = [1,1,2,2,5,5,5,5,5, 5], starting_frequency = 1005, nb_channels=10)
+p2 = Thompsons(id = 2, t_x = 1, t_y = 1, r_x = 1.1, r_y = 1.1)
+p3 = UCB(id = 3, t_x = 1, t_y = 1, r_x = 1.1, r_y = 1.1, nb_channels = 10)
 
-
-env = env_core([p1])
+env = env_core([p1, p2, p3])
 before = time.time()
 
-env.run_simulation(1000)
+env.run_simulation(4000)
 after = time.time()
 print("total simulation time:"+  str(after - before))
 env.displayResults()
