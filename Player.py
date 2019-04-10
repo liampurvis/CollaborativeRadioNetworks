@@ -166,7 +166,7 @@ class Random_Weights(Player):
     def next_step(self, success, noise_power = 0): #to overwrite depending on the algorithm
         self.log_last_step(success)
         next_channel = int(np.random.choice(self.nb_channels, size = 1, p = self.probs)*2*self.channel_width + self.min_frequency + 5)
-        self.set_channel(new_central_frequency = next_channel)
+        self.set_channel(next_channel)
         self.blocker_counter = 0
 
 class Thompsons(Player):
