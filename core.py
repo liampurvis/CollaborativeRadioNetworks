@@ -31,7 +31,7 @@ class env_core:
     player_idlist = []
     player_pos_record = {}
     player_frq_record = {}
-    colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'r']
+    colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'C5']
     symbols = ['--', '-.', ':', '.', '+', 'x', 'h', '_']
 
     # initialize the core for a given set of players
