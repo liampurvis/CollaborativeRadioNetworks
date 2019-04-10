@@ -14,9 +14,8 @@ from core import *
 
 env = env_core([])
 files = os.listdir("saved_environments")
-i = 5
+i = 17
 print("Showing file " + str(i) + " / " + str(len(files)))
 print(files[i])
 env.load_results(filename=files[i])
-print(env.players[3].previous_successes)
 env.displayResults()
