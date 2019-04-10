@@ -161,12 +161,14 @@ class Random_Weights(Player):
 
         self.probs = probs/np.sum(probs)
         self.nb_channels = nb_channels
+        self.channel_width = (self.max_frequency-self.min_frequency)/self.nb_channels/2
+        self.central_frequency = self.min_frequency + self.channel_width
         self.type = "Random Weights"
 
     def next_step(self, success, noise_power = 0): #to overwrite depending on the algorithm
         self.log_last_step(success)
-        next_channel = int(np.random.choice(self.nb_channels, size = 1, p = self.probs)*2*self.channel_width + self.min_frequency + 5)
-        self.set_channel(next_channel)
+        next_channel = int(np.random.choice(self.nb_channels, size = 1, p = self.probs)*self.channel_width*2 + self.min_frequency + self.channel_width)
+        self.set_channel(next_channel, width=self.channel_width)
         self.blocker_counter = 0
 
 class Thompsons(Player):
@@ -175,6 +177,9 @@ class Thompsons(Player):
         self.channels = np.arange(nb_channels)
         self.a = np.ones(nb_channels)*a
         self.b = np.ones(nb_channels)*b
+        self.nb_channels = nb_channels
+        self.channel_width = (self.max_frequency-self.min_frequency)/self.nb_channels/2
+        self.central_frequency = self.min_frequency + self.channel_width
         self.type = "Thompsons"
 
 
@@ -186,7 +191,7 @@ class Thompsons(Player):
                                  curr_s = last_success,
                                  curr_a = self.a[curr_index],
                                  curr_b = self.b[curr_index])
-            next_channel = self.index_of_max_sample() * 10 + 1005
+            next_channel = self.index_of_max_sample() * self.channel_width*2 + self.min_frequency + self.channel_width
             # self.change_setting(new_central_frequency = next_channel)
             self.set_channel(next_channel, width=self.channel_width)
         else:
