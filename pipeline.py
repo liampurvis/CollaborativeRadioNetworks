@@ -78,17 +78,22 @@ def pipeline_routine(pipefile):
 	if lines[line_counter][0]=='s':
 		pass
 	elif lines[line_counter][0]=='ns':
-		raise ValueError('Not supported yet')
+		pass
+		# raise ValueError('Not supported yet')
 	else:
 		print("Provided with %s "%lines[line_counter][0])
 		raise ValueError('Must be either static or non-static')
 
-	if int(lines[line_counter][1])!=10:
-		raise ValueError('Not 10')
+	total_channels = int(lines[line_counter][1])
+	print("total channels %d"%total_channels)
 
-	if int(lines[line_counter][2]) + int(lines[line_counter][3])!=10:
-		raise ValueError('Sum not 10')
+	# if int(lines[line_counter][1])!=10:
+	# 	raise ValueError('Not 10')
 
+	if int(lines[line_counter][2]) + int(lines[line_counter][3])!=total_channels:
+		raise ValueError('Sum not the same')
+
+	env_type = lines[line_counter][0]
 	pl_ch_sum = int(lines[line_counter][2])
 	fix_ch_sum = int(lines[line_counter][3])
 	total_steps = int(lines[line_counter][4])
@@ -98,97 +103,120 @@ def pipeline_routine(pipefile):
 	line_counter += 1
 	time_ref_in = int(lines[line_counter][0])
 
-	players = {}
-	player_num_to_id = {}
 
-	for i in range(0, player_num):
-		if player_type_pool[arr_list[i]] == "FIX":
-			pass
-			# csv = current_line[2].split(",")
-			# csv = list(map(float, csv))
-			# # new_player = Player.Player(*csv)
-			# csv = [1,1,0,0]
-			# new_player = Player.Player(*csv)
-			# players[i] = new_player
+	for it in range(num_iter):
+		players = {}
+		player_num_to_id = {}
 
-			# player_num_to_id[line_counter - 1] = current_line[0]
+		if env_type == "s" or env_type == "ns":
+			top = 0
+			for i in range(0, player_num):
+				if player_type_pool[arr_list[i]] == "FIX":
+					pass
+					# csv = current_line[2].split(",")
+					# csv = list(map(float, csv))
+					# # new_player = Player.Player(*csv)
+					# csv = [1,1,0,0]
+					# new_player = Player.Player(*csv)
+					# players[i] = new_player
 
-		elif player_type_pool[arr_list[i]] == "R":
-			pass
-			# orig_csv = current_line[2].split(",")
-			# csv = list(map(float, orig_csv))
-			# new_player = Player.Random(*csv)
-			# players[i] = new_player
+					# player_num_to_id[line_counter - 1] = current_line[0]
 
-			# player_num_to_id[line_counter - 1] = current_line[0]
+				elif player_type_pool[arr_list[i]] == "R":
+					csv = [i,1,1,0,0,1005,0.01,False,total_channels]
+					new_player = Player.Random(*csv)
+					players[i] = new_player
 
-		elif player_type_pool[arr_list[i]] == "C":
-			pass
-			# csv = current_line[2].split(",")
-			# csv = list(map(float, csv))
-			# new_player = Player.CSMA(*csv)
-			# players[i] = new_player
+				elif player_type_pool[arr_list[i]] == "C":
+					# csv = current_line[2].split(",")
+					# csv = list(map(float, csv))
+					csma_freq = (1100 - 5) - top * 10
+					top+=1
+					csv = [i,1,1,0,0,0.1,3,0.9,csma_freq]
+					new_player = Player.CSMA(*csv)
+					players[i] = new_player
 
-			# player_num_to_id[line_counter - 1] = current_line[0]
+				elif player_type_pool[arr_list[i]] == "U":
+					# csv = current_line[2].split(",")
+					# csv = list(map(float, csv))
+					# csv[5] = int(csv[5])
+					csv = [i,1,1,0,0,total_channels]
+					new_player = Player.UCB(*csv)
+					players[i] = new_player
 
-		elif player_type_pool[arr_list[i]] == "U":
-			# csv = current_line[2].split(",")
-			# csv = list(map(float, csv))
-			# csv[5] = int(csv[5])
-			csv = [i,1,1,0,0,10]
-			new_player = Player.UCB(*csv)
-			players[i] = new_player
+					# player_num_to_id[line_counter - 1] = current_line[0]
 
-			# player_num_to_id[line_counter - 1] = current_line[0]
+				elif player_type_pool[arr_list[i]] == "Ud":
+					# csv = current_line[2].split(",")
+					# csv = list(map(float, csv))
+					# csv[5] = int(csv[5])
+					csv = [i,1,1,0,0,total_channels]
+					new_player = Player.UCB_d(*csv)
+					players[i] = new_player
 
-		elif player_type_pool[arr_list[i]] == "Ud":
-			# csv = current_line[2].split(",")
-			# csv = list(map(float, csv))
-			# csv[5] = int(csv[5])
-			csv = [i,1,1,0,0,10]
-			new_player = Player.UCB_d(*csv)
-			players[i] = new_player
+					# player_num_to_id[line_counter - 1] = current_line[0]
+				elif player_type_pool[arr_list[i]] == "Ut":
+					csv = [i,1,1,0,0,total_channels]
+					new_player = Player.UCB_thresholded(*csv)
+					players[i] = new_player
 
-			# player_num_to_id[line_counter - 1] = current_line[0]
-		elif player_type_pool[arr_list[i]] == "Ut":
-			csv = [i,1,1,0,0,10]
-			new_player = Player.UCB_thresholded(*csv)
-			players[i] = new_player
+				elif player_type_pool[arr_list[i]] == "Ut2":
+					csv = [i,1,1,0,0,total_channels]
+					new_player = Player.UCB_thresholded2(*csv)
+					players[i] = new_player
 
-		elif player_type_pool[arr_list[i]] == "Ut2":
-			csv = [i,1,1,0,0,10]
-			new_player = Player.UCB_thresholded2(*csv)
-			players[i] = new_player
+				elif player_type_pool[arr_list[i]] == "T":
+					# csv = current_line[2].split(",")
+					# csv = list(map(float, csv))
+					# csv[5] = int(csv[5])
+					csv = [i,1,1,0,0,total_channels]
+					new_player = Player.Thompsons(*csv)
+					players[i] = new_player
 
-		elif player_type_pool[arr_list[i]] == "T":
-			# csv = current_line[2].split(",")
-			# csv = list(map(float, csv))
-			# csv[5] = int(csv[5])
-			csv = [i,1,1,0,0,10]
-			new_player = Player.Thompsons(*csv)
-			players[i] = new_player
+				elif player_type_pool[arr_list[i]] == "Td":
+					# csv = current_line[2].split(",")
+					# csv = list(map(float, csv))
+					# csv[5] = int(csv[5])
+					csv = [i,1,1,0,0,total_channels]
+					new_player = Player.Thompsons_d(*csv)
+					players[i] = new_player
 
-		else:
-			sim_scenario.close()
-			raise ValueError('Player type not recognized')
+				else:
+					sim_scenario.close()
+					raise ValueError('Player type not recognized')
 
-	impe_center = fix_ch_sum * 5 + 1000
-	impe_width = fix_ch_sum * 5
-	impe_player = Player.Player(player_num,1,1,0,0,starting_frequency = impe_center)
-	impe_player.set_channel(central=impe_center, width = impe_width)
-	players[player_num] = impe_player
+		
+
+		# print(pl_ch_sum)
+		# print(player_num)
+		# print(env_type)
+		if env_type == "s":
+			impe_center = fix_ch_sum * 5 + 1000
+			impe_width = fix_ch_sum * 5
+			impe_player = Player.Player(player_num,1,1,0,0,starting_frequency = impe_center)
+			impe_player.set_channel(central=impe_center, width = impe_width)
+			players[player_num] = impe_player
+
+		if pl_ch_sum >= player_num and env_type == "s":
+			random_w = Player.Random_Weights(player_num+1,1,1,0,0,probs=False,nb_channels=total_channels)
+			players[player_num+1] = random_w
+			# print("yes")
+		elif env_type == "ns":
+			random_ns = Player.Random_ns(player_num+1,1,1,0,0)
+			players[player_num+1] = random_ns
 
 
-	players_list = list(players.values())
+		players_list = list(players.values())
 
 	# print(players_list)
 	# print(line_counter)
 
 	# print(lines[line_counter])
-	ts = calendar.timegm(time.gmtime())
 	# print(ts)
-	for it in range(2):
-		log_name = "result_%d.pkl"%ts
+		ts = calendar.timegm(time.gmtime())
+		pls = ''.join(player_type_pool)
+		dis = ''.join(str(e) for e in arr_list)
+		log_name = "result_%s_%s_%d@%d.pkl"%(pls,dis,it,ts)
 		env = env_core(players_list,time_reference_unit = time_ref_in)
 
 		env.run_simulation(total_steps)
@@ -203,7 +231,7 @@ all_pipe  = open(sys.argv[1], "r")
 all_pipe_content = [line.rstrip('\n') for line in all_pipe]
 
 for i in all_pipe_content:
-	print(i)
+	# print(i)
 	pipeline_routine(i)
 
 
