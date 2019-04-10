@@ -149,7 +149,7 @@ class Random(Player):
       # Randomly choose to seek new channel
       if np.random.binomial(n = 1, p = self.probability_of_changing_channel) == 1:
           # if so randmly generate new channel and switch to it.
-          next_channel = np.random.randint(low = 1, high = 10)*10 + 1005
+          next_channel = np.random.randint(low = 0, high = 10)*10 + 1005
           self.change_setting(new_central_frequency = next_channel)
 
 class Random_Weights(Player):
