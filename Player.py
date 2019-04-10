@@ -165,16 +165,16 @@ class Random_Weights(Player):
 
     def next_step(self, success, noise_power = 0): #to overwrite depending on the algorithm
         self.log_last_step(success)
-        next_channel = np.random.choice(self.nb_channels, size = 1, p = self.probs)*2*self.channel_width + self.min_frequency + 5
-        self.change_setting(new_central_frequency = next_channel)
+        next_channel = int(np.random.choice(self.nb_channels, size = 1, p = self.probs)*2*self.channel_width + self.min_frequency + 5)
+        self.set_channel(new_central_frequency = next_channel)
         self.blocker_counter = 0
 
 class Thompsons(Player):
-    def __init__(self, id, t_x, t_y, r_x, r_y, starting_frequency = 1005, a = 2, b = 2):
-        super().__init__(id, t_x, t_y, r_x, r_y, starting_frequency)
-        self.channels = np.arange(int((self.max_frequency - self.min_frequency)/(2*self.channel_width)))
-        self.a = np.ones(len(self.channels))*a
-        self.b = np.ones(len(self.channels))*b
+    def __init__(self, id, t_x, t_y, r_x, r_y, nb_channels = 10, a = 2, b = 2):
+        super().__init__(id, t_x, t_y, r_x, r_y)
+        self.channels = np.arange(nb_channels)
+        self.a = np.ones(nb_channels)*a
+        self.b = np.ones(nb_channels)*b
         self.type = "Thompsons"
 
 
