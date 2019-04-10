@@ -6,6 +6,7 @@ import re
 import calendar;
 import time;
 import sys
+import os
 
 # re.findall('\[[^\]]*\]|\([^\)]*\)|\"[^\"]*\"|\S+',strs)
 
@@ -216,11 +217,18 @@ def pipeline_routine(pipefile):
 		ts = calendar.timegm(time.gmtime())
 		pls = ''.join(player_type_pool)
 		dis = ''.join(str(e) for e in arr_list)
+
+		directory = "%s_%s/"%(pls,dis)
+		dd = "saved_environments/"+directory
+
+		if not os.path.exists(dd):
+		    os.makedirs(dd)
+
 		log_name = "result_%s_%s_%d.pkl"%(pls,dis,it)
 		env = env_core(players_list,time_reference_unit = time_ref_in)
 
 		env.run_simulation(total_steps)
-		env.save_results(filename=log_name)
+		env.save_results(filename=directory+log_name)
 		# env.displayResults()
 
 for x in sys.argv:
