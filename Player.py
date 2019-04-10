@@ -372,6 +372,22 @@ class CSMA(Player):
             self.current_state = 0
             change_pwr_instant(new_power=1)
 
+class Thompsons_d(Thompsons):
+    def __init__(self, id, t_x, t_y, r_x, r_y, nb_channels=10, a=2, b=2):
+        super().__init__(id, t_x, t_y, r_x, r_y, nb_channels=nb_channels, a=a, b=b)
+        self.type= "Thompsons discounted"
+
+    def update_posterior(self, last_prediction, curr_a, curr_b, curr_s):
+        #updating beta parameter 'a' via bayes rule:
+        self.a[last_prediction] = curr_s + curr_a*0.99
+        #updating beta parameter 'b' via bayes rule:
+        self.b[last_prediction] = 1 - curr_s + curr_b*0.99
+        return
+
+
+class Random_ns(Random):  def __init__(self, id, t_x, t_y, r_x, r_y):
+      super().__init__(id, t_x, t_y, r_x, r_y, starting_frequency=1005, prob=.003, random_walk=False, nb_channels=5)
+
 
 class UCB(Player):
     past_predictions = []
