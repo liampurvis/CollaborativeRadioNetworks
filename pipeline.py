@@ -61,7 +61,7 @@ def pipeline_routine(pipefile):
 
 	for i in player_type_pool:
 		# support R, C, U, Ud, T
-		if i not in ['R', 'C', 'U', 'Ud', 'T']:
+		if i not in ['R', 'C', 'U', 'Ud','Ut','Ut2', 'T','Td']:
 			raise ValueError('Player type %s not supported' % i)
 
 	line_counter += 1
@@ -216,7 +216,7 @@ def pipeline_routine(pipefile):
 		ts = calendar.timegm(time.gmtime())
 		pls = ''.join(player_type_pool)
 		dis = ''.join(str(e) for e in arr_list)
-		log_name = "result_%s_%s_%d@%d.pkl"%(pls,dis,it,ts)
+		log_name = "result_%s_%s_%d.pkl"%(pls,dis,it)
 		env = env_core(players_list,time_reference_unit = time_ref_in)
 
 		env.run_simulation(total_steps)
