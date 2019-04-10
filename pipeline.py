@@ -238,8 +238,10 @@ all_pipe  = open(sys.argv[1], "r")
 # print(sim_scenario.read())
 all_pipe_content = [line.rstrip('\n') for line in all_pipe]
 
+counter = 1
 for i in all_pipe_content:
-	# print(i)
+	print("Step " + str(counter) + "/" + str(len(all_pipe_content)))
+	counter += 1
 	pipeline_routine(i)
 
 
