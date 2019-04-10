@@ -1,0 +1,3 @@
+pipes/1_6_pipe_2_7.txt
+pipes/3_3_pipe_2_6.txt
+pipes/6_1_pipe_2_7.txt
