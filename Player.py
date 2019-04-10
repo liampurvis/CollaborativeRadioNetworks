@@ -138,6 +138,8 @@ class Random(Player):
       self.type = "Random"
       self.random_walk = random_walk
       self.nb_channels = nb_channels
+      self.channel_width = (self.max_frequency-self.min_frequency)/(2*self.nb_channels)
+      self.central_frequency = self.min_frequency + self.channel_width
 
   def next_step(self, success, noise_power = 0): #to overwrite depending on the algorithm
       self.log_last_step(success)
@@ -149,8 +151,8 @@ class Random(Player):
       # Randomly choose to seek new channel
       if np.random.binomial(n = 1, p = self.probability_of_changing_channel) == 1:
           # if so randmly generate new channel and switch to it.
-          next_channel = np.random.randint(low = 0, high = 10)*10 + 1005
-          self.change_setting(new_central_frequency = next_channel)
+          next_channel = np.random.randint(low = 0, high = self.nb_channels)*self.channel_width*2 + self.min_frequency +self.channel_width
+          self.set_channel(next_channel, width=self.channel_width)
 
 class Random_Weights(Player):
 
@@ -392,7 +394,7 @@ class Thompsons_d(Thompsons):
 
 class Random_ns(Random):
     def __init__(self, id, t_x, t_y, r_x, r_y):
-        super().__init__(id, t_x, t_y, r_x, r_y, starting_frequency=1005, prob=.003, random_walk=False, nb_channels=5)
+        super().__init__(id, t_x, t_y, r_x, r_y, starting_frequency=1005, prob=.006, random_walk=False, nb_channels=2)
         self.type = "Simulating Non-Static Env"
 
 
