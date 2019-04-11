@@ -240,13 +240,13 @@ def pipeline_routine(pipefile):
 		pls = ''.join(player_type_pool)
 		dis = ''.join(str(e) for e in arr_list)
 
-		directory = "%s_%s/"%(pls,dis)
+		directory = "%s_%s_%s/"%(pls,dis,env_type)
 		dd = "saved_environments/"+directory
 
 		if not os.path.exists(dd):
 		    os.makedirs(dd)
 
-		log_name = "result_%s_%s_%d.pkl"%(pls,dis,it)
+		log_name = "result_%s_%s_%d_%s.pkl"%(pls,dis,it, env_type)
 		env = env_core(players_list,time_reference_unit = time_ref_in)
 
 		env.run_simulation(total_steps)
