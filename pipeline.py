@@ -7,9 +7,31 @@ import calendar;
 import time;
 import sys
 import os
+import gc
+from threading import Thread
+from multiprocessing import Process, Queue
+
+def dump_garbage():
+	"""
+    show us what's the garbage about
+    """
+
+	# force collection
+	print("GARBAGE:")
+	gc.collect()
+
+	print("GARBAGE OBJECTS:")
+	print(gc.garbage)
+	for x in gc.garbage:
+		print("1")
+		s = str(x)
+		if len(s) > 80:
+			s = s[:80]
+		print(s)
 
 # re.findall('\[[^\]]*\]|\([^\)]*\)|\"[^\"]*\"|\S+',strs)
 
+gc.enable()
 
 # print(sim_content)
 
@@ -231,6 +253,7 @@ def pipeline_routine(pipefile):
 		env.save_results(filename=directory+log_name)
 		# env.displayResults()
 
+
 for x in sys.argv:
 	print("Argument: %s", x)
 
@@ -242,7 +265,17 @@ counter = 1
 for i in all_pipe_content:
 	print("Step " + str(counter) + "/" + str(len(all_pipe_content)))
 	counter += 1
-	pipeline_routine(i)
+
+	p = Process(target = pipeline_routine, args=(i,))
+	p.start()
+	p.join()
+
+	# thread = Thread(target = pipeline_routine, args=(i, ))
+	# thread.start()
+	# thread.join()
+	# del thread
+	# dump_garbage()
+	# input()
 
 
 
