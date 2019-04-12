@@ -1,7 +1,7 @@
 8
 p1 FIX 1,20,20,20,20,1050
 p2 FIX 2,20,20,20,20,1050
-p3 FIX 3,20,20,20,20,1050
+p3 UCB_thresholded 3,20,20,20,20,10,0.7
 p4 UCB_thresholded 4,20,20,20,20,10,0.7
 p5 UCB_thresholded 5,20,20,20,20,10,0.7
 p6 UCB_thresholded 6,20,20,20,20,10,0.7
@@ -28,13 +28,41 @@ p1 1250 set_channel 1035
 p1 1300 set_channel 1025
 p1 1350 set_channel 1015
 p1 1400 set_channel 1005
+p2 1400 set_channel 1095
 p1 1450 set_channel 1015
+p2 1450 set_channel 1085
 p1 1500 set_channel 1025
+p2 1500 set_channel 1075
 p1 1550 set_channel 1035
+p2 1550 set_channel 1065
 p1 1600 set_channel 1045
+p2 1600 set_channel 1055
 p1 1650 set_channel 1055
+p2 1650 set_channel 1045
 p1 1700 set_channel 1065
+p2 1700 set_channel 1035
 p1 1750 set_channel 1075
+p2 1750 set_channel 1025
 p1 1800 set_channel 1085
+p2 1800 set_channel 1015
 p1 1850 set_channel 1095
+p2 1850 set_channel 1005
+p1 1900 set_channel 1085
+p2 1900 set_channel 1015
+p1 2000 set_channel 1075
+p2 2000 set_channel 1025
+p1 2050 set_channel 1065
+p2 2050 set_channel 1035
+p1 2100 set_channel 1055
+p2 2100 set_channel 1045
+p1 2150 set_channel 1045
+p2 2150 set_channel 1055
+p1 2200 set_channel 1035
+p2 2200 set_channel 1065
+p1 2250 set_channel 1025
+p2 2250 set_channel 1075
+p1 2300 set_channel 1015
+p2 2300 set_channel 1085
+p1 2350 set_channel 1005
+p2 2350 set_channel 1095
 endsim
