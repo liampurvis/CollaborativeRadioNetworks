@@ -1,0 +1,11 @@
+7
+p1 UCB_thresholded 1,20,20,20,20,10,0.7
+p2 UCB_thresholded 2,20,20,20,20,10,0.7
+p3 UCB_thresholded 3,20,20,20,20,10,0.7
+p4 UCB_thresholded 4,20,20,20,20,10,0.7
+p5 UCB_thresholded 5,20,20,20,20,10,0.7
+p6 UCB_thresholded 6,20,20,20,20,10,0.7
+p7 UCB_thresholded 7,20,20,20,20,10,0.7
+2,2,2,2,2,2,2
+pos_deplete
+endsim
