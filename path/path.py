@@ -27,6 +27,20 @@ def randomLine(sx, sy, ex, ey, mag, step):
     dify = (ey-sy)/step
     return [(sx + i*difx + normalVector_x*mag*random.random(), sy + i*dify + normalVector_y*mag*random.random()) for i in range(1, step+1)]
 
+def randomStep(init, mag):
+    return (init[0] + mag*sin(2*pi*random.random()), init[1] + mag*cos(2*pi*random.random()))
+
+def randomWalk(init, step, mag, xmin, ymin, xmax, ymax):
+    re = []
+    last = init
+    for i in range(step):
+        cur = randomStep(last, mag)
+        while cur[0] <= xmin or cur[0] >= xmax or cur[1] <= ymin or cur[1] >= ymax:
+            cur = randomStep(last, mag)
+        re.append(cur)
+        last = cur
+    return re
+
 def circle(x, y, r, theta, angle, dir, step):
     cx, cy = x - r*sin(theta), y - r*cos(theta)
     omega = angle/step
