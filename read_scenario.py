@@ -47,7 +47,11 @@ player_num = int(lines[line_counter][0])
 print("Player amount: %d" % player_num)
 line_counter += 1
 
-if player_num > int(poss[pos_counter][0]):
+fixed_amt = int(poss[pos_counter][0])
+pos_counter+=1
+other_amt = int(poss[pos_counter][0])
+
+if player_num > (fixed_amt+other_amt):
 	sim_scenario.close()
 	pos_scenario.close()
 	raise ValueError('Player number in simulation file MUST be LESS OR EQUAL to player number in position file')
