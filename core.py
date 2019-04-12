@@ -31,8 +31,8 @@ class env_core:
     player_idlist = []
     player_pos_record = {}
     player_frq_record = {}
-    colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'C5']
-    symbols = ['--', '-.', ':', '.', '+', 'x', 'h', '_']
+    colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'C5', 'C2', 'C7']
+    symbols = ['--', '-.', ':', '.', '+', 'x', 'h', '_', '--', '-']
 
     # initialize the core for a given set of players
     def __init__(self, players, nb_steps=100, time_refs=[], logfile="logfile.log", time_reference_unit=10):
@@ -268,6 +268,21 @@ class env_core:
         # self.displayLocationResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax3)
         self.displayCumulativeResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax4)
         plt.show(ax4)
+
+    def generatePlots(self, figsize = (10,10), name="default"):
+        f1, ax1 = plt.subplots(1, 1, figsize=figsize)
+        # f2, ax2 = plt.subplots(1, 1, figsize=figsize)
+        # f3, ax3 = plt.subplots(1, 1, figsize=figsize)
+        self.displayChannelsOverTime(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax1)
+        plt.savefig(name+"_channels.png")
+        plt.close()
+        # self.displayStepByStepResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax2) #kind of useless for most cases
+        # self.displayLocationResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax3)
+        f4, ax4 = plt.subplots(1, 1, figsize=figsize)
+        self.displayCumulativeResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax4)
+
+        plt.savefig(name+"_cum.png")
+        plt.close()
 
     def displayGif(self):
         gif(self.player_idlist, self.player_pos_record, self.player_frq_record)

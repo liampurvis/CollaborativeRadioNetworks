@@ -12,10 +12,17 @@ from gifGen import gif
 from Player import *
 from core import *
 
-env = env_core([])
-files = os.listdir("saved_environments")
+
+dirs = os.listdir("saved_environments")
+files = [os.listdir("saved_environments/"+dirs[i])[0] for i in range(len(dirs))]
 i = 22
-print("Showing file " + str(i) + " / " + str(len(files)))
-print(files[i])
-env.load_results(filename=files[i])
-env.displayResults()
+# print("Showing file " + str(i) + " / " + str(len(files)))
+# print(files[i])
+for i in range(len(files)):
+    print(files[i])
+    env = env_core([])
+    env.load_results(dirs[i]+"/"+files[i])
+
+    env.generatePlots(name="plots/"+files[i])
+
+    del env
