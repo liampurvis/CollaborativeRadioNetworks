@@ -7,9 +7,14 @@ import calendar;
 import time;
 import sys
 import os
+import copy
+import random
 import gc
+import argparse
 from threading import Thread
 from multiprocessing import Process, Queue
+
+_ALL_LOC_DICT_ = {}
 
 def dump_garbage():
 	"""
@@ -126,13 +131,13 @@ def pipeline_routine(pipefile):
 	line_counter += 1
 	time_ref_in = int(lines[line_counter][0])
 
-
+	pick_list = list(range(total_channels))
+	remain_sel = copy.deepcopy(pick_list)
 	for it in range(num_iter):
 		players = {}
 		player_num_to_id = {}
 
 		if env_type == "s" or env_type == "ns":
-			top = 0
 			for i in range(0, player_num):
 				if player_type_pool[arr_list[i]] == "FIX":
 					pass
@@ -153,8 +158,13 @@ def pipeline_routine(pipefile):
 				elif player_type_pool[arr_list[i]] == "C":
 					# csv = current_line[2].split(",")
 					# csv = list(map(float, csv))
-					csma_freq = (1100 - 5) - top * 10
-					top+=1
+					if not remain_sel:
+						remain_sel = copy.deepcopy(pick_list)
+
+					chosed = random.choice(remain_sel)
+					remain_sel.remove(chosed)
+					csma_freq = (1100 - 5) - chosed * 10
+
 					csv = [i,1,1,0,0,0.1,3,0.9,csma_freq]
 					new_player = Player.CSMA(*csv)
 					players[i] = new_player
@@ -254,11 +264,44 @@ def pipeline_routine(pipefile):
 		# env.displayResults()
 
 
+# parser = argparse.ArgumentParser()
+
+# parser.add_argument("-i", "--input_pipe", required=True,
+# 	help="Text file that contain paths to all the single pipe files")
+# parser.add_argument("-l", "--locations", required=False,
+# 	help="Text file that contain paths to all the location movement files")
+
+# p_args_f = vars(parser.parse_args())
+
+# print(p_args_f)
+# pipe_file = p_args_f["input_pipe"]
+# if "locations" in p_args_f:
+# 	loc_file = p_args_f["locations"]
+
 for x in sys.argv:
 	print("Argument: %s", x)
 
-all_pipe  = open(sys.argv[1], "r")
+# all_pipe  = open(sys.argv[1], "r")
 # print(sim_scenario.read())
+pipe_file = sys.argv[1]
+
+try:
+    all_pipe = open(pipe_file, 'r')
+    # Store configuration file values
+except FileNotFoundError:
+    print('Input file %s does not exist'%pipe_file)
+    sys.exit()
+
+# loc_flag = False
+# if loc_file is not None:
+# 	try:
+# 	    all_loc = open(loc_file, 'r')
+# 	    # Store configuration file values
+# 	    loc_flag = True
+# 	except FileNotFoundError:
+# 	    print('Location file %s does not exist'%loc_file)
+# 	    sys.exit()
+
 all_pipe_content = [line.rstrip('\n') for line in all_pipe]
 
 counter = 1
