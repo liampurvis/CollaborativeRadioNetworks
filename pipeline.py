@@ -12,7 +12,7 @@ import random
 import gc
 import argparse
 from threading import Thread
-from multiprocessing import Process, Queue
+from multiprocessing import Process, Pool, Queue, cpu_count
 
 _ALL_LOC_DICT_ = {}
 
@@ -49,7 +49,10 @@ gc.enable()
 # def read_sce_helper():
 # 	pass
 
-def pipeline_routine(pipefile):
+def pipeline_routine(pipefile, it_begin, nb_it):
+
+	# if (it_begin != 0):
+	# 	time.sleep(2) #leaving time for main process to create the dir
 
 	pipeline_config  = open(pipefile, "r")
 	# print(sim_scenario.read())
@@ -130,9 +133,20 @@ def pipeline_routine(pipefile):
 	total_steps = int(lines[line_counter][4])
 
 	line_counter += 1
-	num_iter = int(lines[line_counter][0])
+	num_iter = nb_it#int(lines[line_counter][0])
 	line_counter += 1
 	time_ref_in = int(lines[line_counter][0])
+
+	pls = ''.join(player_type_pool)
+	dis = ''.join(str(e) for e in arr_list)
+
+	directory = "%s_%s_%s/" % (pls, dis, env_type)
+	dd = "saved_environments/" + directory
+
+	if it_begin==0 and not os.path.exists(dd):
+		os.makedirs(dd)
+	else:
+		time.sleep(0.1)
 
 	pick_list = list(range(total_channels))
 	for it in range(num_iter):
@@ -255,8 +269,14 @@ def pipeline_routine(pipefile):
 		if not os.path.exists(dd):
 		    os.makedirs(dd)
 
-		log_name = "result_%s_%s_%d_%s.pkl"%(pls,dis,it, env_type)
-		env = env_core(players_list,time_reference_unit = time_ref_in)
+		log_name = "result_%s_%s_%d_%s.pkl"%(pls,dis,it+it_begin, env_type)
+		# WITHOUT TIME OFFSETS
+		# env = env_core(players_list,time_reference_unit = time_ref_in)
+
+		# WITH TIME OFFSETS
+		time_distribution = [random.randint(0, time_ref_in) for i in range(len(players_list))]
+		env = env_core(players_list,time_reference_unit = time_ref_in, time_refs=time_distribution)
+		env.TIME_REFERENCE_UNIT = time_ref_in
 
 		env.run_simulation(total_steps)
 		env.save_results(filename=directory+log_name)
@@ -304,13 +324,20 @@ except FileNotFoundError:
 all_pipe_content = [line.rstrip('\n') for line in all_pipe]
 
 counter = 1
-for i in all_pipe_content:
+
+NB_ITER=100
+NB_PROCESSES = cpu_count()
+NB_IT_BY_PROCESS = int(NB_ITER / NB_PROCESSES +1)
+for f in all_pipe_content:
 	print("Step " + str(counter) + "/" + str(len(all_pipe_content)))
 	counter += 1
-
-	p = Process(target = pipeline_routine, args=(i,))
-	p.start()
-	p.join()
+	p = list()
+	for i in range(NB_PROCESSES):
+		process = Process(target = pipeline_routine, args=(f,i*NB_IT_BY_PROCESS, NB_IT_BY_PROCESS))
+		p.append(process)
+		p[i].start()
+	for i in range(NB_PROCESSES):
+		p[i].join()
 
 	# thread = Thread(target = pipeline_routine, args=(i, ))
 	# thread.start()
