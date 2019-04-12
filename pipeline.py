@@ -46,6 +46,9 @@ gc.enable()
 # 	sim_scenario.close()
 # 	raise ValueError('Simulation scenrio must end with endsim')
 
+# def read_sce_helper():
+# 	pass
+
 def pipeline_routine(pipefile):
 
 	pipeline_config  = open(pipefile, "r")
@@ -132,7 +135,6 @@ def pipeline_routine(pipefile):
 	time_ref_in = int(lines[line_counter][0])
 
 	pick_list = list(range(total_channels))
-	remain_sel = copy.deepcopy(pick_list)
 	for it in range(num_iter):
 		players = {}
 		player_num_to_id = {}
@@ -158,11 +160,8 @@ def pipeline_routine(pipefile):
 				elif player_type_pool[arr_list[i]] == "C":
 					# csv = current_line[2].split(",")
 					# csv = list(map(float, csv))
-					if not remain_sel:
-						remain_sel = copy.deepcopy(pick_list)
 
-					chosed = random.choice(remain_sel)
-					remain_sel.remove(chosed)
+					chosed = random.choice(pick_list)
 					csma_freq = (1100 - 5) - chosed * 10
 
 					csv = [i,1,1,0,0,0.1,3,0.9,csma_freq]
