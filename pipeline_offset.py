@@ -250,7 +250,7 @@ def pipeline_routine(pipefile):
 		dis = ''.join(str(e) for e in arr_list)
 
 		directory = "%s_%s_%s/"%(pls,dis,env_type)
-		dd = "results_offset/"+directory
+		dd = "saved_environments/"+directory
 
 		if not os.path.exists(dd):
 		    os.makedirs(dd)
