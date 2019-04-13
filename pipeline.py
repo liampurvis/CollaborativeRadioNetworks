@@ -135,7 +135,7 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 	line_counter += 1
 	num_iter = nb_it#int(lines[line_counter][0])
 	line_counter += 1
-	time_ref_in = int(lines[line_counter][0])
+	time_ref_in = 10#int(lines[line_counter][0])
 
 	pls = ''.join(player_type_pool)
 	dis = ''.join(str(e) for e in arr_list)
@@ -272,9 +272,11 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 		log_name = "result_%s_%s_%d_%s.pkl"%(pls,dis,it+it_begin, env_type)
 		# WITHOUT TIME OFFSETS
 		# env = env_core(players_list,time_reference_unit = time_ref_in)
+		# env.TIME_REFERENCE_UNIT = 1
 
 		# WITH TIME OFFSETS
-		time_distribution = [random.randint(0, time_ref_in) for i in range(len(players_list))]
+		time_distribution = [random.randint(0, time_ref_in-1) for i in range(len(players_list))]
+		print(time_distribution)
 		env = env_core(players_list,time_reference_unit = time_ref_in, time_refs=time_distribution)
 		env.TIME_REFERENCE_UNIT = time_ref_in
 
@@ -325,8 +327,8 @@ all_pipe_content = [line.rstrip('\n') for line in all_pipe]
 
 counter = 1
 
-NB_ITER=100
-NB_PROCESSES = cpu_count()
+NB_ITER=1
+NB_PROCESSES = 1#cpu_count()
 NB_IT_BY_PROCESS = int(NB_ITER / NB_PROCESSES +1)
 for f in all_pipe_content:
 	print("Step " + str(counter) + "/" + str(len(all_pipe_content)))

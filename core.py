@@ -69,6 +69,7 @@ class env_core:
 
 
     def run_simulation(self, nb_steps):
+        print("Running " + str(nb_steps) + "*" + str(self.TIME_REFERENCE_UNIT))
         for _ in range(nb_steps*self.TIME_REFERENCE_UNIT):
             self.next_step()
 
@@ -104,7 +105,7 @@ class env_core:
 
     def next_step_helper(self, i):
         # print("Helper " + str(i))
-        if self.time_references[i]==self.curr_step%self.TIME_REFERENCE_UNIT:
+        if self.time_references[i]%self.TIME_REFERENCE_UNIT==self.curr_step%self.TIME_REFERENCE_UNIT:
                 if (self.players[i].blocker_counter == 0):
                     success = self.computeSuccess(i)
                     noise = 0
@@ -228,13 +229,18 @@ class env_core:
         #plot.figure("Channels over time")
         plot.set_title("Channels over time")
         nb_steps = timestamp
+        print(nb_steps)
+        print(len(self.players[1].previous_settings[:]))
+        print(self.players[1].type)
         X = [i for i in range(nb_steps)]
         for i in range(self.NB_PLAYERS):
+            print(str(i))
             lower_freq = [self.players[i].previous_settings[j][1]-self.players[i].previous_settings[j][2]*self.players[i].previous_settings[j][3] for j in range(nb_steps)]
             higher_freq = [self.players[i].previous_settings[j][1]+self.players[i].previous_settings[j][2]*self.players[i].previous_settings[j][3] for j in range(nb_steps)]
             plot.plot(X, lower_freq, self.colors[i]+self.symbols[i], label="Player "+str(self.players[i].id)+" - "+self.players[i].type)
             plot.plot(X, higher_freq, self.colors[i]+self.symbols[i])
             plot.fill_between(X, lower_freq, higher_freq, color=self.colors[i], alpha=.3)
+            print("done")
         plot.set_xlabel("timestep")
         plot.set_ylabel("Channel (MHz)")
         plot.legend()
