@@ -143,7 +143,6 @@ for i in range(loopi, len(lines)):
 				players[lines[i][0]].set_channel(*parameters)
 			elif lines[i][1] == "update_location":
 				parameters = list(map(float, lines[i][2].split(",")))
-				print(parameters)
 				players[lines[i][0]].update_location(*parameters)
 			else:
 				sim_scenario.close()
@@ -159,7 +158,7 @@ if(loop_pos_file_flag):
 		if lines[line_counter][0] in players:
 			if int(lines[line_counter][1]) == pos_counter-1:
 				if lines[line_counter][2] == "set_channel":
-					parameters = list(map(int, lines[line_counter][3].split(",")))
+					parameters = list(map(int, lines[line_counter][3:]))
 					players[lines[line_counter][0]].set_channel(*parameters)
 					line_counter += 1
 					continue
