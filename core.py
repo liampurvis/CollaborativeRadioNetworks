@@ -205,6 +205,7 @@ class env_core:
             #         np.max(np.array([np.array(p.previous_t_positions)[:, 0] for p in self.players]))
 
             #plt.ylim(min([np.min(t_walk[:, 1]), np.min(r_walk[:, 1])]), max([max(t_walk[:, 1]), max(r_walk[:, 1])]))
+        # print(self.players)
         for p in self.players:
             t_walk = np.array(p.previous_t_positions[:])
             r_walk = np.array(p.previous_r_positions[:])
@@ -278,12 +279,14 @@ class env_core:
     def generatePlots(self, figsize = (10,10), name="default"):
         f1, ax1 = plt.subplots(1, 1, figsize=figsize)
         # f2, ax2 = plt.subplots(1, 1, figsize=figsize)
-        # f3, ax3 = plt.subplots(1, 1, figsize=figsize)
         self.displayChannelsOverTime(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax1)
         plt.savefig(name+"_channels.png")
         plt.close()
         # self.displayStepByStepResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax2) #kind of useless for most cases
+        # f3, ax3 = plt.subplots(1, 1, figsize=figsize)
         # self.displayLocationResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax3)
+        # plt.savefig(name+"_loc.png")
+        # plt.close()
         f4, ax4 = plt.subplots(1, 1, figsize=figsize)
         self.displayCumulativeResults(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax4)
 
@@ -301,7 +304,8 @@ class env_core:
     def save_results(self, filename="last_results.pkl"):
         results = []
         for i in range(len(self.players)):
-            results.append([self.players[i].id, self.players[i].type, self.players[i].previous_successes, self.players[i].previous_settings])
+            results.append([self.players[i].id, self.players[i].type, self.players[i].previous_successes, self.players[i].previous_settings, 
+                            self.players[i].previous_t_positions, self.players[i].previous_r_positions])
         with open("saved_environments/"+filename, 'wb') as output:
             pickle.dump(results, output, pickle.HIGHEST_PROTOCOL)
 
@@ -319,6 +323,8 @@ class env_core:
                 self.players[i].type = results[i][1]
                 self.players[i].previous_successes = results[i][2]
                 self.players[i].previous_settings = results[i][3]
+                self.players[i].previous_t_positions = results[i][4]
+                self.players[i].previous_r_positions = results[i][5]
             self.curr_step = len(self.players[i].previous_successes)*self.TIME_REFERENCE_UNIT
 
 
