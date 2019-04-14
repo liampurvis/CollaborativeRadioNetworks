@@ -43,8 +43,14 @@ for i in range(len(pos_content)):
 line_counter = 0
 pos_counter = 0
 
-player_num = int(lines[line_counter][0])
-print("Player amount: %d" % player_num)
+try:
+	player_num = int(lines[line_counter][0])
+	print("Player amount: %d" % player_num)
+except ValueError:
+	line_counter += 1
+	player_num = int(lines[line_counter][0])
+	print("Player amount: %d" % player_num)
+
 line_counter += 1
 
 fixed_amt = int(poss[pos_counter][0])
@@ -61,6 +67,8 @@ pos_counter += 1
 players = {}
 player_num_to_id = {}
 
+line_start = line_counter
+
 for i in range(line_counter, line_counter+player_num):
 	# print(lines[i])
 	current_line = lines[i]
@@ -70,21 +78,21 @@ for i in range(line_counter, line_counter+player_num):
 		new_player = Player.Player(*csv)
 		players[current_line[0]] = new_player
 
-		player_num_to_id[line_counter - 1] = current_line[0]
+		player_num_to_id[line_counter - line_start] = current_line[0]
 	elif current_line[1] == "Random":
 		orig_csv = current_line[2].split(",")
 		csv = list(map(float, orig_csv))
 		new_player = Player.Random(*csv)
 		players[current_line[0]] = new_player
 
-		player_num_to_id[line_counter - 1] = current_line[0]
+		player_num_to_id[line_counter - line_start] = current_line[0]
 	elif current_line[1] == "CSMA":
 		csv = current_line[2].split(",")
 		csv = list(map(float, csv))
 		new_player = Player.CSMA(*csv)
 		players[current_line[0]] = new_player
 
-		player_num_to_id[line_counter - 1] = current_line[0]
+		player_num_to_id[line_counter - line_start] = current_line[0]
 	elif current_line[1] == "UCB" or current_line[1] == "UCB_thresholded" or current_line[1] == "UCB_thresholded2" or current_line[1] == "UCB_d" or current_line[1] == "UCB_sw":
 		csv = current_line[2].split(",")
 		csv = list(map(float, csv))
@@ -92,7 +100,7 @@ for i in range(line_counter, line_counter+player_num):
 		new_player = Player.UCB(*csv)
 		players[current_line[0]] = new_player
 
-		player_num_to_id[line_counter - 1] = current_line[0]
+		player_num_to_id[line_counter - line_start] = current_line[0]
 	elif current_line[1] == "Thompsons":
 		csv = current_line[2].split(",")
 		csv = list(map(float, csv))
@@ -100,7 +108,7 @@ for i in range(line_counter, line_counter+player_num):
 		new_player = Player.Thompsons(*csv)
 		players[current_line[0]] = new_player
 
-		player_num_to_id[line_counter - 1] = current_line[0]
+		player_num_to_id[line_counter - line_start] = current_line[0]
 	else:
 		sim_scenario.close()
 		raise ValueError('Player type not recognized')

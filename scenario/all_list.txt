@@ -1,0 +1,2 @@
+scenario/SC2_wildfire_pl.txt
+scenario/SC2_jammer_pl.txt

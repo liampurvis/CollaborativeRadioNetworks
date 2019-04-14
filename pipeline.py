@@ -273,6 +273,7 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 				if not one_pick:
 					raise ValueError('No path file can support %d players'%player_num)
 				aux_info = _ALL_LOC_DICT_[one_pick]
+				print(one_pick)
 			for i in range(int(aux_info[1])):
 				new_player = Player.Player(player_num+1+i,1,1,0,0)
 				players.insert(0,new_player)
@@ -315,6 +316,8 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 			env.run_simulation(total_steps)
 			env.save_results(filename=directory+log_name)
 		else:
+			pls += "_%s"%_ALL_LOC_DICT_[one_pick][0].split('/')[1].split(".")[0]
+			log_name = "result_%s_%s_%d_%s.pkl"%(pls,dis,it+it_begin, env_type)
 			sce_file = open(one_pick, 'r')
 			path_file = open(_ALL_LOC_DICT_[one_pick][0],'r')
 			sce_counter = 1

@@ -1,3 +1,4 @@
+path/SC2_wildfire.txt
 8
 p1 FIX 1,20,20,20,20,1025
 p2 FIX 1,20,20,20,20,1005
