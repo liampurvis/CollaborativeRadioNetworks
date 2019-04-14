@@ -4,81 +4,54 @@ import sys
 from math import pi, hypot, sin, cos, atan2, degrees
 
 f = open('SC2_wildfire.txt','w')
-F = 0
-N = 7
-step = 120*7
+F = 2
+N = 6
+step = 120*8
 
+f1_r = path.point(30, 15, step)
+f2_r = path.point(31, 15, step)
 
+f1_t = path.point(18, 20, 10) + path.line(18,20,35,20,110)      \
+        + path.point(18, 20, 10) + path.line(18,20,35,20,110)   \
+        + path.point(18, 20, 10) + path.line(18,20,35,20,110)   \
+        + path.point(18, 20, 10) + path.line(18,20,35,20,110)   \
+        + path.point(18, 20, 10) + path.line(18,20,35,20,110)   \
+        + path.point(18, 20, 10) + path.line(18,20,35,20,110)   \
+        + path.point(18, 20, 10) + path.line(18,20,35,20,110)   \
+        + path.point(18, 20, 10) + path.line(18,20,35,20,110)
+
+f2_t = path.point(16, 20, 10) + path.line(16,20,33,20,110)      \
+        + path.point(16, 20, 10) + path.line(16,20,33,20,110)   \
+        + path.point(16, 20, 10) + path.line(16,20,33,20,110)   \
+        + path.point(16, 20, 10) + path.line(16,20,33,20,110)   \
+        + path.point(16, 20, 10) + path.line(16,20,33,20,110)   \
+        + path.point(16, 20, 10) + path.line(16,20,33,20,110)   \
+        + path.point(16, 20, 10) + path.line(16,20,33,20,110)   \
+        + path.point(16, 20, 10) + path.line(16,20,33,20,110)
 
 p1_r = path.point(24, 22, step)
-p1_t = path.point(1, 1, 10) + path.point(4, 20, 10) + path.line(4,20,50,20,100)     \
-        + path.point(1, 1, 120) \
-        + path.point(1, 1, 120) \
-        + path.point(1, 1, 120) \
-        + path.point(1, 1, 120) \
-        + path.point(1, 1, 120) \
-        + path.point(1, 1, 10) + path.point(2, 20, 10) + path.line(2,20,48,20,100)
+p1_t = path.point(24, 18, step)
 
-p2_r = path.point(26, 22, step)
-p2_t = path.point(2, 1, 10) + path.point(2, 20, 10) + path.line(2,20,48,20,100)     \
-        + path.point(2, 1, 10) + path.point(4, 20, 10) + path.line(4,20,50,20,100)  \
-        + path.point(2, 1, 120) \
-        + path.point(2, 1, 120) \
-        + path.point(2, 1, 120) \
-        + path.point(2, 1, 120) \
-        + path.point(2, 1, 120)
+p2_r = path.point(25, 22, step)
+p2_t = path.point(25, 18, step)
 
+p3_r = path.point(26, 22, step)
+p3_t = path.point(26, 18, step)
 
-p3_r = path.point(28, 22, step)
-p3_t = path.point(3, 1, 120) \
-        + path.point(3, 1, 10) + path.point(2, 20, 10) + path.line(2,20,48,20,100)  \
-        + path.point(3, 1, 10) + path.point(4, 20, 10) + path.line(4,20,50,20,100)  \
-        + path.point(3, 1, 120) \
-        + path.point(3, 1, 120) \
-        + path.point(3, 1, 120) \
-        + path.point(3, 1, 120)
+p4_r = path.point(27, 22, step)
+p4_t = path.point(27, 18, step)
+
+p5_r = path.point(28, 22, step)
+p5_t = path.point(28, 18, step)
+
+p6_r = path.point(29, 22, step)
+p6_t = path.point(29, 18, step)
 
 
-p4_r = path.point(30, 22, step)
-p4_t = path.point(4, 1, 120) \
-        + path.point(4, 1, 10) \
-        + path.point(4, 1, 10) + path.point(2, 20, 10) + path.line(2,20,48,20,100)  \
-        + path.point(4, 1, 10) + path.point(4, 20, 10) + path.line(4,20,50,20,100)  \
-        + path.point(4, 1, 10) \
-        + path.point(4, 1, 10) \
-        + path.point(4, 1, 10)
 
-p5_r = path.point(32, 22, step)
-p5_t = path.point(5, 1, 120) \
-        + path.point(5, 1, 10) \
-        + path.point(5, 1, 10) \
-        + path.point(5, 1, 10) + path.point(2, 20, 10) + path.line(2,20,48,20,100)  \
-        + path.point(5, 1, 10) + path.point(4, 20, 10) + path.line(4,20,50,20,100)  \
-        + path.point(5, 1, 10) \
-        + path.point(5, 1, 10)
-
-p6_r = path.point(34, 22, step)
-p6_t = path.point(6, 1, 120) \
-        + path.point(6, 1, 10) \
-        + path.point(6, 1, 10) \
-        + path.point(6, 1, 10) \
-        + path.point(6, 1, 10) + path.point(2, 20, 10) + path.line(2,20,48,20,100)  \
-        + path.point(6, 1, 10) + path.point(4, 20, 10) + path.line(4,20,50,20,100)  \
-        + path.point(6, 1, 10)
-
-p7_r = path.point(36, 22, step)
-p7_t = path.point(7, 1, 120) \
-        + path.point(7, 1, 10) \
-        + path.point(7, 1, 10) \
-        + path.point(7, 1, 10) \
-        + path.point(7, 1, 10) \
-        + path.point(7, 1, 10) + path.point(2, 20, 10) + path.line(2,20,48,20,100)  \
-        + path.point(7, 1, 10) + path.point(4, 20, 10) + path.line(4,20,50,20,100)
-
-
-paths = [p1_r, p1_t, p2_r, p2_t, p3_r, p3_t, p4_r, p4_t, p5_r, p5_t, p6_r, p6_t, p7_r, p7_t]
-path.myplot(paths, 0, 60, 0, 30)
-
+paths = [f1_r, f1_t, f2_r, f2_t, \
+         p1_r, p1_t, p2_r, p2_t, p3_r, p3_t, p4_r, p4_t, p5_r, p5_t, p6_r, p6_t]
+path.myplot(paths, 10, 40, 10, 30)
 
 
 for ind in range((F+N)*2):
