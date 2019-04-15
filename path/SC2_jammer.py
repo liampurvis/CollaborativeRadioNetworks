@@ -6,7 +6,7 @@ from math import pi, hypot, sin, cos, atan2, degrees
 f = open('SC2_jammer.txt','w')
 F = 2
 N = 6
-step = 4200
+step = 5000
 
 cx, cy = 20, 20
 r1 = 1  # center to jammer

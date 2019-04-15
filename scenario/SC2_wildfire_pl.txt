@@ -10,18 +10,18 @@ p7 UCB_thresholded 7,20,20,20,20,10,0.7
 p8 UCB_thresholded 8,20,20,20,20,10,0.7
 2,2,2,2,2,2,2,2
 pos_deplete
-p1 120 set_channel 1035
-p2 120 set_channel 1015
-p1 240 set_channel 1045
-p2 240 set_channel 1025
-p1 360 set_channel 1055
-p2 360 set_channel 1035
-p1 480 set_channel 1065
-p2 480 set_channel 1045
-p1 600 set_channel 1075
-p2 600 set_channel 1055
-p1 720 set_channel 1085
-p2 720 set_channel 1065
-p1 840 set_channel 1095
-p2 840 set_channel 1075
+p1 625 set_channel 1035
+p2 625 set_channel 1015
+p1 1250 set_channel 1045
+p2 1250 set_channel 1025
+p1 1875 set_channel 1055
+p2 1875 set_channel 1035
+p1 2500 set_channel 1065
+p2 2500 set_channel 1045
+p1 3125 set_channel 1075
+p2 3125 set_channel 1055
+p1 3750 set_channel 1085
+p2 3750 set_channel 1065
+p1 4375 set_channel 1095
+p2 4375 set_channel 1075
 endsim

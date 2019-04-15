@@ -6,11 +6,11 @@ from math import pi, hypot, sin, cos, atan2, degrees
 f = open('SC2_alleys.txt','w')
 F = 0
 N = 6
-step = 2000
+step = 5000
 
 r = 3
 moving_speed = 0.01
-round = 3
+round = 6
 rs1 = 1             # rotation speed
 rs2 = 2
 rs3 = 3

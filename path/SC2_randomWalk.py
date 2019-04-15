@@ -6,7 +6,7 @@ from math import pi, hypot, sin, cos, atan2, degrees
 f = open('SC2_randomWalk.txt','w')
 F = 0
 N = 7
-step = 500
+step = 5000
 mag = 0.5
 bound = 20
 

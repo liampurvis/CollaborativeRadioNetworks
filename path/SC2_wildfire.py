@@ -6,28 +6,29 @@ from math import pi, hypot, sin, cos, atan2, degrees
 f = open('SC2_wildfire.txt','w')
 F = 2
 N = 6
-step = 120*8
+step = 625*8
+
 
 f1_r = path.point(30, 15, step)
 f2_r = path.point(31, 15, step)
 
-f1_t = path.point(18, 20, 10) + path.line(18,20,35,20,110)      \
-        + path.point(18, 20, 10) + path.line(18,20,35,20,110)   \
-        + path.point(18, 20, 10) + path.line(18,20,35,20,110)   \
-        + path.point(18, 20, 10) + path.line(18,20,35,20,110)   \
-        + path.point(18, 20, 10) + path.line(18,20,35,20,110)   \
-        + path.point(18, 20, 10) + path.line(18,20,35,20,110)   \
-        + path.point(18, 20, 10) + path.line(18,20,35,20,110)   \
-        + path.point(18, 20, 10) + path.line(18,20,35,20,110)
+f1_t = path.point(18, 20, 10) + path.line(18,20,35,20,615)      \
+        + path.point(18, 20, 10) + path.line(18,20,35,20,615)   \
+        + path.point(18, 20, 10) + path.line(18,20,35,20,615)   \
+        + path.point(18, 20, 10) + path.line(18,20,35,20,615)   \
+        + path.point(18, 20, 10) + path.line(18,20,35,20,615)   \
+        + path.point(18, 20, 10) + path.line(18,20,35,20,615)   \
+        + path.point(18, 20, 10) + path.line(18,20,35,20,615)   \
+        + path.point(18, 20, 10) + path.line(18,20,35,20,615)
 
-f2_t = path.point(16, 20, 10) + path.line(16,20,33,20,110)      \
-        + path.point(16, 20, 10) + path.line(16,20,33,20,110)   \
-        + path.point(16, 20, 10) + path.line(16,20,33,20,110)   \
-        + path.point(16, 20, 10) + path.line(16,20,33,20,110)   \
-        + path.point(16, 20, 10) + path.line(16,20,33,20,110)   \
-        + path.point(16, 20, 10) + path.line(16,20,33,20,110)   \
-        + path.point(16, 20, 10) + path.line(16,20,33,20,110)   \
-        + path.point(16, 20, 10) + path.line(16,20,33,20,110)
+f2_t = path.point(16, 20, 10) + path.line(16,20,33,20,615)      \
+        + path.point(16, 20, 10) + path.line(16,20,33,20,615)   \
+        + path.point(16, 20, 10) + path.line(16,20,33,20,615)   \
+        + path.point(16, 20, 10) + path.line(16,20,33,20,615)   \
+        + path.point(16, 20, 10) + path.line(16,20,33,20,615)   \
+        + path.point(16, 20, 10) + path.line(16,20,33,20,615)   \
+        + path.point(16, 20, 10) + path.line(16,20,33,20,615)   \
+        + path.point(16, 20, 10) + path.line(16,20,33,20,615)
 
 p1_r = path.point(24, 22, step)
 p1_t = path.point(24, 18, step)

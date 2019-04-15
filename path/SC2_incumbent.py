@@ -6,7 +6,7 @@ from math import pi, hypot, sin, cos, atan2, degrees
 f = open('SC2_incumbent.txt','w')
 F = 1
 N = 7
-step = 1000
+step = 5000
 
 
 # increasing incumbent
