@@ -1,3 +1,4 @@
+path/SC2_alleys.txt
 6
 p1 UCB_thresholded 1,20,20,20,20,10,0.7
 p2 UCB_thresholded 2,20,20,20,20,10,0.7

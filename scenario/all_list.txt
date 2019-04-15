@@ -1,2 +1,5 @@
-scenario/SC2_wildfire_pl.txt
+scenario/SC2_alleys_pl.txt
+scenario/SC2_incumbent_pl.txt
 scenario/SC2_jammer_pl.txt
+scenario/SC2_randomWalk_pl.txt
+scenario/SC2_wildfire_pl.txt

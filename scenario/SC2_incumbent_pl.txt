@@ -1,3 +1,4 @@
+path/SC2_incumbent.txt
 8
 p1 FIX 1,20,20,20,20,1055
 p2 UCB_thresholded 2,20,20,20,20,10,0.7
