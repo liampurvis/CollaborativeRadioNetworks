@@ -433,8 +433,7 @@ counter = 1
 
 NB_ITER=1
 NB_PROCESSES = 1#cpu_count()
-# NB_IT_BY_PROCESS = int(NB_ITER / NB_PROCESSES +1)
-NB_IT_BY_PROCESS = 5
+NB_IT_BY_PROCESS = int(NB_ITER / NB_PROCESSES +1)
 for f in all_pipe_content:
 	print("Step " + str(counter) + "/" + str(len(all_pipe_content)))
 	counter += 1
