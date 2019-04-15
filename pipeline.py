@@ -309,8 +309,8 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 			env.run_simulation(total_steps)
 			env.save_results(filename=directory+log_name)
 		else:
-			pls += "_%s"%_ALL_LOC_DICT_[one_pick][0].split('/')[1].split(".")[0]
-			log_name = "result_%s_%s_%d_%s.pkl"%(pls,dis,it+it_begin, env_type)
+			plnew = pls + "_%s"%_ALL_LOC_DICT_[one_pick][0].split('/')[1].split(".")[0]
+			log_name = "result_%s_%s_%d_%s.pkl"%(plnew,dis,it+it_begin, env_type)
 			sce_file = open(one_pick, 'r')
 			path_file = open(_ALL_LOC_DICT_[one_pick][0],'r')
 			sce_counter = 1
@@ -433,7 +433,8 @@ counter = 1
 
 NB_ITER=1
 NB_PROCESSES = 1#cpu_count()
-NB_IT_BY_PROCESS = int(NB_ITER / NB_PROCESSES +1)
+# NB_IT_BY_PROCESS = int(NB_ITER / NB_PROCESSES +1)
+NB_IT_BY_PROCESS = 5
 for f in all_pipe_content:
 	print("Step " + str(counter) + "/" + str(len(all_pipe_content)))
 	counter += 1
