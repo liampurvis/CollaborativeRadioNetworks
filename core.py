@@ -69,7 +69,7 @@ class env_core:
 
 
     def run_simulation(self, nb_steps):
-        print("Running " + str(nb_steps) + "*" + str(self.TIME_REFERENCE_UNIT))
+        # print("Running " + str(nb_steps) + "*" + str(self.TIME_REFERENCE_UNIT))
         for _ in range(nb_steps*self.TIME_REFERENCE_UNIT):
             self.next_step()
 
@@ -309,8 +309,7 @@ class env_core:
     def save_results(self, filename="last_results.pkl"):
         results = []
         for i in range(len(self.players)):
-            results.append([self.players[i].id, self.players[i].type, self.players[i].previous_successes, self.players[i].previous_settings, 
-                            self.players[i].previous_t_positions, self.players[i].previous_r_positions])
+            results.append([self.players[i].id, self.players[i].type, self.players[i].previous_successes, self.players[i].previous_settings])
         with open("saved_environments/"+filename, 'wb') as output:
             pickle.dump(results, output, pickle.HIGHEST_PROTOCOL)
 
