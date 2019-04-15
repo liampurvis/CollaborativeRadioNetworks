@@ -46,7 +46,7 @@ class env_core:
             for i in range(self.NB_PLAYERS):
                 self.time_references.append(0)
         else:
-            #self.time_references = time_refs.copy()
+            # self.time_references = time_refs.copy()
             self.time_references = time_refs[:]
         self.current_signal_powers = np.zeros(self.NB_PLAYERS)
         self.current_noise_powers = np.zeros(self.NB_PLAYERS)
@@ -231,11 +231,15 @@ class env_core:
         plot.set_title("Channels over time")
         nb_steps = timestamp
         print(nb_steps)
-        print(len(self.players[1].previous_settings[:]))
-        print(self.players[1].type)
+        # print(len(self.players[0].previous_settings))
+        # print(self.players[0].type)
         X = [i for i in range(nb_steps)]
+        # for i in range(self.NB_PLAYERS):
+        #     print(str(i))
+        #     print(len(self.players[i].previous_settings))
         for i in range(self.NB_PLAYERS):
             print(str(i))
+            print(len(self.players[i].previous_settings))
             lower_freq = [self.players[i].previous_settings[j][1]-self.players[i].previous_settings[j][2]*self.players[i].previous_settings[j][3] for j in range(nb_steps)]
             higher_freq = [self.players[i].previous_settings[j][1]+self.players[i].previous_settings[j][2]*self.players[i].previous_settings[j][3] for j in range(nb_steps)]
             plot.plot(X, lower_freq, self.colors[i]+self.symbols[i], label="Player "+str(self.players[i].id)+" - "+self.players[i].type)
@@ -277,6 +281,7 @@ class env_core:
         plt.show(ax4)
 
     def generatePlots(self, figsize = (10,10), name="default"):
+        print("in gp %d %d"%(self.curr_step, self.TIME_REFERENCE_UNIT))
         f1, ax1 = plt.subplots(1, 1, figsize=figsize)
         # f2, ax2 = plt.subplots(1, 1, figsize=figsize)
         self.displayChannelsOverTime(int(self.curr_step / self.TIME_REFERENCE_UNIT), ax1)
@@ -316,6 +321,7 @@ class env_core:
             return env_core([])
         with open(filename, 'rb') as input:
             results = pickle.load(input)
+            # self.TIME_REFERENCE_UNIT = 1
             self.NB_PLAYERS = len(results)
             self.players = [Player(i, 0, 0, 0, 0) for i in range(self.NB_PLAYERS)]
             self.__init__(self.players)
@@ -323,8 +329,8 @@ class env_core:
                 self.players[i].type = results[i][1]
                 self.players[i].previous_successes = results[i][2]
                 self.players[i].previous_settings = results[i][3]
-                self.players[i].previous_t_positions = results[i][4]
-                self.players[i].previous_r_positions = results[i][5]
+                # self.players[i].previous_t_positions = results[i][4]
+                # self.players[i].previous_r_positions = results[i][5]
             self.curr_step = len(self.players[i].previous_successes)*self.TIME_REFERENCE_UNIT
 
 
