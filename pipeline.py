@@ -101,7 +101,7 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 
 	player_type_pool = []
 
-	print(lines[line_counter])
+	# print(lines[line_counter])
 	if mode == 1 and len(lines[line_counter]) == 1:
 		player_type_pool = lines[line_counter]
 	elif mode == 2 and len(lines[line_counter]) == 2:
@@ -147,15 +147,17 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 	pl_ch_sum = int(lines[line_counter][2])
 	fix_ch_sum = int(lines[line_counter][3])
 	total_steps = int(lines[line_counter][4])
+	print("in pipe %s"%lines[line_counter])
 
 	line_counter += 1
 	num_iter = nb_it#int(lines[line_counter][0])
 	line_counter += 1
-	time_ref_in = 10#int(lines[line_counter][0])
+	time_ref_in = 1#int(lines[line_counter][0])
 
 	pls = ''.join(player_type_pool)
 	dis = ''.join(str(e) for e in arr_list)
-
+	if mobile_flag:
+		pls = "m_"+pls
 	directory = "%s_%s_%s/" % (pls, dis, env_type)
 	dd = "saved_environments/" + directory
 
@@ -170,6 +172,7 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 		players = []
 
 		if env_type == "s" or env_type == "ns":
+			print("init player %d"%player_num)
 			for i in range(0, player_num):
 				if player_type_pool[arr_list[i]] == "FIX":
 					pass
@@ -244,9 +247,9 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 					players.append(new_player)
 
 				else:
-					sim_scenario.close()
 					raise ValueError('Player type not recognized')
 
+		print(len(players))
 
 		if not mobile_flag:
 			if env_type == "s":
@@ -255,17 +258,17 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 				impe_player = Player.Player(player_num,1,1,0,0,starting_frequency = impe_center)
 				impe_player.set_channel(central=impe_center, width = impe_width)
 				# players[player_num] = impe_player
-				players.append(new_player)
+				players.append(impe_player)
 
 			if pl_ch_sum >= player_num and env_type == "s":
 				random_w = Player.Random_Weights(player_num+1,1,1,0,0,probs=False,nb_channels=total_channels)
 				# players[player_num+1] = random_w
-				players.append(new_player)
+				players.append(random_w)
 				# print("yes")
 			elif env_type == "ns":
 				random_ns = Player.Random_ns(player_num+1,1,1,0,0)
 				# players[player_num+1] = random_ns
-				players.append(new_player)
+				players.append(random_ns)
 		else:
 			viable_pos = check_pos(player_num)
 			if viable_pos:
@@ -282,6 +285,7 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 		# players_list = list(players.values())
 		print("total pls %d"%len(players))
 		players_list = players
+		# print(players)
 
 		player_num_to_id = {}
 	# print(players_list)
@@ -289,30 +293,19 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 
 	# print(lines[line_counter])
 	# print(ts)
-		ts = calendar.timegm(time.gmtime())
-		pls = ''.join(player_type_pool)
-		dis = ''.join(str(e) for e in arr_list)
-		if mobile_flag:
-			pls = "m_"+pls
-		directory = "%s_%s_%s/"%(pls,dis,env_type)
-		dd = "saved_environments/"+directory
-
-		if not os.path.exists(dd):
-		    os.makedirs(dd)
 
 		log_name = "result_%s_%s_%d_%s.pkl"%(pls,dis,it+it_begin, env_type)
 		# WITHOUT TIME OFFSETS
-		# env = env_core(players_list,time_reference_unit = time_ref_in)
-		# env.TIME_REFERENCE_UNIT = 1
+		env = env_core(players_list,time_reference_unit = time_ref_in)
+		env.TIME_REFERENCE_UNIT = 1
 
-		time_distribution = [random.randint(0, time_ref_in-1) for i in range(len(players_list))]
-		print(time_distribution)
-		env = env_core(players_list,time_reference_unit = time_ref_in, time_refs=time_distribution)
+		# time_distribution = [random.randint(0, time_ref_in-1) for i in range(len(players_list))]
+		# print(time_distribution)
+		# env = env_core(players_list,time_reference_unit = time_ref_in, time_refs=time_distribution)
 
 		# WITH TIME OFFSETS
+		# env.TIME_REFERENCE_UNIT = 1
 		if not mobile_flag:
-			env.TIME_REFERENCE_UNIT = time_ref_in
-
 			env.run_simulation(total_steps)
 			env.save_results(filename=directory+log_name)
 		else:
@@ -369,7 +362,6 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 					# print(pos_full_list)
 					# player_id = player_num_to_id[i]
 					players[i].update_location(*pos_full_list)
-				print(path_counter)
 				path_counter += 1
 				# print("run 1")
 				env.run_simulation(1)
@@ -419,6 +411,7 @@ if loc_file is not None:
 	    sys.exit()
 
 all_pipe_content = [line.rstrip('\n') for line in all_pipe]
+all_pipe.close()
 
 if loc_flag:
 	all_loc_content = [line.rstrip('\n') for line in all_loc]
