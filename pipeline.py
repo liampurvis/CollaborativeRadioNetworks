@@ -122,7 +122,7 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 
 	# arr_list = lines[line_counter]
 	arr_list = [ int(x) for x in lines[line_counter] ]
-	print(arr_list)
+	# print(arr_list)
 	line_counter += 1
 
 	if lines[line_counter][0]=='s':
@@ -135,7 +135,7 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 		raise ValueError('Must be either static or non-static')
 
 	total_channels = int(lines[line_counter][1])
-	print("total channels %d"%total_channels)
+	# print("total channels %d"%total_channels)
 
 	# if int(lines[line_counter][1])!=10:
 	# 	raise ValueError('Not 10')
@@ -147,7 +147,7 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 	pl_ch_sum = int(lines[line_counter][2])
 	fix_ch_sum = int(lines[line_counter][3])
 	total_steps = int(lines[line_counter][4])
-	print("in pipe %s"%lines[line_counter])
+	# print("in pipe %s"%lines[line_counter])
 
 	line_counter += 1
 	num_iter = nb_it#int(lines[line_counter][0])
@@ -172,7 +172,7 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 		players = []
 
 		if env_type == "s" or env_type == "ns":
-			print("init player %d"%player_num)
+			# print("init player %d"%player_num)
 			for i in range(0, player_num):
 				if player_type_pool[arr_list[i]] == "FIX":
 					pass
@@ -249,7 +249,7 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 				else:
 					raise ValueError('Player type not recognized')
 
-		print(len(players))
+		# print(len(players))
 
 		if not mobile_flag:
 			if env_type == "s":
@@ -276,14 +276,14 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 				if not one_pick:
 					raise ValueError('No path file can support %d players'%player_num)
 				aux_info = _ALL_LOC_DICT_[one_pick]
-				print(one_pick)
+				# print(one_pick)
 			for i in range(int(aux_info[1])):
 				new_player = Player.Player(player_num+1+i,1,1,0,0)
 				players.insert(0,new_player)
 
 
 		# players_list = list(players.values())
-		print("total pls %d"%len(players))
+		# print("total pls %d"%len(players))
 		players_list = players
 		# print(players)
 
@@ -329,7 +329,7 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 			path_counter = 2
 #######################
 			
-			print(path_content[path_counter])
+			# print(path_content[path_counter])
 
 			while path_counter < len(path_content):
 				sc = sce_content[sce_counter].split(" ")
@@ -434,7 +434,7 @@ counter = 1
 NB_ITER=400
 NB_PROCESSES = cpu_count()
 NB_IT_BY_PROCESS = int(NB_ITER / NB_PROCESSES +1)
-for f in all_pipe_content:
+for f in all_pipe_content[0:40]:
 	print("Step " + str(counter) + "/" + str(len(all_pipe_content)))
 	counter += 1
 	p = list()
