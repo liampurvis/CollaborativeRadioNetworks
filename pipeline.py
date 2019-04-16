@@ -12,7 +12,9 @@ import random
 import gc
 import argparse
 from threading import Thread
-from multiprocessing import Process, Pool, Queue, cpu_count
+from multiprocessing import Process, Pool, Queue, cpu_count, Value, Array
+import subprocess
+import ctypes
 
 _ALL_LOC_DICT_ = {}
 
@@ -75,7 +77,7 @@ def check_pos_limited(pl_amt):
 
 
 
-def pipeline_routine(pipefile, it_begin, nb_it):
+def pipeline_routine(pipefile, it_begin, nb_it, name):
 	global _ALL_LOC_DICT_
 
 	# if (it_begin != 0):
@@ -172,7 +174,9 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 	dis = ''.join(str(e) for e in arr_list)
 	if mobile_flag:
 		pls = "m_"+pls
-	directory = "%s_%s_%s/" % (pls, dis, env_type)
+	directory = pipefile[7:-4]+"_"+env_type+"/"
+	print("Directory = "+directory)
+	# directory = "%s_%s_%s/" % (pls, dis, env_type)
 	dd = "saved_environments/" + directory
 
 	if it_begin==0 and not os.path.exists(dd):
@@ -391,6 +395,8 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 			env.save_results(filename=directory+log_name)
 #######################
 		# env.displayResults()
+	if it_begin == 0:
+		name.value = str.encode(directory+"\x00")
 
 
 parser = argparse.ArgumentParser()
@@ -456,17 +462,20 @@ counter = 1
 NB_ITER=400
 NB_PROCESSES = cpu_count()
 NB_IT_BY_PROCESS = int(NB_ITER / NB_PROCESSES +1)
-for f in all_pipe_content[0:40]:
+for f in all_pipe_content:
 	print("Step " + str(counter) + "/" + str(len(all_pipe_content)))
 	counter += 1
 	p = list()
+	name = Array('c', b'                                          ')
 	for i in range(NB_PROCESSES):
-		process = Process(target = pipeline_routine, args=(f,i*NB_IT_BY_PROCESS, NB_IT_BY_PROCESS))
+		process = Process(target = pipeline_routine, args=(f,i*NB_IT_BY_PROCESS, NB_IT_BY_PROCESS,name,))
 		p.append(process)
 		p[i].start()
 	for i in range(NB_PROCESSES):
 		p[i].join()
-
+	print('done')
+	print(name.value.decode())
+	subprocess.Popen('zip -rv results.zip saved_environments/' + name.value.decode() + ' -r ;rm saved_environments/' + name.value.decode() + ' -r ', shell=True, stdin=None, stdout=None, stderr=None, close_fds=True)
 	# thread = Thread(target = pipeline_routine, args=(i, ))
 	# thread.start()
 	# thread.join()
