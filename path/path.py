@@ -65,41 +65,6 @@ def randomCircle(x, y, r, theta, angle, dir, mag, step):
     return re
 
 
-"""
-def norm_angle(a):
-    # Normalize the angle to be between -pi and pi
-    return (a+pi)%(2*pi) - pi
-
-def arce(sx, sy, ex, ey, step, orient):
-    x_0, y_0 = [sx, sy] # initial position of robot
-    theta_0 = orient      # initial orientation of robot
-    x_1, y_1 = [ex, ey] # goal position of robot
-
-    # To be computed:
-    r_G = hypot(x_1 - x_0, y_1 - y_0)        # relative polar coordinates of the goal
-    phi_G = atan2(y_1 - y_0, x_1 - x_0)
-    phi = 2*norm_angle(phi_G - theta_0)      # angle and
-    r_C = r_G/(2*sin(phi_G - theta_0))       # radius (sometimes negative) of the arc
-    L = r_C*phi                              # length of the arc
-    if phi > pi:
-        phi -= 2*pi
-        L = -r_C*phi
-    elif phi < -pi:
-        phi += 2*pi
-        L = -r_C*phi
-    omega = phi/step                         # angular velocity
-    x_C = x_0 - r_C*sin(theta_0)             # center of rotation
-    y_C = y_0 + r_C*cos(theta_0)
-
-
-    re = []
-    for i in range(1,step+1):
-        re.append( ( x_C + r_C*sin(omega*(i) + theta_0), y_C - r_C*cos(omega*(i) + theta_0)) )
-    return re
-
-"""
-
-
 def myplot(paths, x1, x2, y1, y2):
     for p in paths:
         plt.plot([i[0] for i in p], [i[1] for i in p], marker=11)
@@ -108,4 +73,19 @@ def myplot(paths, x1, x2, y1, y2):
     plt.xlim(x1,x2)
     plt.ylim(y1,y2)
     plt.show()
+
+def myWrite(filename, F, N, step, paths):
+    for ind in range((F+N)*2):
+        paths[ind] = [("{0:.2f}".format(i[0]), "{0:.2f}".format(i[1])) for i in paths[ind]]
+    f = open(filename,'w')
+    f.write(str(F) + '\n')
+    f.write(str(N) + '\n')
+    for i in range(step):
+        for j in range(F+N):
+            f.write('[')
+            f.write('('+paths[2*j][i][0] + ',' + paths[2*j][i][1] + ')')
+            f.write('('+paths[2*j+1][i][0] + ',' + paths[2*j+1][i][1] + ')')
+            f.write(']')
+        f.write('\n')
+    f.close()
 

@@ -1,5 +1,5 @@
 path/SC2_jammer.txt
-8
+9
 p1 FIX 1,20,20,20,20,1055
 p2 FIX 2,20,20,20,20,1055
 p3 UCB_thresholded 3,20,20,20,20,10,0.7
@@ -8,7 +8,8 @@ p5 UCB_thresholded 5,20,20,20,20,10,0.7
 p6 UCB_thresholded 6,20,20,20,20,10,0.7
 p7 UCB_thresholded 7,20,20,20,20,10,0.7
 p8 UCB_thresholded 8,20,20,20,20,10,0.7
-2,2,2,2,2,2,2,2
+p9 UCB_thresholded 9,20,20,20,20,10,0.7
+2,2,2,2,2,2,2,2,2
 pos_deplete
 p1 300 set_channel 1005
 p2 300 set_channel 1095

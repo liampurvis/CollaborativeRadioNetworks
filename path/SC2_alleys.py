@@ -3,9 +3,9 @@ import os
 import sys
 from math import pi, hypot, sin, cos, atan2, degrees
 
-f = open('SC2_alleys.txt','w')
+
 F = 0
-N = 6
+N = 7
 step = 5000
 
 r = 3
@@ -51,24 +51,20 @@ p6_r = [(p6_r[i][0], p6_r[i][1]+moving_speed*i) for i in range(step)]
 p6_t = path.circle(11, 11, rs3, 0, round*2*pi, 1, step);
 p6_t = [(p6_t[i][0], p6_t[i][1]+moving_speed*i) for i in range(step)]
 
-paths = [p1_r, p1_t, p2_r, p2_t, p3_r, p3_t, p4_r, p4_t, p5_r, p5_t, p6_r, p6_t]
-path.myplot(paths, 0, 15, 1, moving_speed*step+30)
+p7_r = path.point(14, 5, step)
+p7_r = [(p7_r[i][0], p7_r[i][1]+moving_speed*i) for i in range(step)]
+
+p7_t = path.circle(10, 8, rs3, 0, round*2*pi, 1, step);
+p7_t = [(p7_t[i][0], p7_t[i][1]+moving_speed*i) for i in range(step)]
 
 
 
-for ind in range((F+N)*2):
-    paths[ind] = [("{0:.2f}".format(i[0]), "{0:.2f}".format(i[1])) for i in paths[ind]]
+paths = [p1_r, p1_t, p2_r, p2_t, p3_r, p3_t, p4_r, p4_t, p5_r, p5_t, p6_r, p6_t, p7_r, p7_t]
+path.myplot(paths, 0, 20, 1, moving_speed*step+30)
 
-f.write(str(F) + '\n')
-f.write(str(N) + '\n')
-for i in range(step):
-    for j in range(F+N):
-        f.write('[')
-        f.write('('+paths[2*j][i][0] + ',' + paths[2*j][i][1] + ')')
-        f.write('('+paths[2*j+1][i][0] + ',' + paths[2*j+1][i][1] + ')')
-        f.write(']')
-    f.write('\n')
-f.close()
+
+
+path.myWrite('SC2_alleys.txt', F, N, step, paths)
 
 
 

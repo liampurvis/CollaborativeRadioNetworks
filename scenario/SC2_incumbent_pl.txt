@@ -12,4 +12,5 @@ p8 UCB_thresholded 8,20,20,20,20,10,0.7
 pos_deplete
 p1 1000 set_channel 1055 20
 p1 2000 set_channel 1055 30
+p1 3000 set_channel 1055 40
 endsim
