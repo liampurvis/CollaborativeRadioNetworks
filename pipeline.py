@@ -59,6 +59,20 @@ def check_pos(pl_amt):
 
 	return viable
 
+def check_pos_limited(pl_amt):
+	# global _ALL_LOC_DICT_
+	limited_dict = {}
+	limited_dict['scenario/SC2_alleys_pl.txt'] = ('path/SC2_alleys.txt', 0, 7)
+	limited_dict['scenario/SC2_randomWalk_pl.txt'] = ('path/SC2_randomWalk.txt', 0, 7)
+
+	viable = []
+	for key,val in limited_dict.items():
+		sum = val[2]
+		if pl_amt <= sum:
+			viable.append(key)
+
+	return viable
+
 
 
 def pipeline_routine(pipefile, it_begin, nb_it):
@@ -270,13 +284,21 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 				# players[player_num+1] = random_ns
 				players.append(random_ns)
 		else:
-			viable_pos = check_pos(player_num)
+			if env_type == "s":
+				viable_pos = check_pos_limited(player_num)
+				random_w = Player.Random_Weights(player_num+1,1,1,0,0,probs=False,nb_channels=total_channels)
+				players.append(random_w)
+			else:
+				viable_pos = check_pos(player_num)
 			if viable_pos:
 				one_pick = random.choice(viable_pos)
 				if not one_pick:
 					raise ValueError('No path file can support %d players'%player_num)
 				aux_info = _ALL_LOC_DICT_[one_pick]
 				# print(one_pick)
+			if int(aux_info[1]) == 0 and env_type == "ns":
+				random_ns = Player.Random_ns(player_num+1,1,1,0,0)
+				players.append(random_ns)
 			for i in range(int(aux_info[1])):
 				new_player = Player.Player(player_num+1+i,1,1,0,0)
 				players.insert(0,new_player)
@@ -346,7 +368,7 @@ def pipeline_routine(pipefile, it_begin, nb_it):
 				pos_line = re.findall('\[[^\]]*\]|\([^\)]*\)|\"[^\"]*\"|\S+',pos_line)
 				for i in range(len(pos_line)):
 					pos_line[i] = pos_line[i].replace('[', '').replace(']', '')
-				for i in range(len(players)):
+				for i in range(min(len(players), len(pos_line))):
 					pos_all = pos_line[i]
 					pos_in_pairs = re.findall('\[[^\]]*\]|\([^\)]*\)|\"[^\"]*\"|\S+',pos_all)
 
