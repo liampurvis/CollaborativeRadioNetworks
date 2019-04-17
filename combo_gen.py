@@ -80,8 +80,8 @@ for duo in double_benchmark:
 		with open(path+filename2, 'w') as the_file:
 		    the_file.write('%d,%d\n'%(2,len(csv)))
 		    the_file.write('mobile\n')
-		    the_file.write('%s\n'%so)
-		    the_file.write('%s\n'%single_type)
+		    the_file.write('%s,%s\n'%(d1,d2))
+		    the_file.write('%s\n'%arr_type[i])
 		    the_file.write(s_not_enough_ch)
 		    the_file.write('30\n')
 		    the_file.write('1\n')
