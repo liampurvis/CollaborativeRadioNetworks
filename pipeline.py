@@ -453,7 +453,7 @@ if loc_flag:
 		one_loc.close()
 		corre_path_f.close()
 
-all_loc.close()
+	all_loc.close()
 
 print(_ALL_LOC_DICT_)
 

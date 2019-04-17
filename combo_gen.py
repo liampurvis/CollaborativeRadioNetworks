@@ -76,7 +76,7 @@ for duo in double_benchmark:
 		    the_file.write('30\n')
 		    the_file.write('1\n')
 		    the_file.close()
-		filename2 = "m_%s_%s_10_5_5.txt"%(str(so), csv)
+		filename2 = "m_%s_%s_10_5_5.txt"%(str(d1)+str(d2), csv)
 		with open(path+filename2, 'w') as the_file:
 		    the_file.write('%d,%d\n'%(2,len(csv)))
 		    the_file.write('mobile\n')
