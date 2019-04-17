@@ -475,7 +475,10 @@ for f in all_pipe_content:
 		p[i].join()
 	print('done')
 	print(name.value.decode())
-	subprocess.Popen('zip -rv results.zip saved_environments/' + name.value.decode() + ' -r ;rm saved_environments/' + name.value.decode() + ' -r ', shell=True, stdin=None, stdout=None, stderr=None, close_fds=True)
+	if name.value != b'                                          ':
+		subprocess.Popen('zip -rv results.zip saved_environments/' + name.value.decode() + ' -r ;rm saved_environments/' + name.value.decode() + ' -r ', shell=True, stdin=None, stdout=None, stderr=None, close_fds=True)
+	else:
+		print("Error: something went wrong in the pipeline. THe name of the folder wasn't transmitted")
 	# thread = Thread(target = pipeline_routine, args=(i, ))
 	# thread.start()
 	# thread.join()
