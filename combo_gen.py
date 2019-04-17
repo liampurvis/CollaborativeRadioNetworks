@@ -48,6 +48,16 @@ for solo in single_benchmark:
 	    the_file.write('30\n')
 	    the_file.write('1\n')
 	    the_file.close()
+	filename = "ns_%s_%s_10_5_5.txt"%(str(so), csv)
+	with open(path+filename, 'w') as the_file:
+	    the_file.write('1,7\n')
+	    the_file.write('fixed\n')
+	    the_file.write('%s\n'%so)
+	    the_file.write('%s\n'%single_type)
+	    the_file.write(ns)
+	    the_file.write('30\n')
+	    the_file.write('1\n')
+	    the_file.close()
 	filename2 = "m_%s_%s_10_5_5.txt"%(str(so), csv)
 	with open(path+filename2, 'w') as the_file:
 	    the_file.write('1,7\n')
