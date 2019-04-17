@@ -76,7 +76,7 @@ for duo in double_benchmark:
 		    the_file.write('30\n')
 		    the_file.write('1\n')
 		    the_file.close()
-		filename2 = "m_%s_%s_10_5_5.txt"%(str(d1)+str(d2), csv)
+		filename2 = "m_s_%s_%s_10_5_5.txt"%(str(d1)+str(d2), csv)
 		with open(path+filename2, 'w') as the_file:
 		    the_file.write('%d,%d\n'%(2,len(csv)))
 		    the_file.write('mobile\n')
@@ -145,15 +145,15 @@ for duo in double_benchmark:
 		    the_file.write('30\n')
 		    the_file.write('1\n')
 		    the_file.close()
-		# filename = "m_%s_%s_10_5_5.txt"%(str(d1)+str(d2), csv)
-		# with open(path+filename, 'w') as the_file:
-		#     the_file.write('%d,%d\n'%(2,len(csv)))
-		#     the_file.write('mobile\n')
-		#     the_file.write('%s,%s\n'%(d1,d2))
-		#     the_file.write('%s\n'%arr_type[i])
-		#     the_file.write(ns)
-		#     the_file.write('30\n')
-		#     the_file.write('1\n')
-		#     the_file.close()
+		filename = "m_%s_%s_10_5_5.txt"%(str(d1)+str(d2), csv)
+		with open(path+filename, 'w') as the_file:
+		    the_file.write('%d,%d\n'%(2,len(csv)))
+		    the_file.write('mobile\n')
+		    the_file.write('%s,%s\n'%(d1,d2))
+		    the_file.write('%s\n'%arr_type[i])
+		    the_file.write(ns)
+		    the_file.write('30\n')
+		    the_file.write('1\n')
+		    the_file.close()
 
 
