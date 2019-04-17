@@ -58,6 +58,16 @@ for solo in single_benchmark:
 	    the_file.write('30\n')
 	    the_file.write('1\n')
 	    the_file.close()
+	filename2 = "m_ns_%s_%s_10_5_5.txt"%(str(so), csv)
+	with open(path+filename2, 'w') as the_file:
+	    the_file.write('1,7\n')
+	    the_file.write('mobile\n')
+	    the_file.write('%s\n'%so)
+	    the_file.write('%s\n'%single_type)
+	    the_file.write(s_not_enough_ch)
+	    the_file.write('30\n')
+	    the_file.write('1\n')
+	    the_file.close()
 
 double_benchmark = itertools.combinations(pl_type,2)
 
