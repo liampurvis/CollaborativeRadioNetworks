@@ -1,0 +1,6 @@
+pipes/ns_C_0000000_10_5_5.txt
+pipes/ns_R_0000000_10_5_5.txt
+pipes/ns_T_0000000_10_5_5.txt
+pipes/ns_Td_0000000_10_5_5.txt
+pipes/ns_U_0000000_10_5_5.txt
+pipes/ns_Ud_0000000_10_5_5.txt
