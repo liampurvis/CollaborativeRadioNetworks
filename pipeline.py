@@ -208,7 +208,7 @@ def pipeline_routine(pipefile, it_begin, nb_it, name):
 					chosed = random.choice(pick_list)
 					csma_freq = (1100 - 5) - chosed * 10
 
-					csv = [i,1,1,0,0,0.1,3,0.9,csma_freq]
+					csv = [i,1,1,0,0,0.25,5,0.9,csma_freq]
 					new_player = Player.CSMA(*csv)
 					# players[i] = new_player
 					players.append(new_player)
