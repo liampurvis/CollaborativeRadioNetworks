@@ -3,7 +3,7 @@ from Player import Random
 from Player import Random_Weights
 
 from Player import CSMA
-from Player import Thompsons, UCB, Thompsons_d
+from Player import Thompsons, UCB
 
 from core import env_core
 import matplotlib.pyplot as plt
@@ -15,21 +15,17 @@ import pickle
 
 import time
 
-p1 = Random_Weights(id = 1, t_x = 1, t_y = 1, r_x = 1.1, r_y = 1.1, probs = [1,2,3,4,5,6,7], nb_channels=7)
-p2 = Thompsons(id = 2, t_x = 1, t_y = 1, r_x = 1.1, r_y = 1.1, nb_channels = 7)
-p3 = Thompsons_d(id = 3, t_x = 1, t_y = 1, r_x = 1.1, r_y = 1.1, nb_channels = 7)
-p4 = Thompsons(id = 4, t_x = 1, t_y = 1, r_x = 1.1, r_y = 1.1, nb_channels = 7)
-p5 = Thompsons_d(id = 5, t_x = 1, t_y = 1, r_x = 1.1, r_y = 1.1, nb_channels = 7)
-p6 = Thompsons(id = 6, t_x = 1, t_y = 1, r_x = 1.1, r_y = 1.1, nb_channels = 7)
-p7 = Thompsons_d(id = 7, t_x = 1, t_y = 1, r_x = 1.1, r_y = 1.1, nb_channels = 7)
+p1 = Random_Weights(id = 1, t_x = 1, t_y = 1, r_x = 1.1, r_y = 1.1, probs = [5,5,5], nb_channels=3)
+p2 = Thompsons(id = 2, t_x = 1, t_y = 1, r_x = 1.1, r_y = 1.1, nb_channels = 3)
+p3 = UCB(id = 3, t_x = 1, t_y = 1, r_x = 1.1, r_y = 1.1, nb_channels = 3)
 
-env = env_core([p1, p2, p3, p4, p5, p6, p7])
+env = env_core([p1, p2, p3])
 before = time.time()
 
-env.run_simulation(2000)
+env.run_simulation(40)
 after = time.time()
 print("total simulation time:"+  str(after - before))
-env.save_results(filename = "/experiment_test_2/two_simulation.pkl")
+env.displayResults()
 
 #print(p1.previous_successes)
 
